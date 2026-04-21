@@ -50,8 +50,8 @@ func CheckWxappReady(rt script.ModuleRuntime) (bool, error) {
 	if len(popups) > 0 {
 		for _, popup := range popups {
 			// 点击关闭按钮
-			x, y := popup.CloseBtn.Center()
-			body.Click(&basic.Point{X: x, Y: y})
+			pnt := popup.CloseBtn.CenterPoint()
+			body.Click(&pnt)
 			time.Sleep(100 * time.Millisecond)
 		}
 	}
