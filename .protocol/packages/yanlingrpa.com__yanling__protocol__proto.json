@@ -1,0 +1,3162 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "package": {
+    "name": "proto",
+    "import_path": "yanlingrpa.com/yanling/protocol/proto",
+    "directory": "/proto",
+    "files": [
+      "proto/yanling_script.pb.go"
+    ],
+    "imports": [
+      {
+        "path": "google.golang.org/protobuf/reflect/protoreflect",
+        "aliases": [
+          "protoreflect"
+        ]
+      },
+      {
+        "path": "google.golang.org/protobuf/runtime/protoimpl",
+        "aliases": [
+          "protoimpl"
+        ]
+      },
+      {
+        "path": "reflect",
+        "aliases": [
+          "reflect"
+        ]
+      },
+      {
+        "path": "sync",
+        "aliases": [
+          "sync"
+        ]
+      },
+      {
+        "path": "unsafe",
+        "aliases": [
+          "unsafe"
+        ]
+      }
+    ],
+    "dependencies": [
+      "google.golang.org/protobuf/reflect/protoreflect"
+    ],
+    "counts": {
+      "symbols": 16,
+      "structs": 8,
+      "methods": 111,
+      "named_types": 1,
+      "consts": 7
+    },
+    "symbols": [
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#GuiApplication",
+        "name": "GuiApplication",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.GuiApplication",
+        "kind": "struct",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "doc": "GuiApplication defines GUI application configuration.",
+        "signature": "type GuiApplication struct",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 225,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Args",
+            "type": "[]string",
+            "tag": "protobuf:\"bytes,4,rep,name=args,proto3\" json:\"args,omitempty\"",
+            "doc": "Args is the command-line arguments passed to the launcher, for example [\"--headless\", \"--no-sandbox\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Env",
+            "type": "[]string",
+            "tag": "protobuf:\"bytes,6,rep,name=env,proto3\" json:\"env,omitempty\"",
+            "doc": "Env is a list of environment variables in the format KEY=VALUE, for example [\"PATH=/usr/bin\", \"DEBUG=1\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Id",
+            "type": "string",
+            "tag": "protobuf:\"bytes,1,opt,name=id,proto3\" json:\"id,omitempty\"",
+            "doc": "Id is the unique identifier of the GUI application.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "LaunchUri",
+            "type": "string",
+            "tag": "protobuf:\"bytes,8,opt,name=launch_uri,json=launchUri,proto3\" json:\"launch_uri,omitempty\"",
+            "doc": "LaunchUri is the URI used to open the GUI window, for example weixin://launchapplet?appid=xxxx.\nIf provided, the application will be launched and this URI will be opened.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Launcher",
+            "type": "string",
+            "tag": "protobuf:\"bytes,3,opt,name=launcher,proto3\" json:\"launcher,omitempty\"",
+            "doc": "Launcher is the launcher command or executable path, for example C:\\Program Files\\App\\app.exe or /usr/bin/app.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "protobuf:\"bytes,2,opt,name=name,proto3\" json:\"name,omitempty\"",
+            "doc": "Name is the GUI application name.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Process",
+            "type": "string",
+            "tag": "protobuf:\"bytes,7,opt,name=process,proto3\" json:\"process,omitempty\"",
+            "doc": "Process is the process name associated with the GUI window, used for window detection and management.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Timeout",
+            "type": "int32",
+            "tag": "protobuf:\"varint,9,opt,name=timeout,proto3\" json:\"timeout,omitempty\"",
+            "doc": "Timeout is the timeout in milliseconds for launching the application.\nIf 0, no timeout limit is applied.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitTime",
+            "type": "int32",
+            "tag": "protobuf:\"varint,10,opt,name=wait_time,json=waitTime,proto3\" json:\"wait_time,omitempty\"",
+            "doc": "WaitTime is the wait time in milliseconds after launching the application before returning.\nUseful for allowing the GUI to fully initialize.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WindowHeight",
+            "type": "int32",
+            "tag": "protobuf:\"varint,12,opt,name=window_height,json=windowHeight,proto3\" json:\"window_height,omitempty\"",
+            "doc": "WindowHeight is the preferred window height in pixels. If 0, uses default.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WindowWidth",
+            "type": "int32",
+            "tag": "protobuf:\"varint,11,opt,name=window_width,json=windowWidth,proto3\" json:\"window_width,omitempty\"",
+            "doc": "WindowWidth is the preferred window width in pixels. If 0, uses default.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WorkDir",
+            "type": "string",
+            "tag": "protobuf:\"bytes,5,opt,name=work_dir,json=workDir,proto3\" json:\"work_dir,omitempty\"",
+            "doc": "WorkDir is the working directory for the launched application.\nIf empty, defaults to the directory of the launcher executable.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Descriptor",
+            "doc": "Deprecated: Use GuiApplication.ProtoReflect.Descriptor instead.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "[]int"
+              }
+            ],
+            "signature": "Descriptor() ([]byte, []int)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetArgs",
+            "params": [],
+            "results": [
+              {
+                "type": "[]string"
+              }
+            ],
+            "signature": "GetArgs() []string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetEnv",
+            "params": [],
+            "results": [
+              {
+                "type": "[]string"
+              }
+            ],
+            "signature": "GetEnv() []string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetId",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetId() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetLaunchUri",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetLaunchUri() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetLauncher",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetLauncher() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetName",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetName() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetProcess",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetProcess() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetTimeout",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetTimeout() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWaitTime",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetWaitTime() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWindowHeight",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetWindowHeight() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWindowWidth",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetWindowWidth() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWorkDir",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetWorkDir() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ProtoMessage",
+            "params": [],
+            "results": [],
+            "signature": "ProtoMessage()"
+          },
+          {
+            "name": "ProtoReflect",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.Message"
+              }
+            ],
+            "signature": "ProtoReflect() protoreflect.Message",
+            "type_refs": [
+              {
+                "expr": "protoreflect.Message",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+              }
+            ]
+          },
+          {
+            "name": "Reset",
+            "params": [],
+            "results": [],
+            "signature": "Reset()"
+          },
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "int32",
+            "builtin": true
+          },
+          {
+            "expr": "protoreflect.Message",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#MobileApplication",
+        "name": "MobileApplication",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.MobileApplication",
+        "kind": "struct",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "doc": "MobileApplication defines mobile application configuration for Android/iOS devices.",
+        "signature": "type MobileApplication struct",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 514,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Action",
+            "type": "string",
+            "tag": "protobuf:\"bytes,5,opt,name=action,proto3\" json:\"action,omitempty\"",
+            "doc": "Action is the Intent action, for example android.intent.action.MAIN or android.intent.action.VIEW.\nIf empty, defaults to android.intent.action.MAIN.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Activity",
+            "type": "string",
+            "tag": "protobuf:\"bytes,4,opt,name=activity,proto3\" json:\"activity,omitempty\"",
+            "doc": "Activity is the Activity class name to launch, for example .MainActivity.\nUsed with Package to form the component for adb command: adb shell am start -n package/activity.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Extras",
+            "type": "string",
+            "tag": "protobuf:\"bytes,7,opt,name=extras,proto3\" json:\"extras,omitempty\"",
+            "doc": "Extras is a JSON object containing Intent extras (key-value pairs).\nFor example: {\"key1\": \"value1\", \"key2\": \"value2\"}.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Flags",
+            "type": "string",
+            "tag": "protobuf:\"bytes,6,opt,name=flags,proto3\" json:\"flags,omitempty\"",
+            "doc": "Flags is the Intent flags as a comma-separated list, for example \"FLAG_ACTIVITY_NEW_TASK,FLAG_ACTIVITY_CLEAR_TOP\".\nThese are passed to adb with --flags parameter.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Id",
+            "type": "string",
+            "tag": "protobuf:\"bytes,1,opt,name=id,proto3\" json:\"id,omitempty\"",
+            "doc": "Id is the unique identifier of the mobile application.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "protobuf:\"bytes,2,opt,name=name,proto3\" json:\"name,omitempty\"",
+            "doc": "Name is the mobile application name.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Package",
+            "type": "string",
+            "tag": "protobuf:\"bytes,3,opt,name=package,proto3\" json:\"package,omitempty\"",
+            "doc": "Package is the application package name, for example com.example.app.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Timeout",
+            "type": "int32",
+            "tag": "protobuf:\"varint,8,opt,name=timeout,proto3\" json:\"timeout,omitempty\"",
+            "doc": "Timeout is the timeout in milliseconds for starting the application.\nIf 0, no timeout limit is applied.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitTime",
+            "type": "int32",
+            "tag": "protobuf:\"varint,9,opt,name=wait_time,json=waitTime,proto3\" json:\"wait_time,omitempty\"",
+            "doc": "WaitTime is the wait time in milliseconds after launching the application before returning.\nUseful for allowing the app to fully initialize.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Descriptor",
+            "doc": "Deprecated: Use MobileApplication.ProtoReflect.Descriptor instead.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "[]int"
+              }
+            ],
+            "signature": "Descriptor() ([]byte, []int)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetAction",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetAction() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetActivity",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetActivity() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetExtras",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetExtras() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetFlags",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetFlags() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetId",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetId() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetName",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetName() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetPackage",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetPackage() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetTimeout",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetTimeout() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWaitTime",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetWaitTime() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ProtoMessage",
+            "params": [],
+            "results": [],
+            "signature": "ProtoMessage()"
+          },
+          {
+            "name": "ProtoReflect",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.Message"
+              }
+            ],
+            "signature": "ProtoReflect() protoreflect.Message",
+            "type_refs": [
+              {
+                "expr": "protoreflect.Message",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+              }
+            ]
+          },
+          {
+            "name": "Reset",
+            "params": [],
+            "results": [],
+            "signature": "Reset()"
+          },
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "int32",
+            "builtin": true
+          },
+          {
+            "expr": "protoreflect.Message",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#ModuleInfo",
+        "name": "ModuleInfo",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ModuleInfo",
+        "kind": "struct",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "doc": "ModuleInfo defines script module metadata.",
+        "signature": "type ModuleInfo struct",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 88,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Author",
+            "type": "string",
+            "tag": "protobuf:\"bytes,7,opt,name=author,proto3\" json:\"author,omitempty\"",
+            "doc": "Author is the script author.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Description",
+            "type": "string",
+            "tag": "protobuf:\"bytes,3,opt,name=description,proto3\" json:\"description,omitempty\"",
+            "doc": "Description describes script functionality and usage.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Devices",
+            "type": "[]string",
+            "tag": "protobuf:\"bytes,10,rep,name=devices,proto3\" json:\"devices,omitempty\"",
+            "doc": "Devices is the list of applicable devices, for example [\"windows\", \"mac\", \"ubuntu\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Email",
+            "type": "string",
+            "tag": "protobuf:\"bytes,8,opt,name=email,proto3\" json:\"email,omitempty\"",
+            "doc": "Email is the contact email address.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "EngineVersion",
+            "type": "string",
+            "tag": "protobuf:\"bytes,11,opt,name=engine_version,json=engineVersion,proto3\" json:\"engine_version,omitempty\"",
+            "doc": "EngineVersion is the required engine version.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "License",
+            "type": "string",
+            "tag": "protobuf:\"bytes,9,opt,name=license,proto3\" json:\"license,omitempty\"",
+            "doc": "License is the license, based on the LICENSE file or declaration.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Package",
+            "type": "string",
+            "tag": "protobuf:\"bytes,2,opt,name=package,proto3\" json:\"package,omitempty\"",
+            "doc": "Package is the script package name. Only scripts under this package can be imported and called.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Specifier",
+            "type": "string",
+            "tag": "protobuf:\"bytes,1,opt,name=specifier,proto3\" json:\"specifier,omitempty\"",
+            "doc": "Specifier is the module identifier, including domain, owner, name, and version,\nparsed from the go.mod file.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Tags",
+            "type": "[]string",
+            "tag": "protobuf:\"bytes,4,rep,name=tags,proto3\" json:\"tags,omitempty\"",
+            "doc": "Tags is a list of script topic tags, for example [\"web automation\", \"data extraction\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "UpdateTime",
+            "type": "string",
+            "tag": "protobuf:\"bytes,6,opt,name=update_time,json=updateTime,proto3\" json:\"update_time,omitempty\"",
+            "doc": "UpdateTime is the last update time (last commit time), formatted as RFC3339.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Website",
+            "type": "string",
+            "tag": "protobuf:\"bytes,5,opt,name=website,proto3\" json:\"website,omitempty\"",
+            "doc": "Website is the official website of the script.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Descriptor",
+            "doc": "Deprecated: Use ModuleInfo.ProtoReflect.Descriptor instead.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "[]int"
+              }
+            ],
+            "signature": "Descriptor() ([]byte, []int)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetAuthor",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetAuthor() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetDescription",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetDescription() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetDevices",
+            "params": [],
+            "results": [
+              {
+                "type": "[]string"
+              }
+            ],
+            "signature": "GetDevices() []string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetEmail",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetEmail() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetEngineVersion",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetEngineVersion() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetLicense",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetLicense() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetPackage",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetPackage() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetSpecifier",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetSpecifier() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetTags",
+            "params": [],
+            "results": [
+              {
+                "type": "[]string"
+              }
+            ],
+            "signature": "GetTags() []string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetUpdateTime",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetUpdateTime() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWebsite",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetWebsite() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ProtoMessage",
+            "params": [],
+            "results": [],
+            "signature": "ProtoMessage()"
+          },
+          {
+            "name": "ProtoReflect",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.Message"
+              }
+            ],
+            "signature": "ProtoReflect() protoreflect.Message",
+            "type_refs": [
+              {
+                "expr": "protoreflect.Message",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+              }
+            ]
+          },
+          {
+            "name": "Reset",
+            "params": [],
+            "results": [],
+            "signature": "Reset()"
+          },
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "protoreflect.Message",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#ScriptVariable",
+        "name": "ScriptVariable",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ScriptVariable",
+        "kind": "struct",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "doc": "ScriptVariable defines script variable configuration.",
+        "signature": "type ScriptVariable struct",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 638,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Abstract",
+            "type": "string",
+            "tag": "protobuf:\"bytes,2,opt,name=abstract,proto3\" json:\"abstract,omitempty\"",
+            "doc": "Abstract is the variable description.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Default",
+            "type": "string",
+            "tag": "protobuf:\"bytes,4,opt,name=default,proto3\" json:\"default,omitempty\"",
+            "doc": "Default is the default value of the variable.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "protobuf:\"bytes,1,opt,name=name,proto3\" json:\"name,omitempty\"",
+            "doc": "Name is the variable name.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Required",
+            "type": "bool",
+            "tag": "protobuf:\"varint,5,opt,name=required,proto3\" json:\"required,omitempty\"",
+            "doc": "Required indicates whether the variable is required.",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Save",
+            "type": "bool",
+            "tag": "protobuf:\"varint,6,opt,name=save,proto3\" json:\"save,omitempty\"",
+            "doc": "Save indicates whether to save the variable to project storage.",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Type",
+            "type": "VariableDataType",
+            "tag": "protobuf:\"varint,3,opt,name=type,proto3,enum=yanlingrpa.protocol.proto.VariableDataType\" json:\"type,omitempty\"",
+            "doc": "Type is the variable type, such as string, integer, boolean, or json.",
+            "type_refs": [
+              {
+                "expr": "VariableDataType",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+                "local": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Descriptor",
+            "doc": "Deprecated: Use ScriptVariable.ProtoReflect.Descriptor instead.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "[]int"
+              }
+            ],
+            "signature": "Descriptor() ([]byte, []int)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetAbstract",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetAbstract() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetDefault",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetDefault() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetName",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetName() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetRequired",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "GetRequired() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetSave",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "GetSave() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetType",
+            "params": [],
+            "results": [
+              {
+                "type": "VariableDataType"
+              }
+            ],
+            "signature": "GetType() VariableDataType",
+            "type_refs": [
+              {
+                "expr": "VariableDataType",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "ProtoMessage",
+            "params": [],
+            "results": [],
+            "signature": "ProtoMessage()"
+          },
+          {
+            "name": "ProtoReflect",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.Message"
+              }
+            ],
+            "signature": "ProtoReflect() protoreflect.Message",
+            "type_refs": [
+              {
+                "expr": "protoreflect.Message",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+              }
+            ]
+          },
+          {
+            "name": "Reset",
+            "params": [],
+            "results": [],
+            "signature": "Reset()"
+          },
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+            "local": true
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "protoreflect.Message",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#Specifier",
+        "name": "Specifier",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.Specifier",
+        "kind": "struct",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "doc": "Specifier defines module specification information.",
+        "signature": "type Specifier struct",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 793,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Domain",
+            "type": "string",
+            "tag": "protobuf:\"bytes,1,opt,name=domain,proto3\" json:\"domain,omitempty\"",
+            "doc": "Domain is the source domain of the module, such as github.com.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "protobuf:\"bytes,3,opt,name=name,proto3\" json:\"name,omitempty\"",
+            "doc": "Name is the module name, such as utils.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Owner",
+            "type": "string",
+            "tag": "protobuf:\"bytes,2,opt,name=owner,proto3\" json:\"owner,omitempty\"",
+            "doc": "Owner is the module owner, such as a GitHub username.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Version",
+            "type": "string",
+            "tag": "protobuf:\"bytes,4,opt,name=version,proto3\" json:\"version,omitempty\"",
+            "doc": "Version is the required module version, such as v1.2.3.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Descriptor",
+            "doc": "Deprecated: Use Specifier.ProtoReflect.Descriptor instead.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "[]int"
+              }
+            ],
+            "signature": "Descriptor() ([]byte, []int)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetDomain",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetDomain() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetName",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetName() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetOwner",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetOwner() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetVersion",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetVersion() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ProtoMessage",
+            "params": [],
+            "results": [],
+            "signature": "ProtoMessage()"
+          },
+          {
+            "name": "ProtoReflect",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.Message"
+              }
+            ],
+            "signature": "ProtoReflect() protoreflect.Message",
+            "type_refs": [
+              {
+                "expr": "protoreflect.Message",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+              }
+            ]
+          },
+          {
+            "name": "Reset",
+            "params": [],
+            "results": [],
+            "signature": "Reset()"
+          },
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "protoreflect.Message",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#UrlPermission",
+        "name": "UrlPermission",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.UrlPermission",
+        "kind": "struct",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "doc": "UrlPermission defines URL-based access permissions.",
+        "signature": "type UrlPermission struct",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 729,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Abstract",
+            "type": "string",
+            "tag": "protobuf:\"bytes,3,opt,name=abstract,proto3\" json:\"abstract,omitempty\"",
+            "doc": "Abstract is the permission description.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Permission",
+            "type": "string",
+            "tag": "protobuf:\"bytes,2,opt,name=permission,proto3\" json:\"permission,omitempty\"",
+            "doc": "Permission is the access permission, such as r, w, d, rw, or rwd.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Url",
+            "type": "string",
+            "tag": "protobuf:\"bytes,1,opt,name=url,proto3\" json:\"url,omitempty\"",
+            "doc": "Url is the URL pattern, supporting wildcard (*) and script variable ${var_name}.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Descriptor",
+            "doc": "Deprecated: Use UrlPermission.ProtoReflect.Descriptor instead.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "[]int"
+              }
+            ],
+            "signature": "Descriptor() ([]byte, []int)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetAbstract",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetAbstract() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetPermission",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetPermission() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetUrl",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetUrl() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ProtoMessage",
+            "params": [],
+            "results": [],
+            "signature": "ProtoMessage()"
+          },
+          {
+            "name": "ProtoReflect",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.Message"
+              }
+            ],
+            "signature": "ProtoReflect() protoreflect.Message",
+            "type_refs": [
+              {
+                "expr": "protoreflect.Message",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+              }
+            ]
+          },
+          {
+            "name": "Reset",
+            "params": [],
+            "results": [],
+            "signature": "Reset()"
+          },
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "protoreflect.Message",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType",
+        "name": "VariableDataType",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+        "kind": "named_type",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "doc": "VariableDataType defines data types for script variables.",
+        "signature": "type VariableDataType int32",
+        "underlying_type": "int32",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 26,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "Descriptor",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.EnumDescriptor"
+              }
+            ],
+            "signature": "Descriptor() protoreflect.EnumDescriptor",
+            "type_refs": [
+              {
+                "expr": "protoreflect.EnumDescriptor",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.EnumDescriptor"
+              }
+            ]
+          },
+          {
+            "name": "Enum",
+            "params": [],
+            "results": [
+              {
+                "type": "*VariableDataType"
+              }
+            ],
+            "signature": "Enum() *VariableDataType",
+            "type_refs": [
+              {
+                "expr": "VariableDataType",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "EnumDescriptor",
+            "doc": "Deprecated: Use VariableDataType.Descriptor instead.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "[]int"
+              }
+            ],
+            "signature": "EnumDescriptor() ([]byte, []int)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Number",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.EnumNumber"
+              }
+            ],
+            "signature": "Number() protoreflect.EnumNumber",
+            "type_refs": [
+              {
+                "expr": "protoreflect.EnumNumber",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.EnumNumber"
+              }
+            ]
+          },
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Type",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.EnumType"
+              }
+            ],
+            "signature": "Type() protoreflect.EnumType",
+            "type_refs": [
+              {
+                "expr": "protoreflect.EnumType",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.EnumType"
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+            "local": true
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "int32",
+            "builtin": true
+          },
+          {
+            "expr": "protoreflect.EnumDescriptor",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.EnumDescriptor"
+          },
+          {
+            "expr": "protoreflect.EnumNumber",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.EnumNumber"
+          },
+          {
+            "expr": "protoreflect.EnumType",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.EnumType"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_BOOLEAN",
+        "name": "VariableDataType_VARIABLE_BOOLEAN",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_BOOLEAN",
+        "kind": "const",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "signature": "const VariableDataType_VARIABLE_BOOLEAN VariableDataType = 1",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 30,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "1",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_DATA_TYPE_UNSPECIFIED",
+        "name": "VariableDataType_VARIABLE_DATA_TYPE_UNSPECIFIED",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_DATA_TYPE_UNSPECIFIED",
+        "kind": "const",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "signature": "const VariableDataType_VARIABLE_DATA_TYPE_UNSPECIFIED VariableDataType = 0",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 29,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "0",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_FILE_PATH",
+        "name": "VariableDataType_VARIABLE_FILE_PATH",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_FILE_PATH",
+        "kind": "const",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "signature": "const VariableDataType_VARIABLE_FILE_PATH VariableDataType = 3",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 32,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "3",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_INTEGER",
+        "name": "VariableDataType_VARIABLE_INTEGER",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_INTEGER",
+        "kind": "const",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "signature": "const VariableDataType_VARIABLE_INTEGER VariableDataType = 4",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 33,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "4",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_JSON",
+        "name": "VariableDataType_VARIABLE_JSON",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_JSON",
+        "kind": "const",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "signature": "const VariableDataType_VARIABLE_JSON VariableDataType = 6",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 35,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "6",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_NUMBER",
+        "name": "VariableDataType_VARIABLE_NUMBER",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_NUMBER",
+        "kind": "const",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "signature": "const VariableDataType_VARIABLE_NUMBER VariableDataType = 5",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 34,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "5",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_STRING",
+        "name": "VariableDataType_VARIABLE_STRING",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_STRING",
+        "kind": "const",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "signature": "const VariableDataType_VARIABLE_STRING VariableDataType = 2",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 31,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "2",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#WebApplication",
+        "name": "WebApplication",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.WebApplication",
+        "kind": "struct",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "doc": "WebApplication defines browser application configuration.",
+        "signature": "type WebApplication struct",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 374,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Args",
+            "type": "[]string",
+            "tag": "protobuf:\"bytes,6,rep,name=args,proto3\" json:\"args,omitempty\"",
+            "doc": "Args is a list of additional browser command-line arguments, for example [\"--proxy-server=localhost:8080\", \"--disable-plugins\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "BrowserType",
+            "type": "string",
+            "tag": "protobuf:\"bytes,3,opt,name=browser_type,json=browserType,proto3\" json:\"browser_type,omitempty\"",
+            "doc": "BrowserType is the browser type to use, for example \"chrome\", \"firefox\", \"edge\", \"safari\".\nIf empty, defaults to system default browser.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Id",
+            "type": "string",
+            "tag": "protobuf:\"bytes,1,opt,name=id,proto3\" json:\"id,omitempty\"",
+            "doc": "Id is the unique identifier of the browser application.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Incognito",
+            "type": "bool",
+            "tag": "protobuf:\"varint,5,opt,name=incognito,proto3\" json:\"incognito,omitempty\"",
+            "doc": "Incognito indicates whether to open the browser in private/incognito mode.",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "LoadTimeout",
+            "type": "int32",
+            "tag": "protobuf:\"varint,8,opt,name=load_timeout,json=loadTimeout,proto3\" json:\"load_timeout,omitempty\"",
+            "doc": "LoadTimeout is the timeout in milliseconds for page loading.\nIf 0, no timeout limit is applied.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "protobuf:\"bytes,2,opt,name=name,proto3\" json:\"name,omitempty\"",
+            "doc": "Name is the browser application name.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Url",
+            "type": "string",
+            "tag": "protobuf:\"bytes,4,opt,name=url,proto3\" json:\"url,omitempty\"",
+            "doc": "Url is the browser application URL to open, for example https://www.google.com.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "UserDataDir",
+            "type": "string",
+            "tag": "protobuf:\"bytes,7,opt,name=user_data_dir,json=userDataDir,proto3\" json:\"user_data_dir,omitempty\"",
+            "doc": "UserDataDir is the custom user data directory for the browser profile.\nIf empty, uses the default profile directory.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitTime",
+            "type": "int32",
+            "tag": "protobuf:\"varint,9,opt,name=wait_time,json=waitTime,proto3\" json:\"wait_time,omitempty\"",
+            "doc": "WaitTime is the wait time in milliseconds after opening the URL before returning.\nUseful for allowing the page to fully load.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WindowHeight",
+            "type": "int32",
+            "tag": "protobuf:\"varint,11,opt,name=window_height,json=windowHeight,proto3\" json:\"window_height,omitempty\"",
+            "doc": "WindowHeight is the preferred window height in pixels. If 0, uses default.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WindowWidth",
+            "type": "int32",
+            "tag": "protobuf:\"varint,10,opt,name=window_width,json=windowWidth,proto3\" json:\"window_width,omitempty\"",
+            "doc": "WindowWidth is the preferred window width in pixels. If 0, uses default.",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Descriptor",
+            "doc": "Deprecated: Use WebApplication.ProtoReflect.Descriptor instead.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "[]int"
+              }
+            ],
+            "signature": "Descriptor() ([]byte, []int)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetArgs",
+            "params": [],
+            "results": [
+              {
+                "type": "[]string"
+              }
+            ],
+            "signature": "GetArgs() []string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetBrowserType",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetBrowserType() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetId",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetId() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetIncognito",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "GetIncognito() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetLoadTimeout",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetLoadTimeout() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetName",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetName() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetUrl",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetUrl() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetUserDataDir",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetUserDataDir() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWaitTime",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetWaitTime() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWindowHeight",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetWindowHeight() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWindowWidth",
+            "params": [],
+            "results": [
+              {
+                "type": "int32"
+              }
+            ],
+            "signature": "GetWindowWidth() int32",
+            "type_refs": [
+              {
+                "expr": "int32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ProtoMessage",
+            "params": [],
+            "results": [],
+            "signature": "ProtoMessage()"
+          },
+          {
+            "name": "ProtoReflect",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.Message"
+              }
+            ],
+            "signature": "ProtoReflect() protoreflect.Message",
+            "type_refs": [
+              {
+                "expr": "protoreflect.Message",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+              }
+            ]
+          },
+          {
+            "name": "Reset",
+            "params": [],
+            "results": [],
+            "signature": "Reset()"
+          },
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "int32",
+            "builtin": true
+          },
+          {
+            "expr": "protoreflect.Message",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/proto#YScript",
+        "name": "YScript",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/proto.YScript",
+        "kind": "struct",
+        "package": "proto",
+        "import_path": "yanlingrpa.com/yanling/protocol/proto",
+        "doc": "YScript defines the top-level script configuration structure.",
+        "signature": "type YScript struct",
+        "source": {
+          "file": "proto/yanling_script.pb.go",
+          "line": 866,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "ApiPermissions",
+            "type": "[]*UrlPermission",
+            "tag": "protobuf:\"bytes,7,rep,name=api_permissions,json=apiPermissions,proto3\" json:\"api_permissions,omitempty\"",
+            "doc": "ApiPermissions is the list of network API permissions.",
+            "type_refs": [
+              {
+                "expr": "UrlPermission",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.UrlPermission",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "FilePermissions",
+            "type": "[]*UrlPermission",
+            "tag": "protobuf:\"bytes,6,rep,name=file_permissions,json=filePermissions,proto3\" json:\"file_permissions,omitempty\"",
+            "doc": "FilePermissions is the list of filesystem permissions.",
+            "type_refs": [
+              {
+                "expr": "UrlPermission",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.UrlPermission",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GuiApps",
+            "type": "[]*GuiApplication",
+            "tag": "protobuf:\"bytes,2,rep,name=gui_apps,json=guiApps,proto3\" json:\"gui_apps,omitempty\"",
+            "doc": "GuiApps is the list of GUI applications to operate.",
+            "type_refs": [
+              {
+                "expr": "GuiApplication",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.GuiApplication",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "MobileApps",
+            "type": "[]*MobileApplication",
+            "tag": "protobuf:\"bytes,4,rep,name=mobile_apps,json=mobileApps,proto3\" json:\"mobile_apps,omitempty\"",
+            "doc": "MobileApps is the list of mobile applications to operate.",
+            "type_refs": [
+              {
+                "expr": "MobileApplication",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.MobileApplication",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "Module",
+            "type": "*ModuleInfo",
+            "tag": "protobuf:\"bytes,1,opt,name=module,proto3\" json:\"module,omitempty\"",
+            "doc": "Module is the basic script module information.",
+            "type_refs": [
+              {
+                "expr": "ModuleInfo",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ModuleInfo",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "ScriptDependencies",
+            "type": "[]string",
+            "tag": "protobuf:\"bytes,8,rep,name=script_dependencies,json=scriptDependencies,proto3\" json:\"script_dependencies,omitempty\"",
+            "doc": "ScriptDependencies is the list of script module specifiers imported by this script project.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Variables",
+            "type": "[]*ScriptVariable",
+            "tag": "protobuf:\"bytes,5,rep,name=variables,proto3\" json:\"variables,omitempty\"",
+            "doc": "Variables is the list of global script variable definitions.",
+            "type_refs": [
+              {
+                "expr": "ScriptVariable",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ScriptVariable",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "WebApps",
+            "type": "[]*WebApplication",
+            "tag": "protobuf:\"bytes,3,rep,name=web_apps,json=webApps,proto3\" json:\"web_apps,omitempty\"",
+            "doc": "WebApps is the list of web applications to operate.",
+            "type_refs": [
+              {
+                "expr": "WebApplication",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.WebApplication",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "WorkerDependencies",
+            "type": "[]string",
+            "tag": "protobuf:\"bytes,9,rep,name=worker_dependencies,json=workerDependencies,proto3\" json:\"worker_dependencies,omitempty\"",
+            "doc": "WorkerDependencies is the list of IPC service dependencies.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Descriptor",
+            "doc": "Deprecated: Use YScript.ProtoReflect.Descriptor instead.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "[]int"
+              }
+            ],
+            "signature": "Descriptor() ([]byte, []int)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetApiPermissions",
+            "params": [],
+            "results": [
+              {
+                "type": "[]*UrlPermission"
+              }
+            ],
+            "signature": "GetApiPermissions() []*UrlPermission",
+            "type_refs": [
+              {
+                "expr": "UrlPermission",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.UrlPermission",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GetFilePermissions",
+            "params": [],
+            "results": [
+              {
+                "type": "[]*UrlPermission"
+              }
+            ],
+            "signature": "GetFilePermissions() []*UrlPermission",
+            "type_refs": [
+              {
+                "expr": "UrlPermission",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.UrlPermission",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GetGuiApps",
+            "params": [],
+            "results": [
+              {
+                "type": "[]*GuiApplication"
+              }
+            ],
+            "signature": "GetGuiApps() []*GuiApplication",
+            "type_refs": [
+              {
+                "expr": "GuiApplication",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.GuiApplication",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GetMobileApps",
+            "params": [],
+            "results": [
+              {
+                "type": "[]*MobileApplication"
+              }
+            ],
+            "signature": "GetMobileApps() []*MobileApplication",
+            "type_refs": [
+              {
+                "expr": "MobileApplication",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.MobileApplication",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GetModule",
+            "params": [],
+            "results": [
+              {
+                "type": "*ModuleInfo"
+              }
+            ],
+            "signature": "GetModule() *ModuleInfo",
+            "type_refs": [
+              {
+                "expr": "ModuleInfo",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ModuleInfo",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GetScriptDependencies",
+            "params": [],
+            "results": [
+              {
+                "type": "[]string"
+              }
+            ],
+            "signature": "GetScriptDependencies() []string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetVariables",
+            "params": [],
+            "results": [
+              {
+                "type": "[]*ScriptVariable"
+              }
+            ],
+            "signature": "GetVariables() []*ScriptVariable",
+            "type_refs": [
+              {
+                "expr": "ScriptVariable",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ScriptVariable",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GetWebApps",
+            "params": [],
+            "results": [
+              {
+                "type": "[]*WebApplication"
+              }
+            ],
+            "signature": "GetWebApps() []*WebApplication",
+            "type_refs": [
+              {
+                "expr": "WebApplication",
+                "import_path": "yanlingrpa.com/yanling/protocol/proto",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/proto.WebApplication",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GetWorkerDependencies",
+            "params": [],
+            "results": [
+              {
+                "type": "[]string"
+              }
+            ],
+            "signature": "GetWorkerDependencies() []string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ProtoMessage",
+            "params": [],
+            "results": [],
+            "signature": "ProtoMessage()"
+          },
+          {
+            "name": "ProtoReflect",
+            "params": [],
+            "results": [
+              {
+                "type": "protoreflect.Message"
+              }
+            ],
+            "signature": "ProtoReflect() protoreflect.Message",
+            "type_refs": [
+              {
+                "expr": "protoreflect.Message",
+                "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+                "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+              }
+            ]
+          },
+          {
+            "name": "Reset",
+            "params": [],
+            "results": [],
+            "signature": "Reset()"
+          },
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "GuiApplication",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.GuiApplication",
+            "local": true
+          },
+          {
+            "expr": "MobileApplication",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.MobileApplication",
+            "local": true
+          },
+          {
+            "expr": "ModuleInfo",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ModuleInfo",
+            "local": true
+          },
+          {
+            "expr": "ScriptVariable",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ScriptVariable",
+            "local": true
+          },
+          {
+            "expr": "UrlPermission",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.UrlPermission",
+            "local": true
+          },
+          {
+            "expr": "WebApplication",
+            "import_path": "yanlingrpa.com/yanling/protocol/proto",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/proto.WebApplication",
+            "local": true
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "protoreflect.Message",
+            "import_path": "google.golang.org/protobuf/reflect/protoreflect",
+            "qualified_name": "google.golang.org/protobuf/reflect/protoreflect.Message"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      }
+    ]
+  }
+}

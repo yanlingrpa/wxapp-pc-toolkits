@@ -1,0 +1,3350 @@
+{
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "counts": {
+    "packages": 9,
+    "symbols": 238,
+    "interfaces": 20,
+    "structs": 23,
+    "functions": 6,
+    "methods": 372,
+    "named_types": 4,
+    "func_types": 1,
+    "consts": 184
+  },
+  "symbols": [
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#AppGuiLocator",
+      "name": "AppGuiLocator",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+      "kind": "interface",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_locator.go",
+        "line": 15,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#AppGuiWindow",
+      "name": "AppGuiWindow",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiWindow",
+      "kind": "interface",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_window.go",
+        "line": 12,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#AppKey",
+      "name": "AppKey",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+      "kind": "named_type",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 6,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyBack",
+      "name": "KeyBack",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyBack",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 10,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyBackspace",
+      "name": "KeyBackspace",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyBackspace",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 32,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyDelete",
+      "name": "KeyDelete",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyDelete",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 25,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyDone",
+      "name": "KeyDone",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyDone",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 28,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyEnter",
+      "name": "KeyEnter",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyEnter",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 24,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyHome",
+      "name": "KeyHome",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyHome",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 11,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyMenu",
+      "name": "KeyMenu",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyMenu",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 12,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyNext",
+      "name": "KeyNext",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyNext",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 29,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyPower",
+      "name": "KeyPower",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyPower",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 21,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyPrevious",
+      "name": "KeyPrevious",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyPrevious",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 30,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyRecent",
+      "name": "KeyRecent",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyRecent",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 13,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeySearch",
+      "name": "KeySearch",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeySearch",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 27,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeySpace",
+      "name": "KeySpace",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeySpace",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 31,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyTab",
+      "name": "KeyTab",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyTab",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 26,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyVolumeDown",
+      "name": "KeyVolumeDown",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyVolumeDown",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 17,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyVolumeMute",
+      "name": "KeyVolumeMute",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyVolumeMute",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 18,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/appgui#KeyVolumeUp",
+      "name": "KeyVolumeUp",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyVolumeUp",
+      "kind": "const",
+      "package": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "source": {
+        "file": "appgui/appgui_const_enum.go",
+        "line": 16,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#FPoint",
+      "name": "FPoint",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.FPoint",
+      "kind": "struct",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_data_struct.go",
+        "line": 20,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#MaxAreaRect",
+      "name": "MaxAreaRect",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MaxAreaRect",
+      "kind": "function",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_rect_struct.go",
+        "line": 365,
+        "column": 1
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#MergeAllRectangles",
+      "name": "MergeAllRectangles",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MergeAllRectangles",
+      "kind": "function",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_rect_struct.go",
+        "line": 332,
+        "column": 1
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#MergeGroupRectangles",
+      "name": "MergeGroupRectangles",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MergeGroupRectangles",
+      "kind": "function",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_rect_struct.go",
+        "line": 385,
+        "column": 1
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#MergeOverlappingRectangles",
+      "name": "MergeOverlappingRectangles",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MergeOverlappingRectangles",
+      "kind": "function",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_rect_struct.go",
+        "line": 308,
+        "column": 1
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#MinAreaRect",
+      "name": "MinAreaRect",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MinAreaRect",
+      "kind": "function",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_rect_struct.go",
+        "line": 346,
+        "column": 1
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#OcrResult",
+      "name": "OcrResult",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrResult",
+      "kind": "struct",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_data_struct.go",
+        "line": 73,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#OcrText",
+      "name": "OcrText",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrText",
+      "kind": "struct",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_data_struct.go",
+        "line": 55,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#Point",
+      "name": "Point",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point",
+      "kind": "struct",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_data_struct.go",
+        "line": 6,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#Rect",
+      "name": "Rect",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+      "kind": "struct",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_rect_struct.go",
+        "line": 8,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/basic#Size",
+      "name": "Size",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size",
+      "kind": "struct",
+      "package": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "source": {
+        "file": "basic/basic_data_struct.go",
+        "line": 34,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/browser#BrowserElement",
+      "name": "BrowserElement",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+      "kind": "interface",
+      "package": "browser",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "source": {
+        "file": "browser/browser_element.go",
+        "line": 12,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/browser#BrowserFramePage",
+      "name": "BrowserFramePage",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserFramePage",
+      "kind": "interface",
+      "package": "browser",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "source": {
+        "file": "browser/browser_framepage.go",
+        "line": 11,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/browser#BrowserTabPage",
+      "name": "BrowserTabPage",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserTabPage",
+      "kind": "interface",
+      "package": "browser",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "source": {
+        "file": "browser/browser_tabpage.go",
+        "line": 8,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/browser#BrowserWindow",
+      "name": "BrowserWindow",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserWindow",
+      "kind": "interface",
+      "package": "browser",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "source": {
+        "file": "browser/browser_window.go",
+        "line": 10,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/component#OcrWorker",
+      "name": "OcrWorker",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/component.OcrWorker",
+      "kind": "interface",
+      "package": "component",
+      "import_path": "yanlingrpa.com/yanling/protocol/component",
+      "source": {
+        "file": "component/ocr_worker.go",
+        "line": 5,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__component.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/component#VisionWorker",
+      "name": "VisionWorker",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/component.VisionWorker",
+      "kind": "interface",
+      "package": "component",
+      "import_path": "yanlingrpa.com/yanling/protocol/component",
+      "source": {
+        "file": "component/vision_worker.go",
+        "line": 5,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__component.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/internal/gui#GuiLocator",
+      "name": "GuiLocator",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiLocator",
+      "kind": "interface",
+      "package": "gui",
+      "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+      "source": {
+        "file": "internal/gui/gui_locator.go",
+        "line": 8,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__internal__gui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/internal/gui#GuiWindow",
+      "name": "GuiWindow",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiWindow",
+      "kind": "interface",
+      "package": "gui",
+      "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+      "source": {
+        "file": "internal/gui/gui_window.go",
+        "line": 8,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__internal__gui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Alt",
+      "name": "Alt",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Alt",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 118,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioForward",
+      "name": "AudioForward",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioForward",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 145,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioMute",
+      "name": "AudioMute",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioMute",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 136,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioNext",
+      "name": "AudioNext",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioNext",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 143,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioPause",
+      "name": "AudioPause",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioPause",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 141,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioPlay",
+      "name": "AudioPlay",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioPlay",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 139,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioPrev",
+      "name": "AudioPrev",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioPrev",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 142,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioRandom",
+      "name": "AudioRandom",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioRandom",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 147,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioRepeat",
+      "name": "AudioRepeat",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioRepeat",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 146,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioRewind",
+      "name": "AudioRewind",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioRewind",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 144,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioStop",
+      "name": "AudioStop",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioStop",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 140,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioVolDown",
+      "name": "AudioVolDown",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioVolDown",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 137,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#AudioVolUp",
+      "name": "AudioVolUp",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioVolUp",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 138,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Backspace",
+      "name": "Backspace",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Backspace",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 74,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapA",
+      "name": "CapA",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapA",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 34,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapB",
+      "name": "CapB",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapB",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 35,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapC",
+      "name": "CapC",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapC",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 36,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapD",
+      "name": "CapD",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapD",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 37,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapE",
+      "name": "CapE",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapE",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 38,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapF",
+      "name": "CapF",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapF",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 39,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapG",
+      "name": "CapG",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapG",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 40,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapH",
+      "name": "CapH",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapH",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 41,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapI",
+      "name": "CapI",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapI",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 42,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapJ",
+      "name": "CapJ",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapJ",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 43,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapK",
+      "name": "CapK",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapK",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 44,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapL",
+      "name": "CapL",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapL",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 45,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapM",
+      "name": "CapM",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapM",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 46,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapN",
+      "name": "CapN",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapN",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 47,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapO",
+      "name": "CapO",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapO",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 48,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapP",
+      "name": "CapP",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapP",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 49,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapQ",
+      "name": "CapQ",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapQ",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 50,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapR",
+      "name": "CapR",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapR",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 51,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapS",
+      "name": "CapS",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapS",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 52,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapT",
+      "name": "CapT",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapT",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 53,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapU",
+      "name": "CapU",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapU",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 54,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapV",
+      "name": "CapV",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapV",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 55,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapW",
+      "name": "CapW",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapW",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 56,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapX",
+      "name": "CapX",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapX",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 57,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapY",
+      "name": "CapY",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapY",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 58,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#CapZ",
+      "name": "CapZ",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapZ",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 59,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Capslock",
+      "name": "Capslock",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Capslock",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 129,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Cmd",
+      "name": "Cmd",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Cmd",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 114,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Control",
+      "name": "Control",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Control",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 124,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Ctrl",
+      "name": "Ctrl",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Ctrl",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 121,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Delete",
+      "name": "Delete",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Delete",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 75,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Down",
+      "name": "Down",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Down",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 81,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#End",
+      "name": "End",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.End",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 85,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Enter",
+      "name": "Enter",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Enter",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 76,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Esc",
+      "name": "Esc",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Esc",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 78,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Escape",
+      "name": "Escape",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Escape",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 79,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F1",
+      "name": "F1",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F1",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 89,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F10",
+      "name": "F10",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F10",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 98,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F11",
+      "name": "F11",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F11",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 99,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F12",
+      "name": "F12",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F12",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 100,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F13",
+      "name": "F13",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F13",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 101,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F14",
+      "name": "F14",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F14",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 102,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F15",
+      "name": "F15",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F15",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 103,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F16",
+      "name": "F16",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F16",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 104,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F17",
+      "name": "F17",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F17",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 105,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F18",
+      "name": "F18",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F18",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 106,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F19",
+      "name": "F19",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F19",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 107,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F2",
+      "name": "F2",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F2",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 90,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F20",
+      "name": "F20",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F20",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 108,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F21",
+      "name": "F21",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F21",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 109,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F22",
+      "name": "F22",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F22",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 110,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F23",
+      "name": "F23",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F23",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 111,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F24",
+      "name": "F24",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F24",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 112,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F3",
+      "name": "F3",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F3",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 91,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F4",
+      "name": "F4",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F4",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 92,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F5",
+      "name": "F5",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F5",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 93,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F6",
+      "name": "F6",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F6",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 94,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F7",
+      "name": "F7",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F7",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 95,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F8",
+      "name": "F8",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F8",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 96,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#F9",
+      "name": "F9",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F9",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 97,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Home",
+      "name": "Home",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Home",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 84,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Insert",
+      "name": "Insert",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Insert",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 133,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key0",
+      "name": "Key0",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key0",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 62,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key1",
+      "name": "Key1",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key1",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 63,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key2",
+      "name": "Key2",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key2",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 64,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key3",
+      "name": "Key3",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key3",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 65,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key4",
+      "name": "Key4",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key4",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 66,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key5",
+      "name": "Key5",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key5",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 67,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key6",
+      "name": "Key6",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key6",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 68,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key7",
+      "name": "Key7",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key7",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 69,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key8",
+      "name": "Key8",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key8",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 70,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Key9",
+      "name": "Key9",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key9",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 71,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyA",
+      "name": "KeyA",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyA",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 7,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyB",
+      "name": "KeyB",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyB",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 8,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyC",
+      "name": "KeyC",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyC",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 9,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyD",
+      "name": "KeyD",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyD",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 10,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyE",
+      "name": "KeyE",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyE",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 11,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyF",
+      "name": "KeyF",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyF",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 12,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyG",
+      "name": "KeyG",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyG",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 13,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyH",
+      "name": "KeyH",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyH",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 14,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyI",
+      "name": "KeyI",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyI",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 15,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyJ",
+      "name": "KeyJ",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyJ",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 16,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyK",
+      "name": "KeyK",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyK",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 17,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyL",
+      "name": "KeyL",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyL",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 18,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyM",
+      "name": "KeyM",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyM",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 19,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyN",
+      "name": "KeyN",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyN",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 20,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyO",
+      "name": "KeyO",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyO",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 21,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyP",
+      "name": "KeyP",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyP",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 22,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyQ",
+      "name": "KeyQ",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyQ",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 23,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyR",
+      "name": "KeyR",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyR",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 24,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyS",
+      "name": "KeyS",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyS",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 25,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyT",
+      "name": "KeyT",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyT",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 26,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyU",
+      "name": "KeyU",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyU",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 27,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyV",
+      "name": "KeyV",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyV",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 28,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyW",
+      "name": "KeyW",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyW",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 29,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyX",
+      "name": "KeyX",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyX",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 30,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyY",
+      "name": "KeyY",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyY",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 31,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#KeyZ",
+      "name": "KeyZ",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyZ",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 32,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Keyboard",
+      "name": "Keyboard",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+      "kind": "named_type",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 3,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Lalt",
+      "name": "Lalt",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Lalt",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 119,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Lcmd",
+      "name": "Lcmd",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Lcmd",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 115,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Lctrl",
+      "name": "Lctrl",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Lctrl",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 122,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Left",
+      "name": "Left",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Left",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 83,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#LightsKbdDown",
+      "name": "LightsKbdDown",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsKbdDown",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 173,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#LightsKbdToggle",
+      "name": "LightsKbdToggle",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsKbdToggle",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 171,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#LightsKbdUp",
+      "name": "LightsKbdUp",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsKbdUp",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 172,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#LightsMonDown",
+      "name": "LightsMonDown",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsMonDown",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 170,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#LightsMonUp",
+      "name": "LightsMonUp",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsMonUp",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 169,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Lshift",
+      "name": "Lshift",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Lshift",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 126,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Menu",
+      "name": "Menu",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Menu",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 134,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Num0",
+      "name": "Num0",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num0",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 149,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Num1",
+      "name": "Num1",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num1",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 150,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Num2",
+      "name": "Num2",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num2",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 151,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Num3",
+      "name": "Num3",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num3",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 152,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Num4",
+      "name": "Num4",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num4",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 153,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Num5",
+      "name": "Num5",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num5",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 154,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Num6",
+      "name": "Num6",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num6",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 155,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Num7",
+      "name": "Num7",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num7",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 156,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Num8",
+      "name": "Num8",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num8",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 157,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#NumClear",
+      "name": "NumClear",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumClear",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 165,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#NumDecimal",
+      "name": "NumDecimal",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumDecimal",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 160,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#NumDiv",
+      "name": "NumDiv",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumDiv",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 164,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#NumEnter",
+      "name": "NumEnter",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumEnter",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 166,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#NumEqual",
+      "name": "NumEqual",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumEqual",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 167,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#NumLock",
+      "name": "NumLock",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumLock",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 158,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#NumMinus",
+      "name": "NumMinus",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumMinus",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 162,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#NumMul",
+      "name": "NumMul",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumMul",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 163,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#NumPlus",
+      "name": "NumPlus",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumPlus",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 161,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#OSGuiLocator",
+      "name": "OSGuiLocator",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+      "kind": "interface",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_locator.go",
+        "line": 14,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#OSGuiWindow",
+      "name": "OSGuiWindow",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiWindow",
+      "kind": "interface",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_window.go",
+        "line": 13,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Pagedown",
+      "name": "Pagedown",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Pagedown",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 87,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Pageup",
+      "name": "Pageup",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Pageup",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 86,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Print",
+      "name": "Print",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Print",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 131,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Printscreen",
+      "name": "Printscreen",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Printscreen",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 132,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Ralt",
+      "name": "Ralt",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Ralt",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 120,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Rcmd",
+      "name": "Rcmd",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Rcmd",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 116,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Rctrl",
+      "name": "Rctrl",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Rctrl",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 123,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Right",
+      "name": "Right",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Right",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 82,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Rshift",
+      "name": "Rshift",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Rshift",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 127,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Shift",
+      "name": "Shift",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Shift",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 125,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Space",
+      "name": "Space",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Space",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 130,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Tab",
+      "name": "Tab",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Tab",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 77,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/osgui#Up",
+      "name": "Up",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Up",
+      "kind": "const",
+      "package": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "source": {
+        "file": "osgui/osgui_const_enum.go",
+        "line": 80,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/ossys#DeviceInfo",
+      "name": "DeviceInfo",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.DeviceInfo",
+      "kind": "interface",
+      "package": "ossys",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "source": {
+        "file": "ossys/device_info.go",
+        "line": 7,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/ossys#HttpClient",
+      "name": "HttpClient",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.HttpClient",
+      "kind": "interface",
+      "package": "ossys",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "source": {
+        "file": "ossys/http_client.go",
+        "line": 7,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/ossys#LocalFilesystem",
+      "name": "LocalFilesystem",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.LocalFilesystem",
+      "kind": "interface",
+      "package": "ossys",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "source": {
+        "file": "ossys/local_filesystem.go",
+        "line": 9,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/ossys#LocalStorage",
+      "name": "LocalStorage",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.LocalStorage",
+      "kind": "interface",
+      "package": "ossys",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "source": {
+        "file": "ossys/local_storage.go",
+        "line": 7,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/ossys#MonitorInfo",
+      "name": "MonitorInfo",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.MonitorInfo",
+      "kind": "interface",
+      "package": "ossys",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "source": {
+        "file": "ossys/monitor_info.go",
+        "line": 11,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/ossys#ScriptLogger",
+      "name": "ScriptLogger",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.ScriptLogger",
+      "kind": "interface",
+      "package": "ossys",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "source": {
+        "file": "ossys/script_logger.go",
+        "line": 7,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#GuiApplication",
+      "name": "GuiApplication",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.GuiApplication",
+      "kind": "struct",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 225,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#MobileApplication",
+      "name": "MobileApplication",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.MobileApplication",
+      "kind": "struct",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 514,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#ModuleInfo",
+      "name": "ModuleInfo",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ModuleInfo",
+      "kind": "struct",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 88,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#ScriptVariable",
+      "name": "ScriptVariable",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.ScriptVariable",
+      "kind": "struct",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 638,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#Specifier",
+      "name": "Specifier",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.Specifier",
+      "kind": "struct",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 793,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#UrlPermission",
+      "name": "UrlPermission",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.UrlPermission",
+      "kind": "struct",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 729,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType",
+      "name": "VariableDataType",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType",
+      "kind": "named_type",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 26,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_BOOLEAN",
+      "name": "VariableDataType_VARIABLE_BOOLEAN",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_BOOLEAN",
+      "kind": "const",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 30,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_DATA_TYPE_UNSPECIFIED",
+      "name": "VariableDataType_VARIABLE_DATA_TYPE_UNSPECIFIED",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_DATA_TYPE_UNSPECIFIED",
+      "kind": "const",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 29,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_FILE_PATH",
+      "name": "VariableDataType_VARIABLE_FILE_PATH",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_FILE_PATH",
+      "kind": "const",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 32,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_INTEGER",
+      "name": "VariableDataType_VARIABLE_INTEGER",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_INTEGER",
+      "kind": "const",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 33,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_JSON",
+      "name": "VariableDataType_VARIABLE_JSON",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_JSON",
+      "kind": "const",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 35,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_NUMBER",
+      "name": "VariableDataType_VARIABLE_NUMBER",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_NUMBER",
+      "kind": "const",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 34,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#VariableDataType_VARIABLE_STRING",
+      "name": "VariableDataType_VARIABLE_STRING",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.VariableDataType_VARIABLE_STRING",
+      "kind": "const",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 31,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#WebApplication",
+      "name": "WebApplication",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.WebApplication",
+      "kind": "struct",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 374,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/proto#YScript",
+      "name": "YScript",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/proto.YScript",
+      "kind": "struct",
+      "package": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "source": {
+        "file": "proto/yanling_script.pb.go",
+        "line": 866,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#Event",
+      "name": "Event",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.Event",
+      "kind": "struct",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/module_runtime.go",
+        "line": 34,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#EventHandler",
+      "name": "EventHandler",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.EventHandler",
+      "kind": "func_type",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/module_runtime.go",
+        "line": 52,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#GuiApplication",
+      "name": "GuiApplication",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.GuiApplication",
+      "kind": "struct",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 97,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#MobileApplication",
+      "name": "MobileApplication",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.MobileApplication",
+      "kind": "struct",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 209,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#ModuleInfo",
+      "name": "ModuleInfo",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleInfo",
+      "kind": "struct",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 46,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#ModuleRuntime",
+      "name": "ModuleRuntime",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleRuntime",
+      "kind": "interface",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/module_runtime.go",
+        "line": 59,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#ParseSpecifier",
+      "name": "ParseSpecifier",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.ParseSpecifier",
+      "kind": "function",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 515,
+        "column": 1
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#ScriptVariable",
+      "name": "ScriptVariable",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.ScriptVariable",
+      "kind": "struct",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 257,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#Specifier",
+      "name": "Specifier",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.Specifier",
+      "kind": "struct",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 366,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#Subscriber",
+      "name": "Subscriber",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.Subscriber",
+      "kind": "interface",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/module_runtime.go",
+        "line": 16,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#UrlPermission",
+      "name": "UrlPermission",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.UrlPermission",
+      "kind": "struct",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 348,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#VariableBoolean",
+      "name": "VariableBoolean",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableBoolean",
+      "kind": "const",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 20,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#VariableDataType",
+      "name": "VariableDataType",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+      "kind": "named_type",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 14,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#VariableFilePath",
+      "name": "VariableFilePath",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableFilePath",
+      "kind": "const",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 28,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#VariableInteger",
+      "name": "VariableInteger",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableInteger",
+      "kind": "const",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 32,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#VariableJson",
+      "name": "VariableJson",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableJson",
+      "kind": "const",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 40,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#VariableNumber",
+      "name": "VariableNumber",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableNumber",
+      "kind": "const",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 36,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#VariableString",
+      "name": "VariableString",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableString",
+      "kind": "const",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 24,
+        "column": 2
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#WebApplication",
+      "name": "WebApplication",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.WebApplication",
+      "kind": "struct",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 155,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "id": "yanlingrpa.com/yanling/protocol/script#YScript",
+      "name": "YScript",
+      "qualified_name": "yanlingrpa.com/yanling/protocol/script.YScript",
+      "kind": "struct",
+      "package": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "source": {
+        "file": "script/yanling_script.go",
+        "line": 579,
+        "column": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    }
+  ]
+}

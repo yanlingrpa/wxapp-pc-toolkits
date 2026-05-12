@@ -1,0 +1,1796 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "package": {
+    "name": "browser",
+    "import_path": "yanlingrpa.com/yanling/protocol/browser",
+    "directory": "/browser",
+    "files": [
+      "browser/browser_element.go",
+      "browser/browser_framepage.go",
+      "browser/browser_tabpage.go",
+      "browser/browser_window.go"
+    ],
+    "imports": [
+      {
+        "path": "net/url",
+        "aliases": [
+          "url"
+        ]
+      },
+      {
+        "path": "time",
+        "aliases": [
+          "time"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/basic",
+        "aliases": [
+          "basic"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/osgui",
+        "aliases": [
+          "osgui"
+        ]
+      }
+    ],
+    "dependencies": [
+      "net/url",
+      "time",
+      "yanlingrpa.com/yanling/protocol/basic",
+      "yanlingrpa.com/yanling/protocol/osgui"
+    ],
+    "counts": {
+      "symbols": 4,
+      "interfaces": 4,
+      "methods": 63
+    },
+    "symbols": [
+      {
+        "id": "yanlingrpa.com/yanling/protocol/browser#BrowserElement",
+        "name": "BrowserElement",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+        "kind": "interface",
+        "package": "browser",
+        "import_path": "yanlingrpa.com/yanling/protocol/browser",
+        "doc": "BrowserElement defines the common operation interface for browser elements.",
+        "signature": "type BrowserElement interface",
+        "source": {
+          "file": "browser/browser_element.go",
+          "line": 12,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "Blur",
+            "doc": "Removes focus from the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Blur() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Click",
+            "doc": "Performs a single-click on the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Click() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ContainsElement",
+            "doc": "Checks whether the current element contains the target element.",
+            "params": [
+              {
+                "name": "target",
+                "type": "BrowserElement"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ContainsElement(target BrowserElement) (bool, error)",
+            "type_refs": [
+              {
+                "expr": "BrowserElement",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+                "local": true
+              },
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Disabled",
+            "doc": "Checks whether the current element is disabled.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Disabled() (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "DoubleClick",
+            "doc": "Performs a double-click on the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "DoubleClick() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Evaluate",
+            "doc": "Executes JavaScript code in the context of the current element.",
+            "params": [
+              {
+                "name": "jsCode",
+                "type": "string"
+              },
+              {
+                "name": "arg",
+                "type": "...any"
+              }
+            ],
+            "results": [
+              {
+                "type": "any"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Evaluate(jsCode string, arg ...any) (any, error)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Focus",
+            "doc": "Gives the current element input focus, usually for interactive elements such as input boxes and buttons.",
+            "params": [],
+            "results": [],
+            "signature": "Focus()"
+          },
+          {
+            "name": "FramePage",
+            "doc": "Returns the embedded frame page associated with the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "BrowserFramePage"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "FramePage() (BrowserFramePage, error)",
+            "type_refs": [
+              {
+                "expr": "BrowserFramePage",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserFramePage",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetAttribute",
+            "doc": "Gets the attribute value of the current element.",
+            "params": [
+              {
+                "name": "name",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "GetAttribute(name string) (string, error)",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetProperty",
+            "doc": "Gets the property value of the current element.",
+            "params": [
+              {
+                "name": "name",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "any"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "GetProperty(name string) (any, error)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetXPath",
+            "doc": "Gets the XPath expression of the current element.",
+            "params": [
+              {
+                "name": "optimized",
+                "type": "bool"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "GetXPath(optimized bool) (string, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Hover",
+            "doc": "Moves the mouse cursor over the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Hover() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Html",
+            "doc": "Gets the HTML content of the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Html() (string, error)",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Input",
+            "doc": "Inputs text into the current element.",
+            "params": [
+              {
+                "name": "text",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Input(text string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Interactable",
+            "doc": "Returns an interactable position coordinate for the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.FPoint"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Interactable() (basic.FPoint, error)",
+            "type_refs": [
+              {
+                "expr": "basic.FPoint",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.FPoint"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MatchByCss",
+            "doc": "Checks whether the current element matches the specified CSS selector.",
+            "params": [
+              {
+                "name": "selector",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "MatchByCss(selector string) (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MoveMouseOut",
+            "doc": "Moves the mouse cursor out of the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "MoveMouseOut() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "RightClick",
+            "doc": "Performs a right-click on the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "RightClick() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ScrollIntoView",
+            "doc": "Scrolls the current element into the visible area of the browser window.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ScrollIntoView() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SelectAllText",
+            "doc": "Selects all text within the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SelectAllText() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SelectByCss",
+            "doc": "Selects or deselects options by CSS selectors.",
+            "params": [
+              {
+                "name": "selectors",
+                "type": "[]string"
+              },
+              {
+                "name": "selected",
+                "type": "bool"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SelectByCss(selectors []string, selected bool) error",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SelectByRegex",
+            "doc": "Selects or deselects options by regular-expression rules.",
+            "params": [
+              {
+                "name": "regexes",
+                "type": "[]string"
+              },
+              {
+                "name": "selected",
+                "type": "bool"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SelectByRegex(regexes []string, selected bool) error",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SelectByText",
+            "doc": "Selects or deselects options by displayed text.",
+            "params": [
+              {
+                "name": "texts",
+                "type": "[]string"
+              },
+              {
+                "name": "selected",
+                "type": "bool"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SelectByText(texts []string, selected bool) error",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SelectText",
+            "doc": "Selects text within the current element by a regular-expression rule.",
+            "params": [
+              {
+                "name": "regex",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SelectText(regex string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SetAttribute",
+            "doc": "Sets the attribute value of the current element.",
+            "params": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "value",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SetAttribute(name string, value string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SetFiles",
+            "doc": "Sets the upload file list for file-input elements.",
+            "params": [
+              {
+                "name": "filePaths",
+                "type": "[]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SetFiles(filePaths []string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SetProperty",
+            "doc": "Sets the property value of the current element.",
+            "params": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "value",
+                "type": "any"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SetProperty(name string, value any) error",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Tap",
+            "doc": "Performs a tap action on the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Tap() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Text",
+            "doc": "Gets the text content of the current element.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Text() (string, error)",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Visible",
+            "doc": "Checks whether the current element is visible.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Visible() (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitEnabled",
+            "doc": "Waits until the current element becomes enabled.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitEnabled() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitInteractable",
+            "doc": "Waits until the current element becomes interactable and returns an interactable position.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.FPoint"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitInteractable() (basic.FPoint, error)",
+            "type_refs": [
+              {
+                "expr": "basic.FPoint",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.FPoint"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitInvisible",
+            "doc": "Waits until the current element becomes invisible.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitInvisible() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitStable",
+            "doc": "Waits until the current element remains stable for the specified duration.",
+            "params": [
+              {
+                "name": "stableTime",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitStable(stableTime time.Duration) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitStableRAF",
+            "doc": "Waits until the current element is stable across requestAnimationFrame ticks.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitStableRAF() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitVisible",
+            "doc": "Waits until the current element becomes visible.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitVisible() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitWritable",
+            "doc": "Waits until the current element becomes writable.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitWritable() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "BrowserElement",
+            "import_path": "yanlingrpa.com/yanling/protocol/browser",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+            "local": true
+          },
+          {
+            "expr": "BrowserFramePage",
+            "import_path": "yanlingrpa.com/yanling/protocol/browser",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserFramePage",
+            "local": true
+          },
+          {
+            "expr": "any",
+            "builtin": true
+          },
+          {
+            "expr": "basic.FPoint",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.FPoint"
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          },
+          {
+            "expr": "time.Duration",
+            "import_path": "time",
+            "qualified_name": "time.Duration"
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/browser#BrowserFramePage",
+        "name": "BrowserFramePage",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserFramePage",
+        "kind": "interface",
+        "package": "browser",
+        "import_path": "yanlingrpa.com/yanling/protocol/browser",
+        "doc": "BrowserFramePage defines the common interface for browser pages or frame pages.",
+        "signature": "type BrowserFramePage interface",
+        "source": {
+          "file": "browser/browser_framepage.go",
+          "line": 11,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "Evaluate",
+            "doc": "Executes JavaScript code in the context of the current page.",
+            "params": [
+              {
+                "name": "jsCode",
+                "type": "string"
+              },
+              {
+                "name": "arg",
+                "type": "...any"
+              }
+            ],
+            "results": [
+              {
+                "type": "any"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Evaluate(jsCode string, arg ...any) (any, error)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetDomain",
+            "doc": "Gets the domain of the current page.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetDomain() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetID",
+            "doc": "Gets the unique identifier of the current page.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetID() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetTitle",
+            "doc": "Gets the title of the current page.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetTitle() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetURL",
+            "doc": "Gets the URL of the current page.",
+            "params": [],
+            "results": [
+              {
+                "type": "*url.URL"
+              }
+            ],
+            "signature": "GetURL() *url.URL",
+            "type_refs": [
+              {
+                "expr": "url.URL",
+                "import_path": "net/url",
+                "qualified_name": "net/url.URL"
+              }
+            ]
+          },
+          {
+            "name": "IsFrame",
+            "doc": "Determines whether the current page is an iframe or frame.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "IsFrame() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "QuerySelector",
+            "doc": "Queries a single element matching the specified CSS selector.",
+            "params": [
+              {
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "BrowserElement"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "QuerySelector(selector string, timeout time.Duration) (BrowserElement, error)",
+            "type_refs": [
+              {
+                "expr": "BrowserElement",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "QuerySelectorAll",
+            "doc": "Queries all elements matching the specified CSS selector.",
+            "params": [
+              {
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]BrowserElement"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "QuerySelectorAll(selector string, timeout time.Duration) ([]BrowserElement, error)",
+            "type_refs": [
+              {
+                "expr": "BrowserElement",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "QueryXPath",
+            "doc": "Queries a single element matching the specified XPath.",
+            "params": [
+              {
+                "name": "xpath",
+                "type": "string"
+              },
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "BrowserElement"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "QueryXPath(xpath string, timeout time.Duration) (BrowserElement, error)",
+            "type_refs": [
+              {
+                "expr": "BrowserElement",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "QueryXPathAll",
+            "doc": "Queries all elements matching the specified XPath.",
+            "params": [
+              {
+                "name": "xpath",
+                "type": "string"
+              },
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]BrowserElement"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "QueryXPathAll(xpath string, timeout time.Duration) ([]BrowserElement, error)",
+            "type_refs": [
+              {
+                "expr": "BrowserElement",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "Reload",
+            "doc": "Reloads the current page and waits up to the specified timeout.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Reload(timeout time.Duration) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitSelector",
+            "doc": "Waits for an element matching the specified CSS selector to appear.",
+            "params": [
+              {
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "BrowserElement"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitSelector(selector string, timeout time.Duration) (BrowserElement, error)",
+            "type_refs": [
+              {
+                "expr": "BrowserElement",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "BrowserElement",
+            "import_path": "yanlingrpa.com/yanling/protocol/browser",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserElement",
+            "local": true
+          },
+          {
+            "expr": "any",
+            "builtin": true
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          },
+          {
+            "expr": "time.Duration",
+            "import_path": "time",
+            "qualified_name": "time.Duration"
+          },
+          {
+            "expr": "url.URL",
+            "import_path": "net/url",
+            "qualified_name": "net/url.URL"
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/browser#BrowserTabPage",
+        "name": "BrowserTabPage",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserTabPage",
+        "kind": "interface",
+        "package": "browser",
+        "import_path": "yanlingrpa.com/yanling/protocol/browser",
+        "doc": "BrowserTabPage defines the browser tab page interface.",
+        "signature": "type BrowserTabPage interface",
+        "source": {
+          "file": "browser/browser_tabpage.go",
+          "line": 8,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "Activate",
+            "doc": "Activates the current tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Activate() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ClearAllIndexDBFiles",
+            "doc": "Clears all IndexedDB files for the current tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ClearAllIndexDBFiles() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ClearCookies",
+            "doc": "Clears cookies for the current tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ClearCookies() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ClearLocalStorage",
+            "doc": "Clears LocalStorage for the current tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ClearLocalStorage() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Destroy",
+            "doc": "Destroys the current tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Destroy() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "LoadCookies",
+            "doc": "Loads cookies for the current tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "LoadCookies() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "LoadLocalStorage",
+            "doc": "Loads LocalStorage for the current tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "LoadLocalStorage() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SaveCookies",
+            "doc": "Saves cookies for the current tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SaveCookies() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SaveLocalStorage",
+            "doc": "Saves LocalStorage for the current tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SaveLocalStorage() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitForNewTab",
+            "doc": "Waits for a new tab page with the specified ID to appear.",
+            "params": [
+              {
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForNewTab(id string, timeout time.Duration) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          }
+        ],
+        "embeds": [
+          {
+            "type": "BrowserFramePage",
+            "import_path": "yanlingrpa.com/yanling/protocol/browser",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserFramePage"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "BrowserFramePage",
+            "import_path": "yanlingrpa.com/yanling/protocol/browser",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserFramePage",
+            "local": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          },
+          {
+            "expr": "time.Duration",
+            "import_path": "time",
+            "qualified_name": "time.Duration"
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/browser#BrowserWindow",
+        "name": "BrowserWindow",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserWindow",
+        "kind": "interface",
+        "package": "browser",
+        "import_path": "yanlingrpa.com/yanling/protocol/browser",
+        "doc": "BrowserWindow defines the browser window interface.",
+        "signature": "type BrowserWindow interface",
+        "source": {
+          "file": "browser/browser_window.go",
+          "line": 10,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "CurrentPage",
+            "doc": "Gets the currently active tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "BrowserTabPage"
+              }
+            ],
+            "signature": "CurrentPage() BrowserTabPage",
+            "type_refs": [
+              {
+                "expr": "BrowserTabPage",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserTabPage",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "DefaultPage",
+            "doc": "Gets the default tab page.",
+            "params": [],
+            "results": [
+              {
+                "type": "BrowserTabPage"
+              }
+            ],
+            "signature": "DefaultPage() BrowserTabPage",
+            "type_refs": [
+              {
+                "expr": "BrowserTabPage",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserTabPage",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "IDTabPage",
+            "doc": "Gets a tab page by identifier.",
+            "params": [],
+            "results": [
+              {
+                "type": "BrowserTabPage"
+              }
+            ],
+            "signature": "IDTabPage() BrowserTabPage",
+            "type_refs": [
+              {
+                "expr": "BrowserTabPage",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserTabPage",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "NewTabPage",
+            "doc": "Creates a new tab page and opens the specified URL.",
+            "params": [
+              {
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "name": "url",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "BrowserTabPage"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "NewTabPage(id string, url string) (BrowserTabPage, error)",
+            "type_refs": [
+              {
+                "expr": "BrowserTabPage",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserTabPage",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "embeds": [
+          {
+            "type": "osgui.OSGuiWindow",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiWindow"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "BrowserTabPage",
+            "import_path": "yanlingrpa.com/yanling/protocol/browser",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserTabPage",
+            "local": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "osgui.OSGuiWindow",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiWindow"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      }
+    ]
+  }
+}

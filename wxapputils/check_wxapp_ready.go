@@ -67,20 +67,20 @@ func parsePopupDialogInfo(jsonRet string) ([]PopupDialogInfo, error) {
 	return nil, fmt.Errorf("unexpected detect result: %s", trimmed)
 }
 
-func CheckWxappReady(rt script.ModuleRuntime, wxappId string) (bool, error) {
+/**
+ * 检测微信小程序是否准备就绪
+ * 1. 获取GUI窗口和Body定位器
+ * 2. 循环进行视觉检测，查找是否存在阻塞交互的弹窗
+ * 3. 如果检测到弹窗，点击其关闭按钮并等待一段时间后继续检测，直到达到最大检测轮数
+ * 4. 发布app_ready事件，通知调用方微信小程序已就绪
+ */
+func CheckWxappReady(rt script.ModuleRuntime, guiId string) (bool, error) {
 	logger := rt.Logger()
-	logger.Debug("CheckWxappReady start: wxappIdVar=%s", wxappId)
-
-	// Step 1: resolve the runtime variable to a concrete GUI window id.
-	ret, exist := rt.GetVariable(wxappId)
-	if !exist {
-		logger.Error("CheckWxappReady failed: variable not found, wxappIdVar=%s", wxappId)
-		return false, fmt.Errorf("failed to get wxappId")
-	}
-	guiId, ok := ret.(string)
-	if !ok || strings.TrimSpace(guiId) == "" {
-		logger.Error("CheckWxappReady failed: variable is not a valid string id, wxappIdVar=%s, valueType=%T", wxappId, ret)
-		return false, fmt.Errorf("wxappId variable {%s} is not a valid window id", wxappId)
+	logger.Debug("CheckWxappReady start: guiId=%s", guiId)
+	// Step 1: get gui window id from variable.
+	if guiId == "" {
+		logger.Error("CheckWxappReady failed: guiId not set")
+		return false, fmt.Errorf("guiId not set")
 	}
 
 	// Step 2: resolve window + body locator that will be used for screenshot/click.
@@ -99,7 +99,7 @@ func CheckWxappReady(rt script.ModuleRuntime, wxappId string) (bool, error) {
 	// If any popup is closed in this call, return false to ask caller retry once more,
 	// so readiness is only true on a stable frame without blocking popups.
 	popupClosed := false
-	for i := range maxPopupCheckRounds {
+	for i := 0; i < maxPopupCheckRounds; i++ {
 		logger.Debug("CheckWxappReady round=%d/%d guiId=%s", i+1, maxPopupCheckRounds, guiId)
 
 		bts, err := body.Snapshot(true)
@@ -109,7 +109,7 @@ func CheckWxappReady(rt script.ModuleRuntime, wxappId string) (bool, error) {
 		}
 		logger.Debug("CheckWxappReady snapshot captured: guiId=%s bytes=%d", guiId, len(bts))
 
-		jsonRet, err := rt.Vision().Detect(bts, popupDetectInstruction, popupDetectSchema)
+		jsonRet, err := rt.VisionWorker().Detect(bts, popupDetectInstruction, popupDetectSchema)
 		if err != nil {
 			logger.Error("CheckWxappReady failed: vision detect error, guiId=%s, err=%v", guiId, err)
 			return false, fmt.Errorf("failed to detect vision for gui window {%s}: %v", guiId, err)

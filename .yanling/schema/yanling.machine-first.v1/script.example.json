@@ -1,0 +1,139 @@
+{
+  "module": {
+    "specifier": "github.com/acme/demo-script@v1.2.3",
+    "package": "main",
+    "description": "Example script module for browser automation and local file export.",
+    "tags": ["automation", "browser", "export"],
+    "website": "https://example.com/demo-script",
+    "update_time": "2026-04-22T12:30:00Z",
+    "author": "Acme Automation Team",
+    "email": "automation@example.com",
+    "license": "MIT",
+    "devices": ["windows", "mac"],
+    "engine_version": ">=1.0.0"
+  },
+  "gui_apps": [
+    {
+      "id": "notepad",
+      "name": "Windows Notepad",
+      "launcher": "notepad.exe",
+      "process": "notepad.exe",
+      "wait_time": 500,
+      "window_width": 800,
+      "window_height": 600
+    }
+  ],
+  "web_apps": [
+    {
+      "id": "google",
+      "name": "Google",
+      "url": "https://www.google.com",
+      "browser_type": "chrome",
+      "wait_time": 1000,
+      "window_width": 1280,
+      "window_height": 720
+    },
+    {
+      "id": "internal-dashboard",
+      "name": "Internal Dashboard",
+      "url": "https://dashboard.example.com",
+      "browser_type": "chrome",
+      "incognito": false,
+      "load_timeout": 30000,
+      "wait_time": 2000
+    }
+  ],
+  "mobile_apps": [
+    {
+      "id": "wechat",
+      "name": "WeChat",
+      "package": "com.tencent.mm",
+      "activity": ".ui.LauncherUI",
+      "action": "android.intent.action.MAIN",
+      "wait_time": 1500
+    },
+    {
+      "id": "alipay",
+      "name": "Alipay",
+      "package": "com.eg.android.AlipayGphone",
+      "activity": ".AlipayLogin",
+      "flags": "FLAG_ACTIVITY_NEW_TASK,FLAG_ACTIVITY_CLEAR_TOP",
+      "timeout": 15000,
+      "wait_time": 2000
+    }
+  ],
+  "variables": [
+    {
+      "name": "keyword",
+      "abstract": "Search keyword entered by the user.",
+      "type": "string",
+      "default": "yanling rpa",
+      "required": true,
+      "save": true
+    },
+    {
+      "name": "max_results",
+      "abstract": "Maximum number of rows to export.",
+      "type": "integer",
+      "default": "100",
+      "required": false,
+      "save": true
+    },
+    {
+      "name": "headless",
+      "abstract": "Whether the browser should run in headless mode.",
+      "type": "boolean",
+      "default": "false",
+      "required": false,
+      "save": false
+    },
+    {
+      "name": "output_dir",
+      "abstract": "Directory used to store exported files.",
+      "type": "filepath",
+      "default": "outputs/export",
+      "required": false,
+      "save": true
+    },
+    {
+      "name": "filters",
+      "abstract": "Optional JSON filter object passed to the script.",
+      "type": "json",
+      "default": "{\"status\":\"active\"}",
+      "required": false,
+      "save": false
+    }
+  ],
+  "file_permissions": [
+    {
+      "url": "file://${output_dir}/*",
+      "permission": "rwd",
+      "abstract": "Read, write, and delete exported files in the output directory."
+    },
+    {
+      "url": "file://data/templates/*",
+      "permission": "r",
+      "abstract": "Read template files shipped with the project."
+    }
+  ],
+  "api_permissions": [
+    {
+      "url": "https://dashboard.example.com/api/*",
+      "permission": "rw",
+      "abstract": "Read and submit data to the internal dashboard API."
+    },
+    {
+      "url": "https://www.googleapis.com/*",
+      "permission": "r",
+      "abstract": "Read public metadata from Google APIs."
+    }
+  ], 
+  "script_dependencies": [
+    "github.com/yanlingrpa/utils@v1.0.0",
+    "github.com/yanlingrpa/web-driver@v2.1.0"
+  ],
+  "worker_dependencies": [
+    "ocr",
+    "vision"
+  ]
+}

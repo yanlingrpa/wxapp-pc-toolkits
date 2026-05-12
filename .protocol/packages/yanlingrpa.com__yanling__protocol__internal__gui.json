@@ -1,0 +1,917 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "package": {
+    "name": "gui",
+    "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+    "directory": "/internal/gui",
+    "files": [
+      "internal/gui/gui_locator.go",
+      "internal/gui/gui_window.go"
+    ],
+    "imports": [
+      {
+        "path": "yanlingrpa.com/yanling/protocol/basic",
+        "aliases": [
+          "basic"
+        ]
+      }
+    ],
+    "dependencies": [
+      "yanlingrpa.com/yanling/protocol/basic"
+    ],
+    "counts": {
+      "symbols": 2,
+      "interfaces": 2,
+      "methods": 34
+    },
+    "symbols": [
+      {
+        "id": "yanlingrpa.com/yanling/protocol/internal/gui#GuiLocator",
+        "name": "GuiLocator",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiLocator",
+        "kind": "interface",
+        "package": "gui",
+        "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+        "doc": "GuiLocator defines the common abstract interface for GUI locators across platforms.",
+        "signature": "type GuiLocator interface",
+        "source": {
+          "file": "internal/gui/gui_locator.go",
+          "line": 8,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "CanScrollHorizontal",
+            "doc": "Checks whether horizontal scrolling is supported in the current locator area.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "CanScrollHorizontal() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "CanScrollVertical",
+            "doc": "Checks whether vertical scrolling is supported in the current locator area.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "CanScrollVertical() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ClearText",
+            "doc": "Clears text content in the current locator.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ClearText() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Focus",
+            "doc": "Attempts to focus the current locator.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Focus() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetBodyRect",
+            "doc": "Returns the position and size of the current locator relative to its body area.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.Rect"
+              }
+            ],
+            "signature": "GetBodyRect() basic.Rect",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          },
+          {
+            "name": "GetScreenRect",
+            "doc": "Returns the absolute position and size of the current locator on the screen.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.Rect"
+              }
+            ],
+            "signature": "GetScreenRect() basic.Rect",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          },
+          {
+            "name": "GetSize",
+            "doc": "Gets the size of the current locator.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.Size"
+              }
+            ],
+            "signature": "GetSize() basic.Size",
+            "type_refs": [
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              }
+            ]
+          },
+          {
+            "name": "GetWindowRect",
+            "doc": "Gets the position and size of the current locator within its parent window.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.Rect"
+              }
+            ],
+            "signature": "GetWindowRect() basic.Rect",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          },
+          {
+            "name": "IsEditing",
+            "doc": "Indicates whether the current locator is in a text-editable state.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "IsEditing() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "OcrRead",
+            "doc": "Performs OCR on the current locator area and returns the recognition result.",
+            "params": [
+              {
+                "name": "confidence",
+                "type": "float64"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.OcrResult"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "OcrRead(confidence float64) (*basic.OcrResult, error)",
+            "type_refs": [
+              {
+                "expr": "basic.OcrResult",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrResult"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "float64",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ReadText",
+            "doc": "Reads text content from the current locator.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ReadText() (string, error)",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ScrollHorizontal",
+            "doc": "Performs horizontal scrolling in the current locator area.",
+            "params": [
+              {
+                "name": "forward",
+                "type": "bool"
+              },
+              {
+                "name": "distance",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ScrollHorizontal(forward bool, distance int) error",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ScrollVertical",
+            "doc": "Performs vertical scrolling in the current locator area.",
+            "params": [
+              {
+                "name": "forward",
+                "type": "bool"
+              },
+              {
+                "name": "distance",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ScrollVertical(forward bool, distance int) error",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Snapshot",
+            "doc": "Captures a snapshot of the current locator area and returns image bytes.\ngray: Whether to use grayscale.",
+            "params": [
+              {
+                "name": "gray",
+                "type": "bool"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Snapshot(gray bool) ([]byte, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ToMap",
+            "doc": "Converts to a map object.",
+            "params": [],
+            "results": [
+              {
+                "type": "map[string]any"
+              }
+            ],
+            "signature": "ToMap() map[string]any",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "TransFromBody",
+            "doc": "Converts a position relative to the client/body area to a relative position within the current locator.",
+            "params": [
+              {
+                "name": "body_pos",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "TransFromBody(body_pos *basic.Point) *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "TransFromScreen",
+            "doc": "Converts an absolute screen position to a relative position within the current locator.",
+            "params": [
+              {
+                "name": "screen_pos",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "TransFromScreen(screen_pos *basic.Point) *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "TransFromWindow",
+            "doc": "Converts a position relative to the parent window to a relative position within the current locator.",
+            "params": [
+              {
+                "name": "window_pos",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "TransFromWindow(window_pos *basic.Point) *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "TransToBody",
+            "doc": "Converts a locator-relative position to a relative position within the client/body area.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "TransToBody(locator_point *basic.Point) *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "TransToScreen",
+            "doc": "Converts a locator-relative position to an absolute screen position.\nlocator_point: Relative position within the locator.\nreturn: Absolute position on the screen.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "TransToScreen(locator_point *basic.Point) *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "TransToWindow",
+            "doc": "Converts a locator-relative position to a relative position within the parent window.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "TransToWindow(locator_point *basic.Point) *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "WriteText",
+            "doc": "Writes text into the current locator.",
+            "params": [
+              {
+                "name": "text",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WriteText(text string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "any",
+            "builtin": true
+          },
+          {
+            "expr": "basic.OcrResult",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrResult"
+          },
+          {
+            "expr": "basic.Point",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+          },
+          {
+            "expr": "basic.Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+          },
+          {
+            "expr": "basic.Size",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "float64",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/internal/gui#GuiWindow",
+        "name": "GuiWindow",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiWindow",
+        "kind": "interface",
+        "package": "gui",
+        "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+        "doc": "GuiWindow defines the common abstract interface for GUI windows across platforms.",
+        "signature": "type GuiWindow interface",
+        "source": {
+          "file": "internal/gui/gui_window.go",
+          "line": 8,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "Activate",
+            "doc": "Activates the window.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Activate() (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Close",
+            "doc": "Closes the window.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Close() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "DeActivate",
+            "doc": "Deactivates the window.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "DeActivate() (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetClientRect",
+            "doc": "Gets the client-area rectangle in screen coordinates.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.Rect"
+              }
+            ],
+            "signature": "GetClientRect() basic.Rect",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          },
+          {
+            "name": "GetID",
+            "doc": "Gets the unique identifier of the window.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetID() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWindowTitle",
+            "doc": "Gets the window title.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetWindowTitle() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ReadClipboard",
+            "doc": "Reads clipboard text.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ReadClipboard() (string, error)",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Snapshot",
+            "doc": "Captures a snapshot of the current window area and returns image bytes.\ngray: Whether to use grayscale.",
+            "params": [
+              {
+                "name": "gray",
+                "type": "bool"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Snapshot(gray bool) ([]byte, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ToMap",
+            "doc": "Exports current window information as key-value pairs.",
+            "params": [],
+            "results": [
+              {
+                "type": "map[string]any"
+              }
+            ],
+            "signature": "ToMap() map[string]any",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "TransFromScreen",
+            "doc": "Converts an absolute screen position to a window-relative position.\nscreen_pos: Absolute position on the screen.\nreturn: Relative position inside the window; returns nil if the point is outside the window.",
+            "params": [
+              {
+                "name": "screen_pos",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "TransFromScreen(screen_pos *basic.Point) *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "TransToScreen",
+            "doc": "Converts a window-relative position to an absolute screen position.\nwindow_pos: Relative position inside the window.\nreturn: Absolute position on the screen.",
+            "params": [
+              {
+                "name": "window_pos",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "TransToScreen(window_pos *basic.Point) *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "WriteClipboard",
+            "doc": "Writes text to the clipboard.",
+            "params": [
+              {
+                "name": "text",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WriteClipboard(text string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "any",
+            "builtin": true
+          },
+          {
+            "expr": "basic.Point",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+          },
+          {
+            "expr": "basic.Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      }
+    ]
+  }
+}

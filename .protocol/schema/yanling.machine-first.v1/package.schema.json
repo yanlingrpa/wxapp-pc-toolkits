@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "yanling.machine-first/v1 packages/*.json",
+  "$defs": {
+    "CountsDoc": {
+      "$ref": "./symbols.schema.json#/$defs/CountsDoc"
+    },
+    "SourceDoc": {
+      "$ref": "./symbols.schema.json#/$defs/SourceDoc"
+    },
+    "TypeRefDoc": {
+      "$ref": "./symbols.schema.json#/$defs/TypeRefDoc"
+    },
+    "ParamDoc": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "MethodDoc": {
+      "type": "object",
+      "required": ["name", "params", "results", "signature"],
+      "properties": {
+        "name": { "type": "string" },
+        "doc": { "type": "string" },
+        "params": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ParamDoc" }
+        },
+        "results": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ParamDoc" }
+        },
+        "signature": { "type": "string" },
+        "type_refs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TypeRefDoc" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "FieldDoc": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "tag": { "type": "string" },
+        "doc": { "type": "string" },
+        "embedded": { "type": "boolean" },
+        "type_refs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TypeRefDoc" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "EmbeddedTypeDoc": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string" },
+        "import_path": { "type": "string" },
+        "qualified_name": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "PackageImport": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": { "type": "string" },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "SymbolDoc": {
+      "type": "object",
+      "required": ["id", "name", "qualified_name", "kind", "package", "import_path", "source"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "qualified_name": { "type": "string" },
+        "kind": { "type": "string" },
+        "package": { "type": "string" },
+        "import_path": { "type": "string" },
+        "doc": { "type": "string" },
+        "signature": { "type": "string" },
+        "underlying_type": { "type": "string" },
+        "alias": { "type": "boolean" },
+        "source": { "$ref": "#/$defs/SourceDoc" },
+        "params": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ParamDoc" }
+        },
+        "results": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ParamDoc" }
+        },
+        "fields": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/FieldDoc" }
+        },
+        "methods": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/MethodDoc" }
+        },
+        "embeds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/EmbeddedTypeDoc" }
+        },
+        "const_type": { "type": "string" },
+        "const_value": { "type": "string" },
+        "type_refs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TypeRefDoc" }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "type": "object",
+  "required": ["schema_version", "generated_at", "module", "package"],
+  "properties": {
+    "schema_version": {
+      "const": "yanling.machine-first/v1"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "module": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package": {
+      "type": "object",
+      "required": ["name", "import_path", "directory", "files", "counts", "symbols"],
+      "properties": {
+        "name": { "type": "string" },
+        "import_path": { "type": "string" },
+        "directory": { "type": "string" },
+        "doc": { "type": "string" },
+        "files": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "imports": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/PackageImport" }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "counts": { "$ref": "#/$defs/CountsDoc" },
+        "symbols": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/SymbolDoc" }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

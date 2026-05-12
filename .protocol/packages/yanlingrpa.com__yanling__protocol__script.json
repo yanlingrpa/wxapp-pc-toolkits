@@ -1,0 +1,2230 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "package": {
+    "name": "script",
+    "import_path": "yanlingrpa.com/yanling/protocol/script",
+    "directory": "/script",
+    "files": [
+      "script/module_runtime.go",
+      "script/yanling_script.go"
+    ],
+    "imports": [
+      {
+        "path": "encoding/json",
+        "aliases": [
+          "json"
+        ]
+      },
+      {
+        "path": "fmt",
+        "aliases": [
+          "fmt"
+        ]
+      },
+      {
+        "path": "path/filepath",
+        "aliases": [
+          "filepath"
+        ]
+      },
+      {
+        "path": "strconv",
+        "aliases": [
+          "strconv"
+        ]
+      },
+      {
+        "path": "strings",
+        "aliases": [
+          "strings"
+        ]
+      },
+      {
+        "path": "time",
+        "aliases": [
+          "time"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/browser",
+        "aliases": [
+          "browser"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/component",
+        "aliases": [
+          "component"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/osgui",
+        "aliases": [
+          "osgui"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/ossys",
+        "aliases": [
+          "ossys"
+        ]
+      }
+    ],
+    "dependencies": [
+      "time",
+      "yanlingrpa.com/yanling/protocol/browser",
+      "yanlingrpa.com/yanling/protocol/component",
+      "yanlingrpa.com/yanling/protocol/osgui",
+      "yanlingrpa.com/yanling/protocol/ossys"
+    ],
+    "counts": {
+      "symbols": 20,
+      "interfaces": 2,
+      "structs": 9,
+      "functions": 1,
+      "methods": 27,
+      "named_types": 1,
+      "func_types": 1,
+      "consts": 6
+    },
+    "symbols": [
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#Event",
+        "name": "Event",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.Event",
+        "kind": "struct",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "Event defines event data for the local event bus.",
+        "signature": "type Event struct",
+        "source": {
+          "file": "script/module_runtime.go",
+          "line": 34,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Data",
+            "type": "any",
+            "doc": "Data is the event payload.",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "OccuredAt",
+            "type": "time.Time",
+            "doc": "OccuredAt is the event occurrence time.",
+            "type_refs": [
+              {
+                "expr": "time.Time",
+                "import_path": "time",
+                "qualified_name": "time.Time"
+              }
+            ]
+          },
+          {
+            "name": "Topic",
+            "type": "string",
+            "doc": "Topic is the event topic.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "any",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          },
+          {
+            "expr": "time.Time",
+            "import_path": "time",
+            "qualified_name": "time.Time"
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#EventHandler",
+        "name": "EventHandler",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.EventHandler",
+        "kind": "func_type",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "EventHandler defines the event handler function signature.",
+        "signature": "type EventHandler func(event Event)",
+        "underlying_type": "func(event Event)",
+        "source": {
+          "file": "script/module_runtime.go",
+          "line": 52,
+          "column": 6
+        },
+        "params": [
+          {
+            "name": "event",
+            "type": "Event"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Event",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.Event",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#GuiApplication",
+        "name": "GuiApplication",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.GuiApplication",
+        "kind": "struct",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "GuiApplication defines GUI application configuration.",
+        "signature": "type GuiApplication struct",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 97,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Args",
+            "type": "[]string",
+            "tag": "json:\"args,omitempty\"",
+            "doc": "Args is the command-line arguments passed to the launcher, for example [\"--headless\", \"--no-sandbox\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Env",
+            "type": "[]string",
+            "tag": "json:\"env,omitempty\"",
+            "doc": "Env is a list of environment variables in the format KEY=VALUE, for example [\"PATH=/usr/bin\", \"DEBUG=1\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Id",
+            "type": "string",
+            "tag": "json:\"id\"",
+            "doc": "Id is the unique identifier of the GUI application.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "LaunchUri",
+            "type": "string",
+            "tag": "json:\"launch_uri,omitempty\"",
+            "doc": "LaunchUri is the URI used to open the GUI window, for example weixin://launchapplet?appid=xxxx.\nIf provided, the application will be launched and this URI will be opened.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Launcher",
+            "type": "string",
+            "tag": "json:\"launcher\"",
+            "doc": "Launcher is the launcher command or executable path, for example C:\\Program Files\\App\\app.exe or /usr/bin/app.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "json:\"name\"",
+            "doc": "Name is the GUI application name.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Process",
+            "type": "string",
+            "tag": "json:\"process\"",
+            "doc": "Process is the process name associated with the GUI window, used for window detection and management.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Timeout",
+            "type": "int",
+            "tag": "json:\"timeout,omitempty\"",
+            "doc": "Timeout is the timeout in milliseconds for launching the application.\nIf 0, no timeout limit is applied.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitTime",
+            "type": "int",
+            "tag": "json:\"wait_time,omitempty\"",
+            "doc": "WaitTime is the wait time in milliseconds after launching the application before returning.\nUseful for allowing the GUI to fully initialize.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WindowHeight",
+            "type": "int",
+            "tag": "json:\"window_height,omitempty\"",
+            "doc": "WindowHeight is the preferred window height in pixels. If 0, uses default.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WindowWidth",
+            "type": "int",
+            "tag": "json:\"window_width,omitempty\"",
+            "doc": "WindowWidth is the preferred window width in pixels. If 0, uses default.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WorkDir",
+            "type": "string",
+            "tag": "json:\"work_dir,omitempty\"",
+            "doc": "WorkDir is the working directory for the launched application.\nIf empty, defaults to the directory of the launcher executable.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#MobileApplication",
+        "name": "MobileApplication",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.MobileApplication",
+        "kind": "struct",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "MobileApplication defines mobile application configuration for Android/iOS devices.",
+        "signature": "type MobileApplication struct",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 209,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Action",
+            "type": "string",
+            "tag": "json:\"action,omitempty\"",
+            "doc": "Action is the Intent action, for example android.intent.action.MAIN or android.intent.action.VIEW.\nIf empty, defaults to android.intent.action.MAIN.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Activity",
+            "type": "string",
+            "tag": "json:\"activity\"",
+            "doc": "Activity is the Activity class name to launch, for example .MainActivity.\nUsed with Package to form the component for adb command: adb shell am start -n package/activity.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Extras",
+            "type": "string",
+            "tag": "json:\"extras,omitempty\"",
+            "doc": "Extras is a JSON object containing Intent extras (key-value pairs).\nFor example: {\"key1\": \"value1\", \"key2\": \"value2\"}.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Flags",
+            "type": "string",
+            "tag": "json:\"flags,omitempty\"",
+            "doc": "Flags is the Intent flags as a comma-separated list, for example \"FLAG_ACTIVITY_NEW_TASK,FLAG_ACTIVITY_CLEAR_TOP\".\nThese are passed to adb with --flags parameter.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Id",
+            "type": "string",
+            "tag": "json:\"id\"",
+            "doc": "Id is the unique identifier of the mobile application.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "json:\"name\"",
+            "doc": "Name is the mobile application name.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Package",
+            "type": "string",
+            "tag": "json:\"package\"",
+            "doc": "Package is the application package name, for example com.example.app.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Timeout",
+            "type": "int",
+            "tag": "json:\"timeout,omitempty\"",
+            "doc": "Timeout is the timeout in milliseconds for starting the application.\nIf 0, no timeout limit is applied.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitTime",
+            "type": "int",
+            "tag": "json:\"wait_time,omitempty\"",
+            "doc": "WaitTime is the wait time in milliseconds after launching the application before returning.\nUseful for allowing the app to fully initialize.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#ModuleInfo",
+        "name": "ModuleInfo",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleInfo",
+        "kind": "struct",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "ModuleInfo defines script module metadata.",
+        "signature": "type ModuleInfo struct",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 46,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Author",
+            "type": "string",
+            "tag": "json:\"author\"",
+            "doc": "Author is the script author.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Description",
+            "type": "string",
+            "tag": "json:\"description\"",
+            "doc": "Description describes script functionality and usage.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Devices",
+            "type": "[]string",
+            "tag": "json:\"devices\"",
+            "doc": "Devices is the list of applicable devices, for example [\"windows\", \"mac\", \"ubuntu\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Email",
+            "type": "string",
+            "tag": "json:\"email\"",
+            "doc": "Email is the contact address.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "EngineVersion",
+            "type": "string",
+            "tag": "json:\"engine_version\"",
+            "doc": "EngineVersion is the required engine version.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "License",
+            "type": "string",
+            "tag": "json:\"license\"",
+            "doc": "License is the license, based on the LICENSE file or declaration.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Package",
+            "type": "string",
+            "tag": "json:\"package\"",
+            "doc": "Package is the script package name. Only scripts under this package can be imported and called.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Specifier",
+            "type": "string",
+            "tag": "json:\"specifier\"",
+            "doc": "Specifier is the module identifier, including domain, owner, name, and version,\nparsed from the go.mod file.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Tags",
+            "type": "[]string",
+            "tag": "json:\"tags\"",
+            "doc": "Tags is a list of script topic tags, for example [\"web automation\", \"data extraction\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "UpdateTime",
+            "type": "string",
+            "tag": "json:\"update_time\"",
+            "doc": "UpdateTime is the last update time (last commit time), formatted as RFC3339.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Website",
+            "type": "string",
+            "tag": "json:\"website\"",
+            "doc": "Website is the official website of the script.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#ModuleRuntime",
+        "name": "ModuleRuntime",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleRuntime",
+        "kind": "interface",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "ModuleRuntime defines script runtime context capabilities.\nThis interface provides access to windows, system services, cache, variables,\nand the local event bus.",
+        "signature": "type ModuleRuntime interface",
+        "source": {
+          "file": "script/module_runtime.go",
+          "line": 59,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "BrowserWindow",
+            "doc": "BrowserWindow gets a browser window by window ID.",
+            "params": [
+              {
+                "name": "id",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "browser.BrowserWindow"
+              },
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "BrowserWindow(id string) (browser.BrowserWindow, bool)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "browser.BrowserWindow",
+                "import_path": "yanlingrpa.com/yanling/protocol/browser",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserWindow"
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "CurrentSpecifier",
+            "doc": "CurrentSpecifier gets the specifier of the currently executing script.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "CurrentSpecifier() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "DeviceInfo",
+            "doc": "DeviceInfo gets the device information capability interface.",
+            "params": [],
+            "results": [
+              {
+                "type": "ossys.DeviceInfo"
+              }
+            ],
+            "signature": "DeviceInfo() ossys.DeviceInfo",
+            "type_refs": [
+              {
+                "expr": "ossys.DeviceInfo",
+                "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.DeviceInfo"
+              }
+            ]
+          },
+          {
+            "name": "FileSystem",
+            "doc": "FileSystem gets the local filesystem interface.",
+            "params": [],
+            "results": [
+              {
+                "type": "ossys.LocalFilesystem"
+              }
+            ],
+            "signature": "FileSystem() ossys.LocalFilesystem",
+            "type_refs": [
+              {
+                "expr": "ossys.LocalFilesystem",
+                "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.LocalFilesystem"
+              }
+            ]
+          },
+          {
+            "name": "GetCacheData",
+            "doc": "GetCacheData gets data temporarily stored at runtime.",
+            "params": [
+              {
+                "name": "key",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "any"
+              },
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "GetCacheData(key string) (any, bool)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetVariable",
+            "doc": "GetVariable gets a script variable value.",
+            "params": [
+              {
+                "name": "name",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "any"
+              },
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "GetVariable(name string) (any, bool)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GuiWindow",
+            "doc": "GuiWindow gets a GUI window by window ID.",
+            "params": [
+              {
+                "name": "id",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "osgui.OSGuiWindow"
+              },
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "GuiWindow(id string) (osgui.OSGuiWindow, bool)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "osgui.OSGuiWindow",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiWindow"
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "HostSpecifier",
+            "doc": "HostSpecifier gets the specifier of the entry script launched by the engine.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "HostSpecifier() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "HttpClient",
+            "doc": "HttpClient gets the HTTP client interface.",
+            "params": [],
+            "results": [
+              {
+                "type": "ossys.HttpClient"
+              }
+            ],
+            "signature": "HttpClient() ossys.HttpClient",
+            "type_refs": [
+              {
+                "expr": "ossys.HttpClient",
+                "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.HttpClient"
+              }
+            ]
+          },
+          {
+            "name": "InvokeWorker",
+            "doc": "InvokeWorker calls an exposed method from another local IPC worker.\nThe specifier identifies the target worker, and the method is the name of the exposed method to call.\nThe dto is the data transfer object passed as an argument to the method.\nIt returns the result from the method call or an error if the invocation fails.",
+            "params": [
+              {
+                "name": "specifier",
+                "type": "string"
+              },
+              {
+                "name": "method",
+                "type": "string"
+              },
+              {
+                "name": "dto",
+                "type": "any"
+              }
+            ],
+            "results": [
+              {
+                "type": "any"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "InvokeWorker(specifier string, method string, dto any) (any, error)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Logger",
+            "doc": "Logger gets the script logger.",
+            "params": [],
+            "results": [
+              {
+                "type": "ossys.ScriptLogger"
+              }
+            ],
+            "signature": "Logger() ossys.ScriptLogger",
+            "type_refs": [
+              {
+                "expr": "ossys.ScriptLogger",
+                "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.ScriptLogger"
+              }
+            ]
+          },
+          {
+            "name": "OcrWorker",
+            "doc": "OcrWorker gets the OCR capability worker interface.",
+            "params": [],
+            "results": [
+              {
+                "type": "component.OcrWorker"
+              }
+            ],
+            "signature": "OcrWorker() component.OcrWorker",
+            "type_refs": [
+              {
+                "expr": "component.OcrWorker",
+                "import_path": "yanlingrpa.com/yanling/protocol/component",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/component.OcrWorker"
+              }
+            ]
+          },
+          {
+            "name": "Publish",
+            "doc": "Publish publishes an event to the local event bus.\nThe topic is the name of the event topic to publish, and the data is the event payload.\nIt returns an error if the publication fails.",
+            "params": [
+              {
+                "name": "topic",
+                "type": "string"
+              },
+              {
+                "name": "data",
+                "type": "any"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Publish(topic string, data any) error",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SetCacheData",
+            "doc": "SetCacheData temporarily stores arbitrary data at runtime.",
+            "params": [
+              {
+                "name": "key",
+                "type": "string"
+              },
+              {
+                "name": "value",
+                "type": "any"
+              }
+            ],
+            "results": [],
+            "signature": "SetCacheData(key string, value any)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Storage",
+            "doc": "Storage gets the project local storage interface.",
+            "params": [],
+            "results": [
+              {
+                "type": "ossys.LocalStorage"
+              }
+            ],
+            "signature": "Storage() ossys.LocalStorage",
+            "type_refs": [
+              {
+                "expr": "ossys.LocalStorage",
+                "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.LocalStorage"
+              }
+            ]
+          },
+          {
+            "name": "Subscribe",
+            "doc": "Subscribe subscribes to an exposed event from another local IPC worker/yscript or the current worker/yscript.\nThe specifier identifies the target worker to subscribe to, and the topic is the name of the event topic to subscribe to.\nThe handler is the function that will be called when the event is published.\nIt returns a Subscriber object representing the subscription or an error if the subscription fails.",
+            "params": [
+              {
+                "name": "specifier",
+                "type": "string"
+              },
+              {
+                "name": "topic",
+                "type": "string"
+              },
+              {
+                "name": "handler",
+                "type": "EventHandler"
+              }
+            ],
+            "results": [
+              {
+                "type": "Subscriber"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Subscribe(specifier string, topic string, handler EventHandler) (Subscriber, error)",
+            "type_refs": [
+              {
+                "expr": "EventHandler",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.EventHandler",
+                "local": true
+              },
+              {
+                "expr": "Subscriber",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.Subscriber",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Unsubscribe",
+            "doc": "Unsubscribe cancels a subscription to an exposed event from another local IPC worker/yscript or the current worker/yscript.\nThe subscriber is the Subscriber object representing the subscription to cancel.",
+            "params": [
+              {
+                "name": "subscriber",
+                "type": "Subscriber"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Unsubscribe(subscriber Subscriber) error",
+            "type_refs": [
+              {
+                "expr": "Subscriber",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.Subscriber",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "VisionWorker",
+            "doc": "VisionWorker gets the vision capability worker interface.",
+            "params": [],
+            "results": [
+              {
+                "type": "component.VisionWorker"
+              }
+            ],
+            "signature": "VisionWorker() component.VisionWorker",
+            "type_refs": [
+              {
+                "expr": "component.VisionWorker",
+                "import_path": "yanlingrpa.com/yanling/protocol/component",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/component.VisionWorker"
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "EventHandler",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.EventHandler",
+            "local": true
+          },
+          {
+            "expr": "Subscriber",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.Subscriber",
+            "local": true
+          },
+          {
+            "expr": "any",
+            "builtin": true
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "browser.BrowserWindow",
+            "import_path": "yanlingrpa.com/yanling/protocol/browser",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/browser.BrowserWindow"
+          },
+          {
+            "expr": "component.OcrWorker",
+            "import_path": "yanlingrpa.com/yanling/protocol/component",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/component.OcrWorker"
+          },
+          {
+            "expr": "component.VisionWorker",
+            "import_path": "yanlingrpa.com/yanling/protocol/component",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/component.VisionWorker"
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "osgui.OSGuiWindow",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiWindow"
+          },
+          {
+            "expr": "ossys.DeviceInfo",
+            "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.DeviceInfo"
+          },
+          {
+            "expr": "ossys.HttpClient",
+            "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.HttpClient"
+          },
+          {
+            "expr": "ossys.LocalFilesystem",
+            "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.LocalFilesystem"
+          },
+          {
+            "expr": "ossys.LocalStorage",
+            "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.LocalStorage"
+          },
+          {
+            "expr": "ossys.ScriptLogger",
+            "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.ScriptLogger"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#ParseSpecifier",
+        "name": "ParseSpecifier",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.ParseSpecifier",
+        "kind": "function",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "ParseSpecifier parses a module specifier string.\nIt supports owner/name or domain/owner/name, optionally with @version.",
+        "signature": "ParseSpecifier(spec string) (Specifier, error)",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 515,
+          "column": 1
+        },
+        "params": [
+          {
+            "name": "spec",
+            "type": "string"
+          }
+        ],
+        "results": [
+          {
+            "type": "Specifier"
+          },
+          {
+            "type": "error"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Specifier",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.Specifier",
+            "local": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#ScriptVariable",
+        "name": "ScriptVariable",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.ScriptVariable",
+        "kind": "struct",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "ScriptVariable defines script variable configuration.",
+        "signature": "type ScriptVariable struct",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 257,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Abstract",
+            "type": "string",
+            "tag": "json:\"abstract\"",
+            "doc": "Abstract is the variable description.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Default",
+            "type": "string",
+            "tag": "json:\"default\"",
+            "doc": "Default is the default value of the variable.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "json:\"name\"",
+            "doc": "Name is the variable name.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Required",
+            "type": "bool",
+            "tag": "json:\"required\"",
+            "doc": "Required indicates whether the variable is required.",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Save",
+            "type": "bool",
+            "tag": "json:\"save\"",
+            "doc": "Save indicates whether to save the variable to project storage.",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Type",
+            "type": "VariableDataType",
+            "tag": "json:\"type\"",
+            "doc": "Type is the variable type, such as string, integer, boolean, or json.",
+            "type_refs": [
+              {
+                "expr": "VariableDataType",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+                "local": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+            "local": true
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#Specifier",
+        "name": "Specifier",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.Specifier",
+        "kind": "struct",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "Specifier defines module specification information.",
+        "signature": "type Specifier struct",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 366,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Domain",
+            "type": "string",
+            "tag": "json:\"domain\"",
+            "doc": "Domain is the source domain of the module, such as github.com.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "json:\"name\"",
+            "doc": "Name is the module name, such as utils.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Owner",
+            "type": "string",
+            "tag": "json:\"owner\"",
+            "doc": "Owner is the module owner, such as a GitHub username.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Version",
+            "type": "string",
+            "tag": "json:\"version\"",
+            "doc": "Version is the required module version, such as v1.2.3.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Identifier",
+            "doc": "Identifier returns the module identifier without version information.\nFormat: \"domain/owner/name\" or \"owner/name\".",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "Identifier() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "IsPseudoVersion",
+            "doc": "IsPseudoVersion checks whether the version of the current Specifier\nuses the Go pseudo-version format.\nGo pseudo-version format: v0.0.0-yyyymmddhhmmss-commithash.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "IsPseudoVersion() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ModulePath",
+            "doc": "ModulePath generates a module path based on the given root directory.\nIf the name part contains \"/\", it is joined as nested directories.",
+            "params": [
+              {
+                "name": "modPath",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "ModulePath(modPath string) string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "String",
+            "doc": "String returns the full module specifier string in the format\n\"domain/owner/name@version\" or \"owner/name@version\".\nIf the name part contains \"/\", it is also handled correctly,\nfor example \"domain/owner/name/subname@version\".",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#Subscriber",
+        "name": "Subscriber",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.Subscriber",
+        "kind": "interface",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "Subscriber defines event subscriber information.\nIt is used to identify subscription source, topic, and status.",
+        "signature": "type Subscriber interface",
+        "source": {
+          "file": "script/module_runtime.go",
+          "line": 16,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "GetSpecifier",
+            "doc": "GetSpecifier gets the module specifier that owns the topic.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetSpecifier() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetTopic",
+            "doc": "GetTopic gets the subscribed event topic.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetTopic() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "IsActive",
+            "doc": "IsActive indicates whether the subscription is still active.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "IsActive() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#UrlPermission",
+        "name": "UrlPermission",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.UrlPermission",
+        "kind": "struct",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "UrlPermission defines network access permissions.",
+        "signature": "type UrlPermission struct",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 348,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Abstract",
+            "type": "string",
+            "tag": "json:\"abstract\"",
+            "doc": "Abstract is the permission description.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Permission",
+            "type": "string",
+            "tag": "json:\"permission\"",
+            "doc": "Permission is the access permission, such as r, w, d, rw, or rwd.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Url",
+            "type": "string",
+            "tag": "json:\"url\"",
+            "doc": "Url is the URL pattern, supporting wildcard (*) and script variable ${var_name}.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#VariableBoolean",
+        "name": "VariableBoolean",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableBoolean",
+        "kind": "const",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "VariableBoolean boolean type.",
+        "signature": "const VariableBoolean VariableDataType = \"boolean\"",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 20,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "\"boolean\"",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#VariableDataType",
+        "name": "VariableDataType",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+        "kind": "named_type",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "VariableDataType defines data types for script variables.",
+        "signature": "type VariableDataType string",
+        "underlying_type": "string",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 14,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "Parse",
+            "doc": "Parse parses a string into a value of the corresponding data type.\nIf parsing fails, it returns the original string.",
+            "params": [
+              {
+                "name": "value",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "any"
+              }
+            ],
+            "signature": "Parse(value string) any",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ToString",
+            "doc": "ToString converts any value into the string representation of the corresponding type.\nIf conversion fails, it returns fmt.Sprintf(\"%v\", value).",
+            "params": [
+              {
+                "name": "value",
+                "type": "any"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "ToString(value any) string",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "any",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#VariableFilePath",
+        "name": "VariableFilePath",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableFilePath",
+        "kind": "const",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "VariableFilePath file path type.",
+        "signature": "const VariableFilePath VariableDataType = \"filepath\"",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 28,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "\"filepath\"",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#VariableInteger",
+        "name": "VariableInteger",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableInteger",
+        "kind": "const",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "VariableInteger integer type.",
+        "signature": "const VariableInteger VariableDataType = \"integer\"",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 32,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "\"integer\"",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#VariableJson",
+        "name": "VariableJson",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableJson",
+        "kind": "const",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "VariableJson JSON object type.",
+        "signature": "const VariableJson VariableDataType = \"json\"",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 40,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "\"json\"",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#VariableNumber",
+        "name": "VariableNumber",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableNumber",
+        "kind": "const",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "VariableNumber floating-point number type.",
+        "signature": "const VariableNumber VariableDataType = \"number\"",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 36,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "\"number\"",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#VariableString",
+        "name": "VariableString",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableString",
+        "kind": "const",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "VariableString string type.",
+        "signature": "const VariableString VariableDataType = \"string\"",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 24,
+          "column": 2
+        },
+        "const_type": "VariableDataType",
+        "const_value": "\"string\"",
+        "type_refs": [
+          {
+            "expr": "VariableDataType",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.VariableDataType",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#WebApplication",
+        "name": "WebApplication",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.WebApplication",
+        "kind": "struct",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "WebApplication defines browser application configuration.",
+        "signature": "type WebApplication struct",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 155,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Args",
+            "type": "[]string",
+            "tag": "json:\"args,omitempty\"",
+            "doc": "Args is a list of additional browser command-line arguments, for example [\"--proxy-server=localhost:8080\", \"--disable-plugins\"].",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "BrowserType",
+            "type": "string",
+            "tag": "json:\"browser_type,omitempty\"",
+            "doc": "BrowserType is the browser type to use, for example \"chrome\", \"firefox\", \"edge\", \"safari\".\nIf empty, defaults to system default browser.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Id",
+            "type": "string",
+            "tag": "json:\"id\"",
+            "doc": "Id is the unique identifier of the browser application.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Incognito",
+            "type": "bool",
+            "tag": "json:\"incognito,omitempty\"",
+            "doc": "Incognito indicates whether to open the browser in private/incognito mode.",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "LoadTimeout",
+            "type": "int",
+            "tag": "json:\"load_timeout,omitempty\"",
+            "doc": "LoadTimeout is the timeout in milliseconds for page loading.\nIf 0, no timeout limit is applied.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "tag": "json:\"name\"",
+            "doc": "Name is the browser application name.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Url",
+            "type": "string",
+            "tag": "json:\"url\"",
+            "doc": "Url is the browser application URL to open, for example https://www.google.com.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "UserDataDir",
+            "type": "string",
+            "tag": "json:\"user_data_dir,omitempty\"",
+            "doc": "UserDataDir is the custom user data directory for the browser profile.\nIf empty, uses the default profile directory.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitTime",
+            "type": "int",
+            "tag": "json:\"wait_time,omitempty\"",
+            "doc": "WaitTime is the wait time in milliseconds after opening the URL before returning.\nUseful for allowing the page to fully load.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WindowHeight",
+            "type": "int",
+            "tag": "json:\"window_height,omitempty\"",
+            "doc": "WindowHeight is the preferred window height in pixels. If 0, uses default.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WindowWidth",
+            "type": "int",
+            "tag": "json:\"window_width,omitempty\"",
+            "doc": "WindowWidth is the preferred window width in pixels. If 0, uses default.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/script#YScript",
+        "name": "YScript",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/script.YScript",
+        "kind": "struct",
+        "package": "script",
+        "import_path": "yanlingrpa.com/yanling/protocol/script",
+        "doc": "YScript defines the top-level script configuration structure.",
+        "signature": "type YScript struct",
+        "source": {
+          "file": "script/yanling_script.go",
+          "line": 579,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "ApiPermissions",
+            "type": "[]UrlPermission",
+            "tag": "json:\"api_permissions\"",
+            "doc": "ApiPermissions is the list of network API permissions.",
+            "type_refs": [
+              {
+                "expr": "UrlPermission",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.UrlPermission",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "FilePermissions",
+            "type": "[]UrlPermission",
+            "tag": "json:\"file_permissions\"",
+            "doc": "FilePermissions is the list of filesystem permissions.",
+            "type_refs": [
+              {
+                "expr": "UrlPermission",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.UrlPermission",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GuiApps",
+            "type": "[]GuiApplication",
+            "tag": "json:\"gui_apps\"",
+            "doc": "GuiApps is the list of GUI applications to operate.",
+            "type_refs": [
+              {
+                "expr": "GuiApplication",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.GuiApplication",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "MobileApps",
+            "type": "[]MobileApplication",
+            "tag": "json:\"mobile_apps\"",
+            "doc": "MobileApps is the list of mobile applications to operate.",
+            "type_refs": [
+              {
+                "expr": "MobileApplication",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.MobileApplication",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "Module",
+            "type": "ModuleInfo",
+            "tag": "json:\"module\"",
+            "doc": "Module is the basic script module information.",
+            "type_refs": [
+              {
+                "expr": "ModuleInfo",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleInfo",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "ScriptDependencies",
+            "type": "[]string",
+            "tag": "json:\"script_dependencies\"",
+            "doc": "ScriptDependencies is the list of script module specifiers imported by this script project.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Variables",
+            "type": "[]ScriptVariable",
+            "tag": "json:\"variables\"",
+            "doc": "Variables is the list of global script variable definitions.",
+            "type_refs": [
+              {
+                "expr": "ScriptVariable",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.ScriptVariable",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "WebApps",
+            "type": "[]WebApplication",
+            "tag": "json:\"web_apps\"",
+            "doc": "WebApps is the list of web applications to operate.",
+            "type_refs": [
+              {
+                "expr": "WebApplication",
+                "import_path": "yanlingrpa.com/yanling/protocol/script",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/script.WebApplication",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "WorkerDependencies",
+            "type": "[]string",
+            "tag": "json:\"worker_dependencies\"",
+            "doc": "WorkerDependencies is the list of IPC service dependencies.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "GuiApplication",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.GuiApplication",
+            "local": true
+          },
+          {
+            "expr": "MobileApplication",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.MobileApplication",
+            "local": true
+          },
+          {
+            "expr": "ModuleInfo",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleInfo",
+            "local": true
+          },
+          {
+            "expr": "ScriptVariable",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.ScriptVariable",
+            "local": true
+          },
+          {
+            "expr": "UrlPermission",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.UrlPermission",
+            "local": true
+          },
+          {
+            "expr": "WebApplication",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.WebApplication",
+            "local": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      }
+    ]
+  }
+}

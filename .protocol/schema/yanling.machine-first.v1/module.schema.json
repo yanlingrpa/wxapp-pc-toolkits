@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "yanling.machine-first/v1 module.json",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "module", "counts", "files", "packages"],
+  "properties": {
+    "schema_version": {
+      "const": "yanling.machine-first/v1"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "module": {
+      "type": "string",
+      "minLength": 1
+    },
+    "counts": {
+      "$ref": "./symbols.schema.json#/$defs/CountsDoc"
+    },
+    "files": {
+      "type": "object",
+      "required": ["symbol_index", "package_dir"],
+      "properties": {
+        "symbol_index": { "type": "string" },
+        "package_dir": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "import_path", "directory", "counts", "package_file"],
+        "properties": {
+          "name": { "type": "string" },
+          "import_path": { "type": "string" },
+          "directory": { "type": "string" },
+          "doc": { "type": "string" },
+          "counts": { "$ref": "./symbols.schema.json#/$defs/CountsDoc" },
+          "package_file": { "type": "string" },
+          "dependencies": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

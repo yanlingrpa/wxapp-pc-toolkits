@@ -1,0 +1,1098 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "package": {
+    "name": "basic",
+    "import_path": "yanlingrpa.com/yanling/protocol/basic",
+    "directory": "/basic",
+    "files": [
+      "basic/basic_data_struct.go",
+      "basic/basic_rect_struct.go"
+    ],
+    "imports": [
+      {
+        "path": "sort",
+        "aliases": [
+          "sort"
+        ]
+      }
+    ],
+    "counts": {
+      "symbols": 11,
+      "structs": 6,
+      "functions": 5,
+      "methods": 20
+    },
+    "symbols": [
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#FPoint",
+        "name": "FPoint",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.FPoint",
+        "kind": "struct",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "FPoint represents a 2D floating-point coordinate point.",
+        "signature": "type FPoint struct",
+        "source": {
+          "file": "basic/basic_data_struct.go",
+          "line": 20,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "X",
+            "type": "float64",
+            "tag": "json:\"x\"",
+            "doc": "X coordinate of the element, in pixels.",
+            "type_refs": [
+              {
+                "expr": "float64",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Y",
+            "type": "float64",
+            "tag": "json:\"y\"",
+            "doc": "Y coordinate of the element, in pixels.",
+            "type_refs": [
+              {
+                "expr": "float64",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "float64",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#MaxAreaRect",
+        "name": "MaxAreaRect",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MaxAreaRect",
+        "kind": "function",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "MaxAreaRect returns the rectangle with the largest area.",
+        "signature": "MaxAreaRect(rectangles []Rect) Rect",
+        "source": {
+          "file": "basic/basic_rect_struct.go",
+          "line": 365,
+          "column": 1
+        },
+        "params": [
+          {
+            "name": "rectangles",
+            "type": "[]Rect"
+          }
+        ],
+        "results": [
+          {
+            "type": "Rect"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#MergeAllRectangles",
+        "name": "MergeAllRectangles",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MergeAllRectangles",
+        "kind": "function",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "MergeAllRectangles merges all rectangles into the smallest rectangle containing all of them.",
+        "signature": "MergeAllRectangles(rectangles []Rect) Rect",
+        "source": {
+          "file": "basic/basic_rect_struct.go",
+          "line": 332,
+          "column": 1
+        },
+        "params": [
+          {
+            "name": "rectangles",
+            "type": "[]Rect"
+          }
+        ],
+        "results": [
+          {
+            "type": "Rect"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#MergeGroupRectangles",
+        "name": "MergeGroupRectangles",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MergeGroupRectangles",
+        "kind": "function",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "MergeGroupRectangles merges rectangles from multiple groups in all possible combinations.\nIt returns all possible merged results, sorted by area from small to large.",
+        "signature": "MergeGroupRectangles(groupRects ...[]Rect) []Rect",
+        "source": {
+          "file": "basic/basic_rect_struct.go",
+          "line": 385,
+          "column": 1
+        },
+        "params": [
+          {
+            "name": "groupRects",
+            "type": "...[]Rect"
+          }
+        ],
+        "results": [
+          {
+            "type": "[]Rect"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#MergeOverlappingRectangles",
+        "name": "MergeOverlappingRectangles",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MergeOverlappingRectangles",
+        "kind": "function",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "MergeOverlappingRectangles merges overlapping rectangles.",
+        "signature": "MergeOverlappingRectangles(rectangles []Rect) []Rect",
+        "source": {
+          "file": "basic/basic_rect_struct.go",
+          "line": 308,
+          "column": 1
+        },
+        "params": [
+          {
+            "name": "rectangles",
+            "type": "[]Rect"
+          }
+        ],
+        "results": [
+          {
+            "type": "[]Rect"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#MinAreaRect",
+        "name": "MinAreaRect",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.MinAreaRect",
+        "kind": "function",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "MinAreaRect returns the rectangle with the smallest area.",
+        "signature": "MinAreaRect(rectangles []Rect) Rect",
+        "source": {
+          "file": "basic/basic_rect_struct.go",
+          "line": 346,
+          "column": 1
+        },
+        "params": [
+          {
+            "name": "rectangles",
+            "type": "[]Rect"
+          }
+        ],
+        "results": [
+          {
+            "type": "Rect"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#OcrResult",
+        "name": "OcrResult",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrResult",
+        "kind": "struct",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "OcrResult represents the OCR recognition result of the entire image.",
+        "signature": "type OcrResult struct",
+        "source": {
+          "file": "basic/basic_data_struct.go",
+          "line": 73,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Height",
+            "type": "int",
+            "tag": "json:\"height\"",
+            "doc": "Height is the image height.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Texts",
+            "type": "[]OcrText",
+            "tag": "json:\"texts\"",
+            "doc": "Texts is the list of recognized text items.",
+            "type_refs": [
+              {
+                "expr": "OcrText",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrText",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "Width",
+            "type": "int",
+            "tag": "json:\"width\"",
+            "doc": "Width is the image width.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "OcrText",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrText",
+            "local": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#OcrText",
+        "name": "OcrText",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrText",
+        "kind": "struct",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "OcrText represents a single OCR text recognition result.",
+        "signature": "type OcrText struct",
+        "source": {
+          "file": "basic/basic_data_struct.go",
+          "line": 55,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Confidence",
+            "type": "float64",
+            "tag": "json:\"confidence\"",
+            "doc": "Confidence is the recognition confidence score.",
+            "type_refs": [
+              {
+                "expr": "float64",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Rect",
+            "type": "Rect",
+            "tag": "json:\"rect\"",
+            "doc": "Rect is the rectangular area where the text is located.",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "Text",
+            "type": "string",
+            "tag": "json:\"text\"",
+            "doc": "Text is the recognized text content.",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+            "local": true
+          },
+          {
+            "expr": "float64",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#Point",
+        "name": "Point",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point",
+        "kind": "struct",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "Point represents a 2D integer coordinate point.",
+        "signature": "type Point struct",
+        "source": {
+          "file": "basic/basic_data_struct.go",
+          "line": 6,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "X",
+            "type": "int",
+            "tag": "json:\"x\"",
+            "doc": "X is the horizontal coordinate.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Y",
+            "type": "int",
+            "tag": "json:\"y\"",
+            "doc": "Y is the vertical coordinate.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "int",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#Rect",
+        "name": "Rect",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+        "kind": "struct",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "Rect represents a rectangular region, defined by the top-left coordinate and width/height.",
+        "signature": "type Rect struct",
+        "source": {
+          "file": "basic/basic_rect_struct.go",
+          "line": 8,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Height",
+            "type": "int",
+            "tag": "json:\"height\"",
+            "doc": "Height represents the rectangle height.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Width",
+            "type": "int",
+            "tag": "json:\"width\"",
+            "doc": "Width represents the rectangle width.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "X",
+            "type": "int",
+            "tag": "json:\"x\"",
+            "doc": "X is the X coordinate of the rectangle's top-left corner.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Y",
+            "type": "int",
+            "tag": "json:\"y\"",
+            "doc": "Y is the Y coordinate of the rectangle's top-left corner.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "CenterPoint",
+            "doc": "CenterPoint returns the center point of the rectangle.",
+            "params": [],
+            "results": [
+              {
+                "type": "Point"
+              }
+            ],
+            "signature": "CenterPoint() Point",
+            "type_refs": [
+              {
+                "expr": "Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "Compare",
+            "doc": "Compare compares two rectangles and returns -1 for less than, 0 for equal, and 1 for greater than.\nComparison priority: area \u003e X coordinate \u003e Y coordinate \u003e width \u003e height.",
+            "params": [
+              {
+                "name": "another",
+                "type": "Rect"
+              }
+            ],
+            "results": [
+              {
+                "type": "int"
+              }
+            ],
+            "signature": "Compare(another Rect) int",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Contains",
+            "doc": "Contains checks whether point (x, y) lies inside the rectangle.",
+            "params": [
+              {
+                "name": "x",
+                "type": "int"
+              },
+              {
+                "name": "y",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "Contains(x int, y int) bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ContainsPoint",
+            "doc": "ContainsPoint checks whether point p lies inside the rectangle.",
+            "params": [
+              {
+                "name": "p",
+                "type": "Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "ContainsPoint(p Point) bool",
+            "type_refs": [
+              {
+                "expr": "Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point",
+                "local": true
+              },
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "FooterPercent",
+            "doc": "FooterPercent keeps a given percentage of height from the bottom and returns that rectangle.",
+            "params": [
+              {
+                "name": "percent",
+                "type": "float32"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "FooterPercent(percent float32) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "float32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "FooterPixel",
+            "doc": "FooterPixel keeps a given pixel height from the bottom and returns that rectangle.",
+            "params": [
+              {
+                "name": "pixel",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "FooterPixel(pixel int) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "HeaderPercent",
+            "doc": "HeaderPercent keeps a given percentage of height from the top and returns that rectangle.",
+            "params": [
+              {
+                "name": "percent",
+                "type": "float32"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "HeaderPercent(percent float32) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "float32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "HeaderPixel",
+            "doc": "HeaderPixel keeps a given pixel height from the top and returns that rectangle.",
+            "params": [
+              {
+                "name": "pixel",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "HeaderPixel(pixel int) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Intersect",
+            "doc": "Intersect computes the intersection of two rectangles.",
+            "params": [
+              {
+                "name": "another",
+                "type": "Rect"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "Intersect(another Rect) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "IsEmpty",
+            "doc": "IsEmpty checks whether the rectangle is empty (width or height is 0 or negative).",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "IsEmpty() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "IsOverlapping",
+            "doc": "IsOverlapping checks whether two rectangles overlap.",
+            "params": [
+              {
+                "name": "another",
+                "type": "Rect"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "IsOverlapping(another Rect) bool",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "LeftPercent",
+            "doc": "LeftPercent keeps a given percentage of width from the left side and returns that rectangle.",
+            "params": [
+              {
+                "name": "percent",
+                "type": "float32"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "LeftPercent(percent float32) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "float32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "LeftPixel",
+            "doc": "LeftPixel keeps a given pixel width from the left side and returns that rectangle.",
+            "params": [
+              {
+                "name": "pixel",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "LeftPixel(pixel int) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Merge",
+            "doc": "Merge combines two rectangles into the smallest rectangle containing both.",
+            "params": [
+              {
+                "name": "another",
+                "type": "Rect"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "Merge(another Rect) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "Position",
+            "doc": "Position returns the top-left position of the rectangle.",
+            "params": [],
+            "results": [
+              {
+                "type": "Point"
+              }
+            ],
+            "signature": "Position() Point",
+            "type_refs": [
+              {
+                "expr": "Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "RightPercent",
+            "doc": "RightPercent keeps a given percentage of width from the right side and returns that rectangle.",
+            "params": [
+              {
+                "name": "percent",
+                "type": "float32"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "RightPercent(percent float32) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "float32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "RightPixel",
+            "doc": "RightPixel keeps a given pixel width from the right side and returns that rectangle.",
+            "params": [
+              {
+                "name": "pixel",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "RightPixel(pixel int) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Size",
+            "doc": "Size returns the width and height of the rectangle.",
+            "params": [],
+            "results": [
+              {
+                "type": "Size"
+              }
+            ],
+            "signature": "Size() Size",
+            "type_refs": [
+              {
+                "expr": "Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "SubRect",
+            "doc": "SubRect extracts a sub-rectangle from within the rectangle using relative position and size.\nIt automatically checks boundaries to prevent out-of-range values.",
+            "params": [
+              {
+                "name": "x",
+                "type": "int"
+              },
+              {
+                "name": "y",
+                "type": "int"
+              },
+              {
+                "name": "width",
+                "type": "int"
+              },
+              {
+                "name": "height",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "Rect"
+              }
+            ],
+            "signature": "SubRect(x int, y int, width int, height int) Rect",
+            "type_refs": [
+              {
+                "expr": "Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+                "local": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Point",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point",
+            "local": true
+          },
+          {
+            "expr": "Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect",
+            "local": true
+          },
+          {
+            "expr": "Size",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size",
+            "local": true
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "float32",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/basic#Size",
+        "name": "Size",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size",
+        "kind": "struct",
+        "package": "basic",
+        "import_path": "yanlingrpa.com/yanling/protocol/basic",
+        "doc": "Size represents width and height.",
+        "signature": "type Size struct",
+        "source": {
+          "file": "basic/basic_data_struct.go",
+          "line": 34,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Height",
+            "type": "int",
+            "tag": "json:\"height\"",
+            "doc": "Height represents the height.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Width",
+            "type": "int",
+            "tag": "json:\"width\"",
+            "doc": "Width represents the width.",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "name": "Area",
+            "doc": "Area returns the area of the size.",
+            "params": [],
+            "results": [
+              {
+                "type": "int"
+              }
+            ],
+            "signature": "Area() int",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "int",
+            "builtin": true
+          }
+        ]
+      }
+    ]
+  }
+}

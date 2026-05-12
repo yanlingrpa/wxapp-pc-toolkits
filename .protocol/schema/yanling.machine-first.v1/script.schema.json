@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "yanling.machine-first/v1/script.schema.json",
+  "title": "yanling.machine-first/v1 script.json",
+  "description": "Schema for the script.json configuration file of a YanLing RPA script module.",
+  "type": "object",
+  "required": ["module"],
+  "properties": {
+    "module": {
+      "$ref": "#/$defs/ModuleInfo"
+    },
+    "gui_apps": {
+      "type": "array",
+      "description": "List of GUI applications to operate.",
+      "items": { "$ref": "#/$defs/GuiApplication" }
+    },
+    "web_apps": {
+      "type": "array",
+      "description": "List of web applications to operate.",
+      "items": { "$ref": "#/$defs/WebApplication" }
+    },
+    "mobile_apps": {
+      "type": "array",
+      "description": "List of mobile applications to operate.",
+      "items": { "$ref": "#/$defs/MobileApplication" }
+    },
+    "variables": {
+      "type": "array",
+      "description": "List of global script variable definitions.",
+      "items": { "$ref": "#/$defs/ScriptVariable" }
+    },
+    "file_permissions": {
+      "type": "array",
+      "description": "List of filesystem access permissions.",
+      "items": { "$ref": "#/$defs/UrlPermission" }
+    },
+    "api_permissions": {
+      "type": "array",
+      "description": "List of network API access permissions.",
+      "items": { "$ref": "#/$defs/UrlPermission" }
+    },
+    "worker_dependencies": {
+      "type": "array",
+      "description": "List of worker dependencies required by the script.",
+      "items": { "type": "string" }
+    },
+    "script_dependencies": {
+      "type": "array",
+      "description": "List of script module specifiers imported by this script project.",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ModuleInfo": {
+      "type": "object",
+      "description": "Script module metadata.",
+      "required": ["specifier", "package"],
+      "properties": {
+        "specifier": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Module identifier including domain, owner, name, and version, parsed from the go.mod file."
+        },
+        "package": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Script package name. Only scripts under this package can be imported and called."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of script functionality and usage."
+        },
+        "tags": {
+          "type": "array",
+          "description": "List of script topic tags, for example [\"web automation\", \"data extraction\"].",
+          "items": { "type": "string" }
+        },
+        "website": {
+          "type": "string",
+          "format": "uri",
+          "description": "Official website of the script."
+        },
+        "update_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update time (last commit time), formatted as RFC3339."
+        },
+        "author": {
+          "type": "string",
+          "description": "Script author."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Contact email address."
+        },
+        "license": {
+          "type": "string",
+          "description": "License, based on the LICENSE file or declaration."
+        },
+        "devices": {
+          "type": "array",
+          "description": "List of applicable devices, for example [\"windows\", \"mac\", \"ubuntu\"].",
+          "items": { "type": "string" }
+        },
+        "engine_version": {
+          "type": "string",
+          "description": "Required engine version."
+        }
+      },
+      "additionalProperties": false
+    },
+    "GuiApplication": {
+      "type": "object",
+      "description": "GUI application configuration.",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique identifier of the GUI application."
+        },
+        "name": {
+          "type": "string",
+          "description": "GUI application name."
+        },
+        "launcher": {
+          "type": "string",
+          "description": "Launcher command or executable path, for example C:\\Program Files\\App\\app.exe or /usr/bin/app."
+        },
+        "args": {
+          "type": "array",
+          "description": "Command-line arguments passed to the launcher, for example [\"--headless\", \"--no-sandbox\"].",
+          "items": { "type": "string" }
+        },
+        "work_dir": {
+          "type": "string",
+          "description": "Working directory for the launched application. If empty, defaults to the directory of the launcher executable."
+        },
+        "env": {
+          "type": "array",
+          "description": "List of environment variables in the format KEY=VALUE, for example [\"PATH=/usr/bin\", \"DEBUG=1\"].",
+          "items": { "type": "string" }
+        },
+        "process": {
+          "type": "string",
+          "description": "Process name associated with the GUI window, used for window detection and management."
+        },
+        "launch_uri": {
+          "type": "string",
+          "description": "URI used to open the GUI window, for example weixin://launchapplet?appid=xxxx. If provided, the application will be launched and this URI will be opened."
+        },
+        "timeout": {
+          "type": "integer",
+          "description": "Timeout in milliseconds for launching the application. If 0, no timeout limit is applied."
+        },
+        "wait_time": {
+          "type": "integer",
+          "description": "Wait time in milliseconds after launching the application before returning. Useful for allowing the GUI to fully initialize."
+        },
+        "window_width": {
+          "type": "integer",
+          "description": "Preferred window width in pixels. If 0, uses default."
+        },
+        "window_height": {
+          "type": "integer",
+          "description": "Preferred window height in pixels. If 0, uses default."
+        }
+      },
+      "additionalProperties": false
+    },
+    "WebApplication": {
+      "type": "object",
+      "description": "Browser application configuration.",
+      "required": ["id", "url"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique identifier of the browser application."
+        },
+        "name": {
+          "type": "string",
+          "description": "Browser application name."
+        },
+        "browser_type": {
+          "type": "string",
+          "description": "Browser type to use, for example \"chrome\", \"firefox\", \"edge\", \"safari\". If empty, defaults to system default browser."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Browser application URL to open, for example https://www.google.com."
+        },
+        "incognito": {
+          "type": "boolean",
+          "description": "Whether to open the browser in private/incognito mode."
+        },
+        "args": {
+          "type": "array",
+          "description": "List of additional browser command-line arguments, for example [\"--proxy-server=localhost:8080\", \"--disable-plugins\"].",
+          "items": { "type": "string" }
+        },
+        "user_data_dir": {
+          "type": "string",
+          "description": "Custom user data directory for the browser profile. If empty, uses the default profile directory."
+        },
+        "load_timeout": {
+          "type": "integer",
+          "description": "Timeout in milliseconds for page loading. If 0, no timeout limit is applied."
+        },
+        "wait_time": {
+          "type": "integer",
+          "description": "Wait time in milliseconds after opening the URL before returning. Useful for allowing the page to fully load."
+        },
+        "window_width": {
+          "type": "integer",
+          "description": "Preferred window width in pixels. If 0, uses default."
+        },
+        "window_height": {
+          "type": "integer",
+          "description": "Preferred window height in pixels. If 0, uses default."
+        }
+      },
+      "additionalProperties": false
+    },
+    "MobileApplication": {
+      "type": "object",
+      "description": "Mobile application configuration for Android/iOS devices.",
+      "required": ["id", "package"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique identifier of the mobile application."
+        },
+        "name": {
+          "type": "string",
+          "description": "Mobile application name."
+        },
+        "package": {
+          "type": "string",
+          "description": "Application package name, for example com.example.app."
+        },
+        "activity": {
+          "type": "string",
+          "description": "Activity class name to launch, for example .MainActivity. Used with package to form the component for adb command: adb shell am start -n package/activity."
+        },
+        "action": {
+          "type": "string",
+          "description": "Intent action, for example android.intent.action.MAIN or android.intent.action.VIEW. If empty, defaults to android.intent.action.MAIN."
+        },
+        "flags": {
+          "type": "string",
+          "description": "Intent flags as a comma-separated list, for example \"FLAG_ACTIVITY_NEW_TASK,FLAG_ACTIVITY_CLEAR_TOP\". These are passed to adb with --flags parameter."
+        },
+        "extras": {
+          "type": "string",
+          "description": "JSON object containing Intent extras (key-value pairs). For example: {\"key1\": \"value1\", \"key2\": \"value2\"}."
+        },
+        "timeout": {
+          "type": "integer",
+          "description": "Timeout in milliseconds for starting the application. If 0, no timeout limit is applied."
+        },
+        "wait_time": {
+          "type": "integer",
+          "description": "Wait time in milliseconds after launching the application before returning. Useful for allowing the app to fully initialize."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ScriptVariable": {
+      "type": "object",
+      "description": "Script variable configuration.",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Variable name."
+        },
+        "abstract": {
+          "type": "string",
+          "description": "Variable description."
+        },
+        "type": {
+          "$ref": "#/$defs/VariableDataType"
+        },
+        "default": {
+          "type": "string",
+          "description": "Default value of the variable."
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Whether the variable is required.",
+          "default": false
+        },
+        "save": {
+          "type": "boolean",
+          "description": "Whether to save the variable to project storage.",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "VariableDataType": {
+      "type": "string",
+      "description": "Data type of a script variable.",
+      "enum": ["boolean", "string", "filepath", "integer", "number", "json"]
+    },
+    "UrlPermission": {
+      "type": "object",
+      "description": "URL-based access permission entry.",
+      "required": ["url", "permission"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "minLength": 1,
+          "description": "URL pattern, supporting wildcard (*) and script variable ${var_name}."
+        },
+        "permission": {
+          "type": "string",
+          "description": "Access permission, such as r, w, d, rw, or rwd.",
+          "pattern": "^[rwd]+$"
+        },
+        "abstract": {
+          "type": "string",
+          "description": "Permission description."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

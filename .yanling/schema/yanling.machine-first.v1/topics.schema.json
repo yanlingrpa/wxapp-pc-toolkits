@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "yanling.machine-first/v1/topics.schema.json",
+  "title": "yanling.machine-first/v1 topics.json",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "module", "topics"],
+  "properties": {
+    "schema_version": {
+      "const": "yanling.machine-first/v1"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "module": {
+      "type": "string",
+      "minLength": 1
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/TopicDoc"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "TopicDoc": {
+      "type": "object",
+      "required": ["name", "payload"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Topic name used by Publish/Subscribe."
+        },
+        "doc": {
+          "type": "string",
+          "description": "Human-readable description of the topic."
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["publish", "subscribe", "bidirectional"],
+          "description": "Whether this module publishes, subscribes to, or both publishes and subscribes to the topic."
+        },
+        "go_struct_name": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Za-z0-9_]*$",
+          "description": "Optional Go struct name to use for the topic payload. If omitted, generators may derive one from the topic name."
+        },
+        "payload": {
+          "$ref": "#/$defs/TopicPayloadSchemaDoc"
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Example payload values."
+        },
+        "deprecated": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TopicPayloadSchemaDoc": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/FieldSchemaDoc"
+        },
+        {
+          "type": "object",
+          "required": ["type", "properties"],
+          "properties": {
+            "type": {
+              "const": "object"
+            },
+            "properties": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/FieldSchemaDoc"
+              }
+            },
+            "required": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "additionalProperties": {
+              "const": false
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PayloadSchemaDoc": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["object", "array", "string", "number", "integer", "boolean", "null"]
+        },
+        "description": {
+          "type": "string"
+        },
+        "nullable": {
+          "type": "boolean",
+          "description": "Whether the field may be null. When true, generators may map it to a pointer or nullable helper type in Go.",
+          "default": false
+        },
+        "go_type_hint": {
+          "type": "string",
+          "description": "Optional Go type hint for code generation, for example time.Time or json.RawMessage."
+        },
+        "go_field_name": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Za-z0-9_]*$",
+          "description": "Optional Go field name override for this property."
+        },
+        "required": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/FieldSchemaDoc"
+          }
+        },
+        "items": {
+          "$ref": "#/$defs/FieldSchemaDoc"
+        },
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "object" }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["properties"],
+            "properties": {
+              "properties": {
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": {
+                  "$ref": "#/$defs/FieldSchemaDoc"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "array" }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["items"]
+          }
+        }
+      ]
+    },
+    "FieldSchemaDoc": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["object", "array", "string", "number", "integer", "boolean", "null"]
+        },
+        "description": {
+          "type": "string"
+        },
+        "nullable": {
+          "type": "boolean",
+          "description": "Whether the field may be null. When true, generators may map it to a pointer or nullable helper type in Go.",
+          "default": false
+        },
+        "go_type_hint": {
+          "type": "string",
+          "description": "Optional Go type hint for code generation, for example time.Time or json.RawMessage."
+        },
+        "go_field_name": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Za-z0-9_]*$",
+          "description": "Optional Go field name override for this property."
+        },
+        "enum": {
+          "type": "array",
+          "items": true
+        },
+        "format": {
+          "type": "string"
+        },
+        "required": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/FieldSchemaDoc"
+          }
+        },
+        "items": {
+          "$ref": "#/$defs/FieldSchemaDoc"
+        },
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "object" }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["properties"],
+            "properties": {
+              "properties": {
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": {
+                  "$ref": "#/$defs/FieldSchemaDoc"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "array" }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["items"]
+          }
+        }
+      ]
+    }
+  }
+}

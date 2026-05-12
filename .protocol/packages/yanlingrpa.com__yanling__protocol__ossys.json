@@ -1,0 +1,1635 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "package": {
+    "name": "ossys",
+    "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+    "directory": "/ossys",
+    "files": [
+      "ossys/device_info.go",
+      "ossys/http_client.go",
+      "ossys/local_filesystem.go",
+      "ossys/local_storage.go",
+      "ossys/monitor_info.go",
+      "ossys/script_logger.go"
+    ],
+    "imports": [
+      {
+        "path": "time",
+        "aliases": [
+          "time"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/basic",
+        "aliases": [
+          "basic"
+        ]
+      }
+    ],
+    "dependencies": [
+      "time",
+      "yanlingrpa.com/yanling/protocol/basic"
+    ],
+    "counts": {
+      "symbols": 6,
+      "interfaces": 6,
+      "methods": 52
+    },
+    "symbols": [
+      {
+        "id": "yanlingrpa.com/yanling/protocol/ossys#DeviceInfo",
+        "name": "DeviceInfo",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.DeviceInfo",
+        "kind": "interface",
+        "package": "ossys",
+        "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+        "doc": "DeviceInfo defines capabilities for querying device information.\nThis interface is used to retrieve information related to the OS, hardware, user, and monitors.",
+        "signature": "type DeviceInfo interface",
+        "source": {
+          "file": "ossys/device_info.go",
+          "line": 7,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "DeviceId",
+            "doc": "DeviceId gets the unique device identifier.\nThe return value can be used to distinguish device identity.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "DeviceId() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "DeviceName",
+            "doc": "DeviceName gets the device name.\nThe return value is usually the device name configured in system settings.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "DeviceName() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetComputerName",
+            "doc": "GetComputerName gets the computer name.\nThe return value is the hostname or system computer name.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetComputerName() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetGpuMemoryMB",
+            "doc": "GetGpuMemoryMB gets GPU memory size.\nThe return value is in MB.",
+            "params": [],
+            "results": [
+              {
+                "type": "int"
+              }
+            ],
+            "signature": "GetGpuMemoryMB() int",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetMonitors",
+            "doc": "GetMonitors gets information for all monitors.\nThe return value is a list of monitor information.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]MonitorInfo"
+              }
+            ],
+            "signature": "GetMonitors() []MonitorInfo",
+            "type_refs": [
+              {
+                "expr": "MonitorInfo",
+                "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.MonitorInfo",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GetPrimaryMonitor",
+            "doc": "GetPrimaryMonitor gets information for the primary monitor.\nThe return value is the current system primary monitor.",
+            "params": [],
+            "results": [
+              {
+                "type": "MonitorInfo"
+              }
+            ],
+            "signature": "GetPrimaryMonitor() MonitorInfo",
+            "type_refs": [
+              {
+                "expr": "MonitorInfo",
+                "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.MonitorInfo",
+                "local": true
+              }
+            ]
+          },
+          {
+            "name": "GetUserName",
+            "doc": "GetUserName gets the current user name.\nThe return value is the name of the currently logged-in account.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetUserName() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "HasNvidiaGPU",
+            "doc": "HasNvidiaGPU checks whether an Nvidia GPU exists.\nReturns true if an Nvidia graphics card is detected.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "HasNvidiaGPU() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "NumLogicCPU",
+            "doc": "NumLogicCPU gets the number of logical CPU cores.\nThe return value is the number of logical processors.",
+            "params": [],
+            "results": [
+              {
+                "type": "int"
+              }
+            ],
+            "signature": "NumLogicCPU() int",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "OS",
+            "doc": "OS gets the operating system name.\nExample return values: Windows, Linux, Darwin.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "OS() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "OSVersion",
+            "doc": "OSVersion gets the operating system version.\nThe return value is usually a system version string.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "OSVersion() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "MonitorInfo",
+            "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.MonitorInfo",
+            "local": true
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/ossys#HttpClient",
+        "name": "HttpClient",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.HttpClient",
+        "kind": "interface",
+        "package": "ossys",
+        "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+        "doc": "HttpClient defines capabilities for HTTP requests and domain-level configuration.\nThis interface supports cookie/header management and common request/upload/download operations.",
+        "signature": "type HttpClient interface",
+        "source": {
+          "file": "ossys/http_client.go",
+          "line": 7,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "DeleteDomainCookie",
+            "doc": "DeleteDomainCookie deletes cookies under the specified domain.\nMultiple cookie names can be deleted at once.",
+            "params": [
+              {
+                "name": "domain",
+                "type": "string"
+              },
+              {
+                "name": "cookieNames",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "DeleteDomainCookie(domain string, cookieNames ...string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "DeleteDomainHeader",
+            "doc": "DeleteDomainHeader deletes headers under the specified domain.\nMultiple header names can be deleted at once.",
+            "params": [
+              {
+                "name": "domain",
+                "type": "string"
+              },
+              {
+                "name": "headerNames",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "DeleteDomainHeader(domain string, headerNames ...string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "DownloadFile",
+            "doc": "DownloadFile downloads a file and returns the local path.\nThe headers argument is used to attach request headers for download.",
+            "params": [
+              {
+                "name": "url",
+                "type": "string"
+              },
+              {
+                "name": "headers",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "DownloadFile(url string, headers map[string]string) (string, error)",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Get",
+            "doc": "Get sends an HTTP GET request.\nThe headers argument is used to override or add request headers.",
+            "params": [
+              {
+                "name": "url",
+                "type": "string"
+              },
+              {
+                "name": "headers",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Get(url string, headers map[string]string) ([]byte, error)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetDomainCookies",
+            "doc": "GetDomainCookies gets cookies for the specified domain.\nReturns the saved cookie key-value pairs under that domain.",
+            "params": [
+              {
+                "name": "domain",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "map[string]string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "GetDomainCookies(domain string) (map[string]string, error)",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetDomainHeaders",
+            "doc": "GetDomainHeaders gets default headers for the specified domain.\nReturns configured request-header key-value pairs under that domain.",
+            "params": [
+              {
+                "name": "domain",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "map[string]string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "GetDomainHeaders(domain string) (map[string]string, error)",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Post",
+            "doc": "Post sends an HTTP POST request with raw data.\nThe body argument is the request body byte array.",
+            "params": [
+              {
+                "name": "url",
+                "type": "string"
+              },
+              {
+                "name": "body",
+                "type": "[]byte"
+              },
+              {
+                "name": "headers",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Post(url string, body []byte, headers map[string]string) ([]byte, error)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "PostForm",
+            "doc": "PostForm sends an HTTP form request.\nThe params argument is submitted in form format.",
+            "params": [
+              {
+                "name": "url",
+                "type": "string"
+              },
+              {
+                "name": "params",
+                "type": "map[string]any"
+              },
+              {
+                "name": "headers",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "PostForm(url string, params map[string]any, headers map[string]string) ([]byte, error)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "PostJson",
+            "doc": "PostJson sends an HTTP JSON request.\nThe params argument is encoded as JSON as the request body.",
+            "params": [
+              {
+                "name": "url",
+                "type": "string"
+              },
+              {
+                "name": "params",
+                "type": "map[string]any"
+              },
+              {
+                "name": "headers",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "PostJson(url string, params map[string]any, headers map[string]string) ([]byte, error)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SetDomainCookies",
+            "doc": "SetDomainCookies sets cookies for the specified domain.\ncookies uses key-value pairs to represent cookie names and values.",
+            "params": [
+              {
+                "name": "domain",
+                "type": "string"
+              },
+              {
+                "name": "cookies",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SetDomainCookies(domain string, cookies map[string]string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SetDomainHeaders",
+            "doc": "SetDomainHeaders sets default headers for the specified domain.\nheaders uses key-value pairs to represent request headers.",
+            "params": [
+              {
+                "name": "domain",
+                "type": "string"
+              },
+              {
+                "name": "headers",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SetDomainHeaders(domain string, headers map[string]string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "UploadData",
+            "doc": "UploadData uploads file data from memory.\nfileName is the upload file name, and fileData is the upload content.",
+            "params": [
+              {
+                "name": "url",
+                "type": "string"
+              },
+              {
+                "name": "fileName",
+                "type": "string"
+              },
+              {
+                "name": "fileData",
+                "type": "[]byte"
+              },
+              {
+                "name": "params",
+                "type": "map[string]any"
+              },
+              {
+                "name": "headers",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "UploadData(url string, fileName string, fileData []byte, params map[string]any, headers map[string]string) ([]byte, error)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "UploadFile",
+            "doc": "UploadFile uploads a local file.\nfilePath is the local file path, and params are additional form parameters.",
+            "params": [
+              {
+                "name": "url",
+                "type": "string"
+              },
+              {
+                "name": "filePath",
+                "type": "string"
+              },
+              {
+                "name": "params",
+                "type": "map[string]any"
+              },
+              {
+                "name": "headers",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "UploadFile(url string, filePath string, params map[string]any, headers map[string]string) ([]byte, error)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "any",
+            "builtin": true
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/ossys#LocalFilesystem",
+        "name": "LocalFilesystem",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.LocalFilesystem",
+        "kind": "interface",
+        "package": "ossys",
+        "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+        "doc": "LocalFilesystem defines capabilities for local filesystem operations.\nThis interface covers common scenarios such as path handling, file I/O, and directory management.",
+        "signature": "type LocalFilesystem interface",
+        "source": {
+          "file": "ossys/local_filesystem.go",
+          "line": 9,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "CopyFile",
+            "doc": "CopyFile copies a file.\nsrc is the source file, and dst is the destination file.",
+            "params": [
+              {
+                "name": "src",
+                "type": "string"
+              },
+              {
+                "name": "dst",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "CopyFile(src string, dst string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "CreateTmpFile",
+            "doc": "CreateTmpFile creates a temporary file.\nexpiredAt indicates the expiration time of the temporary file; returns the file path.",
+            "params": [
+              {
+                "name": "expiredAt",
+                "type": "time.Time"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "CreateTmpFile(expiredAt time.Time) (string, error)",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Time",
+                "import_path": "time",
+                "qualified_name": "time.Time"
+              }
+            ]
+          },
+          {
+            "name": "IsDir",
+            "doc": "IsDir checks whether a path is a directory.\nReturns whether it is a directory and any possible error.",
+            "params": [
+              {
+                "name": "path",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "IsDir(path string) (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "IsFile",
+            "doc": "IsFile checks whether a path is a file.\nReturns whether it is a file and any possible error.",
+            "params": [
+              {
+                "name": "path",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "IsFile(path string) (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "JoinDataPath",
+            "doc": "JoinDataPath joins paths starting from the data directory.\nReturns the joined full path string.",
+            "params": [
+              {
+                "name": "path",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "JoinDataPath(path ...string) string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MkdirAll",
+            "doc": "MkdirAll creates directories recursively.\nIf directories already exist, behavior depends on the implementation.",
+            "params": [
+              {
+                "name": "path",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "MkdirAll(path string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "PathExists",
+            "doc": "PathExists checks whether a path exists.\nReturns whether it exists and any possible error.",
+            "params": [
+              {
+                "name": "path",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "PathExists(path string) (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ReadFile",
+            "doc": "ReadFile reads file content.\nReturns the read byte data and any possible error.",
+            "params": [
+              {
+                "name": "filePath",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]byte"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ReadFile(filePath string) ([]byte, error)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Remove",
+            "doc": "Remove deletes a file or directory.\npath is the target path to delete.",
+            "params": [
+              {
+                "name": "path",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Remove(path string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "RemoveAll",
+            "doc": "RemoveAll recursively deletes a directory and all its contents.\npath is the directory path to delete recursively.",
+            "params": [
+              {
+                "name": "path",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "RemoveAll(path string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Rename",
+            "doc": "Rename renames or moves a file or directory.\nsrc is the source path, and dst is the destination path.",
+            "params": [
+              {
+                "name": "src",
+                "type": "string"
+              },
+              {
+                "name": "dst",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Rename(src string, dst string) error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WriteFile",
+            "doc": "WriteFile writes content to a file.\ndata is the byte data to write.",
+            "params": [
+              {
+                "name": "filePath",
+                "type": "string"
+              },
+              {
+                "name": "data",
+                "type": "[]byte"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WriteFile(filePath string, data []byte) error",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          },
+          {
+            "expr": "time.Time",
+            "import_path": "time",
+            "qualified_name": "time.Time"
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/ossys#LocalStorage",
+        "name": "LocalStorage",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.LocalStorage",
+        "kind": "interface",
+        "package": "ossys",
+        "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+        "doc": "LocalStorage defines local key-value storage capabilities.\nThis interface supports single and batch read/write operations, as well as expiration settings.",
+        "signature": "type LocalStorage interface",
+        "source": {
+          "file": "ossys/local_storage.go",
+          "line": 7,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "Del",
+            "doc": "Del deletes one or more keys.\nReturns the number of keys actually deleted.",
+            "params": [
+              {
+                "name": "keys",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "int"
+              }
+            ],
+            "signature": "Del(keys ...string) int",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Get",
+            "doc": "Get gets the value for the specified key.\nIf the key does not exist, the return value depends on the implementation.",
+            "params": [
+              {
+                "name": "key",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "Get(key string) string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Keys",
+            "doc": "Keys gets all keys in the current storage.\nReturns a list of key names.",
+            "params": [],
+            "results": [
+              {
+                "type": "[]string"
+              }
+            ],
+            "signature": "Keys() []string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MGet",
+            "doc": "MGet gets values for multiple keys in batch.\nReturns a key-value mapping result.",
+            "params": [
+              {
+                "name": "keys",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "map[string]string"
+              }
+            ],
+            "signature": "MGet(keys ...string) map[string]string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MSet",
+            "doc": "MSet sets multiple key-value pairs in batch.\ndata is the key-value mapping to write.",
+            "params": [
+              {
+                "name": "data",
+                "type": "map[string]string"
+              }
+            ],
+            "results": [],
+            "signature": "MSet(data map[string]string)",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MSetEx",
+            "doc": "MSetEx sets multiple key-value pairs with expiration in batch.\nexpiredAt is the unified expiration timestamp.",
+            "params": [
+              {
+                "name": "data",
+                "type": "map[string]string"
+              },
+              {
+                "name": "expiredAt",
+                "type": "int64"
+              }
+            ],
+            "results": [],
+            "signature": "MSetEx(data map[string]string, expiredAt int64)",
+            "type_refs": [
+              {
+                "expr": "int64",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Set",
+            "doc": "Set sets a key-value pair.\nkey is the key name, and value is the value.",
+            "params": [
+              {
+                "name": "key",
+                "type": "string"
+              },
+              {
+                "name": "value",
+                "type": "string"
+              }
+            ],
+            "results": [],
+            "signature": "Set(key string, value string)",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SetEx",
+            "doc": "SetEx sets a key-value pair with an expiration time.\nexpiredAt is the expiration timestamp.",
+            "params": [
+              {
+                "name": "key",
+                "type": "string"
+              },
+              {
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "name": "expiredAt",
+                "type": "int64"
+              }
+            ],
+            "results": [],
+            "signature": "SetEx(key string, value string, expiredAt int64)",
+            "type_refs": [
+              {
+                "expr": "int64",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "int64",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/ossys#MonitorInfo",
+        "name": "MonitorInfo",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.MonitorInfo",
+        "kind": "interface",
+        "package": "ossys",
+        "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+        "doc": "MonitorInfo defines capabilities for querying monitor information.\nThis interface is used to get bounds, work area, DPI, and primary-screen status.",
+        "signature": "type MonitorInfo interface",
+        "source": {
+          "file": "ossys/monitor_info.go",
+          "line": 11,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "GetBounds",
+            "doc": "GetBounds gets the monitor bounds position and size.\nReturns the full monitor bounds rectangle.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.Rect"
+              }
+            ],
+            "signature": "GetBounds() basic.Rect",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          },
+          {
+            "name": "GetDPI",
+            "doc": "GetDPI gets DPI scaling information of the monitor.\nThe return value is horizontal DPI or a related scaling value.",
+            "params": [],
+            "results": [
+              {
+                "type": "uint32"
+              }
+            ],
+            "signature": "GetDPI() uint32",
+            "type_refs": [
+              {
+                "expr": "uint32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetWorkArea",
+            "doc": "GetWorkArea gets the monitor work-area position and size.\nThe work area usually excludes system-occupied areas such as the taskbar.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.Rect"
+              }
+            ],
+            "signature": "GetWorkArea() basic.Rect",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          },
+          {
+            "name": "IsPrimary",
+            "doc": "IsPrimary indicates whether this is the primary monitor.\nReturns true when the current monitor is the primary monitor.",
+            "params": [],
+            "results": [
+              {
+                "type": "bool"
+              }
+            ],
+            "signature": "IsPrimary() bool",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "basic.Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "uint32",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/ossys#ScriptLogger",
+        "name": "ScriptLogger",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.ScriptLogger",
+        "kind": "interface",
+        "package": "ossys",
+        "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+        "doc": "ScriptLogger defines script runtime logging capabilities.\nThis interface provides methods for outputting formatted logs by level.",
+        "signature": "type ScriptLogger interface",
+        "source": {
+          "file": "ossys/script_logger.go",
+          "line": 7,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "Debug",
+            "doc": "Debug outputs debug-level logs.\nformat is the format string, and args are formatting arguments.",
+            "params": [
+              {
+                "name": "format",
+                "type": "string"
+              },
+              {
+                "name": "args",
+                "type": "...any"
+              }
+            ],
+            "results": [],
+            "signature": "Debug(format string, args ...any)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Error",
+            "doc": "Error outputs error-level logs.\nformat is the format string, and args are formatting arguments.",
+            "params": [
+              {
+                "name": "format",
+                "type": "string"
+              },
+              {
+                "name": "args",
+                "type": "...any"
+              }
+            ],
+            "results": [],
+            "signature": "Error(format string, args ...any)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Info",
+            "doc": "Info outputs info-level logs.\nformat is the format string, and args are formatting arguments.",
+            "params": [
+              {
+                "name": "format",
+                "type": "string"
+              },
+              {
+                "name": "args",
+                "type": "...any"
+              }
+            ],
+            "results": [],
+            "signature": "Info(format string, args ...any)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Warn",
+            "doc": "Warn outputs warning-level logs.\nformat is the format string, and args are formatting arguments.",
+            "params": [
+              {
+                "name": "format",
+                "type": "string"
+              },
+              {
+                "name": "args",
+                "type": "...any"
+              }
+            ],
+            "results": [],
+            "signature": "Warn(format string, args ...any)",
+            "type_refs": [
+              {
+                "expr": "any",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "any",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      }
+    ]
+  }
+}

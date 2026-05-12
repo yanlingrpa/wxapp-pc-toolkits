@@ -1,0 +1,172 @@
+{
+  "$schema": "./schema/yanling.machine-first.v1/module.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "counts": {
+    "packages": 9,
+    "symbols": 238,
+    "interfaces": 20,
+    "structs": 23,
+    "functions": 6,
+    "methods": 372,
+    "named_types": 4,
+    "func_types": 1,
+    "consts": 184
+  },
+  "files": {
+    "symbol_index": "symbols.json",
+    "symbol_index_lite": "symbols.lite.json",
+    "package_dir": "packages"
+  },
+  "packages": [
+    {
+      "name": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "directory": "/appgui",
+      "counts": {
+        "symbols": 20,
+        "interfaces": 2,
+        "methods": 27,
+        "named_types": 1,
+        "consts": 17
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json",
+      "dependencies": [
+        "time",
+        "yanlingrpa.com/yanling/protocol/basic",
+        "yanlingrpa.com/yanling/protocol/internal/gui"
+      ]
+    },
+    {
+      "name": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "directory": "/basic",
+      "counts": {
+        "symbols": 11,
+        "structs": 6,
+        "functions": 5,
+        "methods": 20
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "name": "browser",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "directory": "/browser",
+      "counts": {
+        "symbols": 4,
+        "interfaces": 4,
+        "methods": 63
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json",
+      "dependencies": [
+        "net/url",
+        "time",
+        "yanlingrpa.com/yanling/protocol/basic",
+        "yanlingrpa.com/yanling/protocol/osgui"
+      ]
+    },
+    {
+      "name": "component",
+      "import_path": "yanlingrpa.com/yanling/protocol/component",
+      "directory": "/component",
+      "counts": {
+        "symbols": 2,
+        "interfaces": 2,
+        "methods": 5
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__component.json",
+      "dependencies": [
+        "yanlingrpa.com/yanling/protocol/basic"
+      ]
+    },
+    {
+      "name": "gui",
+      "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+      "directory": "/internal/gui",
+      "counts": {
+        "symbols": 2,
+        "interfaces": 2,
+        "methods": 34
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__internal__gui.json",
+      "dependencies": [
+        "yanlingrpa.com/yanling/protocol/basic"
+      ]
+    },
+    {
+      "name": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "directory": "/osgui",
+      "counts": {
+        "symbols": 157,
+        "interfaces": 2,
+        "methods": 33,
+        "named_types": 1,
+        "consts": 154
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json",
+      "dependencies": [
+        "time",
+        "yanlingrpa.com/yanling/protocol/basic",
+        "yanlingrpa.com/yanling/protocol/internal/gui",
+        "yanlingrpa.com/yanling/protocol/ossys"
+      ]
+    },
+    {
+      "name": "ossys",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "directory": "/ossys",
+      "counts": {
+        "symbols": 6,
+        "interfaces": 6,
+        "methods": 52
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json",
+      "dependencies": [
+        "time",
+        "yanlingrpa.com/yanling/protocol/basic"
+      ]
+    },
+    {
+      "name": "proto",
+      "import_path": "yanlingrpa.com/yanling/protocol/proto",
+      "directory": "/proto",
+      "counts": {
+        "symbols": 16,
+        "structs": 8,
+        "methods": 111,
+        "named_types": 1,
+        "consts": 7
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__proto.json",
+      "dependencies": [
+        "google.golang.org/protobuf/reflect/protoreflect"
+      ]
+    },
+    {
+      "name": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "directory": "/script",
+      "counts": {
+        "symbols": 20,
+        "interfaces": 2,
+        "structs": 9,
+        "functions": 1,
+        "methods": 27,
+        "named_types": 1,
+        "func_types": 1,
+        "consts": 6
+      },
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json",
+      "dependencies": [
+        "time",
+        "yanlingrpa.com/yanling/protocol/browser",
+        "yanlingrpa.com/yanling/protocol/component",
+        "yanlingrpa.com/yanling/protocol/osgui",
+        "yanlingrpa.com/yanling/protocol/ossys"
+      ]
+    }
+  ]
+}

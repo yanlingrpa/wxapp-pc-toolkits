@@ -1,0 +1,4933 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "package": {
+    "name": "osgui",
+    "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+    "directory": "/osgui",
+    "files": [
+      "osgui/osgui_const_enum.go",
+      "osgui/osgui_locator.go",
+      "osgui/osgui_window.go"
+    ],
+    "imports": [
+      {
+        "path": "time",
+        "aliases": [
+          "time"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/basic",
+        "aliases": [
+          "basic"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/internal/gui",
+        "aliases": [
+          "gui"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/ossys",
+        "aliases": [
+          "ossys"
+        ]
+      }
+    ],
+    "dependencies": [
+      "time",
+      "yanlingrpa.com/yanling/protocol/basic",
+      "yanlingrpa.com/yanling/protocol/internal/gui",
+      "yanlingrpa.com/yanling/protocol/ossys"
+    ],
+    "counts": {
+      "symbols": 157,
+      "interfaces": 2,
+      "methods": 33,
+      "named_types": 1,
+      "consts": 154
+    },
+    "symbols": [
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Alt",
+        "name": "Alt",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Alt",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "doc": "\"command\"",
+        "signature": "const Alt Keyboard = \"alt\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 118,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"alt\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioForward",
+        "name": "AudioForward",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioForward",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioForward Keyboard = \"audio_forward\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 145,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_forward\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioMute",
+        "name": "AudioMute",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioMute",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioMute Keyboard = \"audio_mute\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 136,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_mute\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioNext",
+        "name": "AudioNext",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioNext",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioNext Keyboard = \"audio_next\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 143,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_next\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioPause",
+        "name": "AudioPause",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioPause",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioPause Keyboard = \"audio_pause\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 141,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_pause\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioPlay",
+        "name": "AudioPlay",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioPlay",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioPlay Keyboard = \"audio_play\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 139,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_play\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioPrev",
+        "name": "AudioPrev",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioPrev",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioPrev Keyboard = \"audio_prev\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 142,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_prev\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioRandom",
+        "name": "AudioRandom",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioRandom",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioRandom Keyboard = \"audio_random\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 147,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_random\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioRepeat",
+        "name": "AudioRepeat",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioRepeat",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioRepeat Keyboard = \"audio_repeat\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 146,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_repeat\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioRewind",
+        "name": "AudioRewind",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioRewind",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioRewind Keyboard = \"audio_rewind\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 144,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_rewind\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioStop",
+        "name": "AudioStop",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioStop",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioStop Keyboard = \"audio_stop\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 140,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_stop\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioVolDown",
+        "name": "AudioVolDown",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioVolDown",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioVolDown Keyboard = \"audio_vol_down\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 137,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_vol_down\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#AudioVolUp",
+        "name": "AudioVolUp",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.AudioVolUp",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const AudioVolUp Keyboard = \"audio_vol_up\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 138,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"audio_vol_up\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Backspace",
+        "name": "Backspace",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Backspace",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "doc": "Backspace backspace key string",
+        "signature": "const Backspace Keyboard = \"backspace\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 74,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"backspace\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapA",
+        "name": "CapA",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapA",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapA Keyboard = \"A\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 34,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"A\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapB",
+        "name": "CapB",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapB",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapB Keyboard = \"B\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 35,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"B\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapC",
+        "name": "CapC",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapC",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapC Keyboard = \"C\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 36,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"C\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapD",
+        "name": "CapD",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapD",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapD Keyboard = \"D\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 37,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"D\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapE",
+        "name": "CapE",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapE",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapE Keyboard = \"E\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 38,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"E\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapF",
+        "name": "CapF",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapF",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapF Keyboard = \"F\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 39,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"F\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapG",
+        "name": "CapG",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapG",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapG Keyboard = \"G\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 40,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"G\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapH",
+        "name": "CapH",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapH",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapH Keyboard = \"H\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 41,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"H\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapI",
+        "name": "CapI",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapI",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapI Keyboard = \"I\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 42,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"I\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapJ",
+        "name": "CapJ",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapJ",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapJ Keyboard = \"J\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 43,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"J\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapK",
+        "name": "CapK",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapK",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapK Keyboard = \"K\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 44,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"K\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapL",
+        "name": "CapL",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapL",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapL Keyboard = \"L\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 45,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"L\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapM",
+        "name": "CapM",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapM",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapM Keyboard = \"M\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 46,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"M\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapN",
+        "name": "CapN",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapN",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapN Keyboard = \"N\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 47,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"N\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapO",
+        "name": "CapO",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapO",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapO Keyboard = \"O\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 48,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"O\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapP",
+        "name": "CapP",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapP",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapP Keyboard = \"P\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 49,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"P\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapQ",
+        "name": "CapQ",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapQ",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapQ Keyboard = \"Q\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 50,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"Q\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapR",
+        "name": "CapR",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapR",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapR Keyboard = \"R\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 51,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"R\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapS",
+        "name": "CapS",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapS",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapS Keyboard = \"S\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 52,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"S\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapT",
+        "name": "CapT",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapT",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapT Keyboard = \"T\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 53,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"T\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapU",
+        "name": "CapU",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapU",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapU Keyboard = \"U\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 54,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"U\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapV",
+        "name": "CapV",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapV",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapV Keyboard = \"V\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 55,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"V\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapW",
+        "name": "CapW",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapW",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapW Keyboard = \"W\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 56,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"W\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapX",
+        "name": "CapX",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapX",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapX Keyboard = \"X\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 57,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"X\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapY",
+        "name": "CapY",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapY",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapY Keyboard = \"Y\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 58,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"Y\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#CapZ",
+        "name": "CapZ",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.CapZ",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const CapZ Keyboard = \"Z\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 59,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"Z\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Capslock",
+        "name": "Capslock",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Capslock",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "doc": "\"right_shift\"",
+        "signature": "const Capslock Keyboard = \"capslock\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 129,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"capslock\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Cmd",
+        "name": "Cmd",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Cmd",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Cmd Keyboard = \"cmd\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 114,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"cmd\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Control",
+        "name": "Control",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Control",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Control Keyboard = \"control\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 124,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"control\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Ctrl",
+        "name": "Ctrl",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Ctrl",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Ctrl Keyboard = \"ctrl\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 121,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"ctrl\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Delete",
+        "name": "Delete",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Delete",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Delete Keyboard = \"delete\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 75,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"delete\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Down",
+        "name": "Down",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Down",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Down Keyboard = \"down\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 81,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"down\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#End",
+        "name": "End",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.End",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const End Keyboard = \"end\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 85,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"end\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Enter",
+        "name": "Enter",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Enter",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Enter Keyboard = \"enter\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 76,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"enter\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Esc",
+        "name": "Esc",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Esc",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Esc Keyboard = \"esc\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 78,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"esc\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Escape",
+        "name": "Escape",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Escape",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Escape Keyboard = \"escape\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 79,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"escape\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F1",
+        "name": "F1",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F1",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F1 Keyboard = \"f1\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 89,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f1\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F10",
+        "name": "F10",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F10",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F10 Keyboard = \"f10\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 98,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f10\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F11",
+        "name": "F11",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F11",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F11 Keyboard = \"f11\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 99,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f11\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F12",
+        "name": "F12",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F12",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F12 Keyboard = \"f12\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 100,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f12\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F13",
+        "name": "F13",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F13",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F13 Keyboard = \"f13\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 101,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f13\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F14",
+        "name": "F14",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F14",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F14 Keyboard = \"f14\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 102,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f14\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F15",
+        "name": "F15",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F15",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F15 Keyboard = \"f15\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 103,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f15\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F16",
+        "name": "F16",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F16",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F16 Keyboard = \"f16\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 104,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f16\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F17",
+        "name": "F17",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F17",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F17 Keyboard = \"f17\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 105,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f17\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F18",
+        "name": "F18",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F18",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F18 Keyboard = \"f18\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 106,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f18\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F19",
+        "name": "F19",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F19",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F19 Keyboard = \"f19\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 107,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f19\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F2",
+        "name": "F2",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F2",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F2 Keyboard = \"f2\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 90,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f2\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F20",
+        "name": "F20",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F20",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F20 Keyboard = \"f20\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 108,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f20\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F21",
+        "name": "F21",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F21",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F21 Keyboard = \"f21\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 109,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f21\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F22",
+        "name": "F22",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F22",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F22 Keyboard = \"f22\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 110,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f22\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F23",
+        "name": "F23",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F23",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F23 Keyboard = \"f23\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 111,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f23\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F24",
+        "name": "F24",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F24",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F24 Keyboard = \"f24\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 112,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f24\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F3",
+        "name": "F3",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F3",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F3 Keyboard = \"f3\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 91,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f3\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F4",
+        "name": "F4",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F4",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F4 Keyboard = \"f4\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 92,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f4\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F5",
+        "name": "F5",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F5",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F5 Keyboard = \"f5\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 93,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f5\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F6",
+        "name": "F6",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F6",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F6 Keyboard = \"f6\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 94,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f6\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F7",
+        "name": "F7",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F7",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F7 Keyboard = \"f7\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 95,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f7\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F8",
+        "name": "F8",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F8",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F8 Keyboard = \"f8\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 96,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f8\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#F9",
+        "name": "F9",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.F9",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const F9 Keyboard = \"f9\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 97,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f9\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Home",
+        "name": "Home",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Home",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Home Keyboard = \"home\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 84,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"home\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Insert",
+        "name": "Insert",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Insert",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Insert Keyboard = \"insert\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 133,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"insert\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key0",
+        "name": "Key0",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key0",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "doc": "Number keys",
+        "signature": "const Key0 Keyboard = \"0\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 62,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"0\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key1",
+        "name": "Key1",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key1",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Key1 Keyboard = \"1\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 63,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"1\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key2",
+        "name": "Key2",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key2",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Key2 Keyboard = \"2\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 64,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"2\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key3",
+        "name": "Key3",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key3",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Key3 Keyboard = \"3\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 65,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"3\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key4",
+        "name": "Key4",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key4",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Key4 Keyboard = \"4\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 66,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"4\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key5",
+        "name": "Key5",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key5",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Key5 Keyboard = \"5\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 67,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"5\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key6",
+        "name": "Key6",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key6",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Key6 Keyboard = \"6\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 68,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"6\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key7",
+        "name": "Key7",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key7",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Key7 Keyboard = \"7\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 69,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"7\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key8",
+        "name": "Key8",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key8",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Key8 Keyboard = \"8\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 70,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"8\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Key9",
+        "name": "Key9",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Key9",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Key9 Keyboard = \"9\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 71,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"9\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyA",
+        "name": "KeyA",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyA",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "doc": "Letter keys",
+        "signature": "const KeyA Keyboard = \"a\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 7,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"a\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyB",
+        "name": "KeyB",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyB",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyB Keyboard = \"b\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 8,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"b\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyC",
+        "name": "KeyC",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyC",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyC Keyboard = \"c\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 9,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"c\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyD",
+        "name": "KeyD",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyD",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyD Keyboard = \"d\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 10,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"d\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyE",
+        "name": "KeyE",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyE",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyE Keyboard = \"e\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 11,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"e\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyF",
+        "name": "KeyF",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyF",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyF Keyboard = \"f\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 12,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"f\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyG",
+        "name": "KeyG",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyG",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyG Keyboard = \"g\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 13,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"g\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyH",
+        "name": "KeyH",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyH",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyH Keyboard = \"h\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 14,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"h\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyI",
+        "name": "KeyI",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyI",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyI Keyboard = \"i\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 15,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"i\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyJ",
+        "name": "KeyJ",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyJ",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyJ Keyboard = \"j\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 16,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"j\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyK",
+        "name": "KeyK",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyK",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyK Keyboard = \"k\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 17,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"k\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyL",
+        "name": "KeyL",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyL",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyL Keyboard = \"l\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 18,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"l\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyM",
+        "name": "KeyM",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyM",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyM Keyboard = \"m\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 19,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"m\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyN",
+        "name": "KeyN",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyN",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyN Keyboard = \"n\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 20,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"n\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyO",
+        "name": "KeyO",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyO",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyO Keyboard = \"o\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 21,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"o\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyP",
+        "name": "KeyP",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyP",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyP Keyboard = \"p\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 22,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"p\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyQ",
+        "name": "KeyQ",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyQ",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyQ Keyboard = \"q\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 23,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"q\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyR",
+        "name": "KeyR",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyR",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyR Keyboard = \"r\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 24,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"r\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyS",
+        "name": "KeyS",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyS",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyS Keyboard = \"s\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 25,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"s\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyT",
+        "name": "KeyT",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyT",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyT Keyboard = \"t\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 26,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"t\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyU",
+        "name": "KeyU",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyU",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyU Keyboard = \"u\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 27,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"u\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyV",
+        "name": "KeyV",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyV",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyV Keyboard = \"v\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 28,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"v\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyW",
+        "name": "KeyW",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyW",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyW Keyboard = \"w\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 29,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"w\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyX",
+        "name": "KeyX",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyX",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyX Keyboard = \"x\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 30,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"x\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyY",
+        "name": "KeyY",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyY",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyY Keyboard = \"y\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 31,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"y\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#KeyZ",
+        "name": "KeyZ",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.KeyZ",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const KeyZ Keyboard = \"z\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 32,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"z\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Keyboard",
+        "name": "Keyboard",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+        "kind": "named_type",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "type Keyboard string",
+        "underlying_type": "string",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 3,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "String",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "String() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Lalt",
+        "name": "Lalt",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Lalt",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Lalt Keyboard = \"lalt\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 119,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"lalt\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Lcmd",
+        "name": "Lcmd",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Lcmd",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Lcmd Keyboard = \"lcmd\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 115,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"lcmd\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Lctrl",
+        "name": "Lctrl",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Lctrl",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Lctrl Keyboard = \"lctrl\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 122,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"lctrl\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Left",
+        "name": "Left",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Left",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Left Keyboard = \"left\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 83,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"left\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#LightsKbdDown",
+        "name": "LightsKbdDown",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsKbdDown",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const LightsKbdDown Keyboard = \"lights_kbd_down\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 173,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"lights_kbd_down\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#LightsKbdToggle",
+        "name": "LightsKbdToggle",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsKbdToggle",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const LightsKbdToggle Keyboard = \"lights_kbd_toggle\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 171,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"lights_kbd_toggle\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#LightsKbdUp",
+        "name": "LightsKbdUp",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsKbdUp",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const LightsKbdUp Keyboard = \"lights_kbd_up\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 172,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"lights_kbd_up\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#LightsMonDown",
+        "name": "LightsMonDown",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsMonDown",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const LightsMonDown Keyboard = \"lights_mon_down\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 170,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"lights_mon_down\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#LightsMonUp",
+        "name": "LightsMonUp",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.LightsMonUp",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const LightsMonUp Keyboard = \"lights_mon_up\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 169,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"lights_mon_up\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Lshift",
+        "name": "Lshift",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Lshift",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Lshift Keyboard = \"lshift\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 126,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"lshift\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Menu",
+        "name": "Menu",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Menu",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Menu Keyboard = \"menu\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 134,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"menu\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Num0",
+        "name": "Num0",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num0",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Num0 Keyboard = \"num0\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 149,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num0\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Num1",
+        "name": "Num1",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num1",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Num1 Keyboard = \"num1\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 150,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num1\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Num2",
+        "name": "Num2",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num2",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Num2 Keyboard = \"num2\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 151,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num2\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Num3",
+        "name": "Num3",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num3",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Num3 Keyboard = \"num3\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 152,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num3\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Num4",
+        "name": "Num4",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num4",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Num4 Keyboard = \"num4\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 153,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num4\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Num5",
+        "name": "Num5",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num5",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Num5 Keyboard = \"num5\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 154,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num5\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Num6",
+        "name": "Num6",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num6",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Num6 Keyboard = \"num6\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 155,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num6\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Num7",
+        "name": "Num7",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num7",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Num7 Keyboard = \"num7\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 156,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num7\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Num8",
+        "name": "Num8",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Num8",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Num8 Keyboard = \"num9\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 157,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num9\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#NumClear",
+        "name": "NumClear",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumClear",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const NumClear Keyboard = \"num_clear\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 165,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num_clear\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#NumDecimal",
+        "name": "NumDecimal",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumDecimal",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const NumDecimal Keyboard = \"num.\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 160,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num.\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#NumDiv",
+        "name": "NumDiv",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumDiv",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const NumDiv Keyboard = \"num/\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 164,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num/\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#NumEnter",
+        "name": "NumEnter",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumEnter",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const NumEnter Keyboard = \"num_enter\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 166,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num_enter\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#NumEqual",
+        "name": "NumEqual",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumEqual",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const NumEqual Keyboard = \"num_equal\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 167,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num_equal\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#NumLock",
+        "name": "NumLock",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumLock",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const NumLock Keyboard = \"num_lock\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 158,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num_lock\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#NumMinus",
+        "name": "NumMinus",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumMinus",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const NumMinus Keyboard = \"num-\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 162,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num-\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#NumMul",
+        "name": "NumMul",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumMul",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const NumMul Keyboard = \"num*\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 163,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num*\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#NumPlus",
+        "name": "NumPlus",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.NumPlus",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const NumPlus Keyboard = \"num+\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 161,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"num+\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#OSGuiLocator",
+        "name": "OSGuiLocator",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+        "kind": "interface",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "doc": "OSGuiLocator defines a locator interface that provides methods for retrieving locator information,\noperating on the locator, and simulating input.",
+        "signature": "type OSGuiLocator interface",
+        "source": {
+          "file": "osgui/osgui_locator.go",
+          "line": 14,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "CardLocator",
+            "doc": "Finds card-like sub-locators in the current locator area.\nA card-like sub-locator is an independent card-shaped region that usually includes\ngraphics and text, commonly seen in list items and buttons.\nmin_size: Minimum size of sub-locators to find; nil means no minimum limit.\nmax_size: Maximum size of sub-locators to find; nil means no maximum limit.\nreturn: List of matched sub-locators; returns nil if none are found.\nResults are sorted by coordinates from left to right and top to bottom.",
+            "params": [
+              {
+                "name": "min_size",
+                "type": "*basic.Size"
+              },
+              {
+                "name": "max_size",
+                "type": "*basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "CardLocator(min_size *basic.Size, max_size *basic.Size) ([]OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Click",
+            "doc": "Performs a mouse click at the specified position inside the locator.\nlocator_point: Relative position within the locator.\nnil means current mouse position in the locator.\nIf the mouse is not inside the locator, the locator center is used.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Click(locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "DoubleClick",
+            "doc": "Performs a mouse double-click at the specified position inside the locator.\nlocator_point: Relative position within the locator.\nnil means current mouse position in the locator.\nIf the mouse is not inside the locator, the locator center is used.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "DoubleClick(locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "DragTo",
+            "doc": "Drags from a start position to an end position within the current locator.\nBoth positions are relative coordinates within the current locator.\nfrom_locator_point: Relative start position within the locator; nil means the current mouse\nposition in the locator, or the locator center if the mouse is outside.\nto_locator_point: Relative end position within the locator; nil means the current mouse\nposition in the locator, or the locator center if the mouse is outside.",
+            "params": [
+              {
+                "name": "from_locator_point",
+                "type": "*basic.Point"
+              },
+              {
+                "name": "to_locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "DragTo(from_locator_point *basic.Point, to_locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetLocatorCaretPos",
+            "doc": "Gets the IME caret position inside the current locator; returns nil if unavailable.\nExample: When an input box is focused, the IME caret usually appears inside it,\nand this method can retrieve its relative position in the locator.\nreturn: Relative IME caret position in the locator; returns nil if unavailable.",
+            "params": [],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "GetLocatorCaretPos() *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "GetLocatorCursorPos",
+            "doc": "Gets the mouse position relative to the current locator.\nreturn: Relative mouse position in the current locator; returns nil if outside.",
+            "params": [],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "GetLocatorCursorPos() *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "ImageLocator",
+            "doc": "Finds sub-locators containing visually similar images within the current locator area.\nimage: Path/URL/Base64 image string relative to the current project.\nsim: Similarity threshold in range 0.1~1.0; higher means more similar.\nreturn: List of matched sub-locators; returns nil if none are found.\nResults are sorted by similarity descending, and items below the threshold are filtered out.",
+            "params": [
+              {
+                "name": "image",
+                "type": "string"
+              },
+              {
+                "name": "sim",
+                "type": "float32"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ImageLocator(image string, sim float32) ([]OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "float32",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MouseDown",
+            "doc": "Presses the mouse button at the current mouse position within the locator.\nright: true for right button, false for left button.",
+            "params": [
+              {
+                "name": "right",
+                "type": "bool"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "MouseDown(right bool) error",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MouseMove",
+            "doc": "Moves the mouse to a specified position inside the locator.\nlocator_point: Relative position within the locator.\nnil means the center position of the current locator.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "MouseMove(locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MouseUp",
+            "doc": "Releases the mouse button at the current mouse position within the locator.\nright: true for right button, false for left button.",
+            "params": [
+              {
+                "name": "right",
+                "type": "bool"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "MouseUp(right bool) error",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "PressKeys",
+            "doc": "Simulates keyboard input at the current locator.\nThis method first attempts to obtain focus for the locator,\nthen sends the specified key sequence.\nkeys: Key sequence to input (for example: ctrl + alt + del).\nSupported keys are defined by the Keyboard type.",
+            "params": [
+              {
+                "name": "keys",
+                "type": "...Keyboard"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "PressKeys(keys ...Keyboard) error",
+            "type_refs": [
+              {
+                "expr": "Keyboard",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "RightClick",
+            "doc": "Performs a mouse right-click at the specified position inside the locator.\nlocator_point: Relative position within the locator.\nnil means current mouse position in the locator.\nIf the mouse is not inside the locator, the locator center is used.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "RightClick(locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SubLocator",
+            "doc": "Gets a sub-locator of the current locator, clipped to the intersection with current bounds.\nlocator_point: Relative position of the sub-locator within the current locator.\nsize: Size of the sub-locator.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "basic.Point"
+              },
+              {
+                "name": "size",
+                "type": "basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "OSGuiLocator"
+              }
+            ],
+            "signature": "SubLocator(locator_point basic.Point, size basic.Size) OSGuiLocator",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              }
+            ]
+          },
+          {
+            "name": "TextLocator",
+            "doc": "Finds sub-locators containing specified text within the current locator area.\ntexts: Text list to find. Multiple texts mean all must be present.\nreturn: List of matched sub-locators; returns nil if none are found.\nOnly locators containing all texts are returned, sorted by area from small to large.",
+            "params": [
+              {
+                "name": "texts",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "TextLocator(texts ...string) ([]OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "VisionLocator",
+            "doc": "Uses the vision module to find sub-locators with specific visual shapes\nin the current locator area.\ndescription: Description of the target shape, for example: a red circular button,\nor a blue rectangular input box.\nmin_size: Minimum size of sub-locators to find; nil means no minimum limit.\nmax_size: Maximum size of sub-locators to find; nil means no maximum limit.\nreturn: List of matched sub-locators; returns nil if none are found.\nResults are sorted by coordinates from left to right and top to bottom.",
+            "params": [
+              {
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "name": "min_size",
+                "type": "*basic.Size"
+              },
+              {
+                "name": "max_size",
+                "type": "*basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "VisionLocator(description string, min_size *basic.Size, max_size *basic.Size) ([]OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitForCard",
+            "doc": "Waits for card-like sub-locators to appear in the current locator area.\nA card-like sub-locator is an independent card-shaped region that usually includes\ngraphics and text, commonly seen in list items and buttons.\ntimeout: Timeout duration.\nmin_size: Minimum size of sub-locators to find; nil means no minimum limit.\nmax_size: Maximum size of sub-locators to find; nil means no maximum limit.\nreturn: On success, returns matched sub-locators sorted by coordinates\nfrom left to right and top to bottom. Returns error on timeout or recognition failure.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              },
+              {
+                "name": "min_size",
+                "type": "*basic.Size"
+              },
+              {
+                "name": "max_size",
+                "type": "*basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForCard(timeout time.Duration, min_size *basic.Size, max_size *basic.Size) ([]OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitForEditing",
+            "doc": "Waits until the current locator enters a text-editable state or times out.\ntimeout: Timeout duration.\nreturn: Sub-locator containing the text input caret.\nReturns error on timeout; returns nil if no caret exists in the locator.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForEditing(timeout time.Duration) (OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitForImage",
+            "doc": "Waits for sub-locators containing visually similar images to appear in the current locator area.\ntimeout: Timeout duration.\nimage: Path/URL/Base64 image string relative to the current project.\nsim: Similarity threshold in range 0.1~1.0; higher means more similar.\nreturn: On success, returns matched sub-locators sorted by similarity descending;\nresults below sim are filtered out. Returns error on timeout or recognition failure.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              },
+              {
+                "name": "image",
+                "type": "string"
+              },
+              {
+                "name": "sim",
+                "type": "float32"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForImage(timeout time.Duration, image string, sim float32) ([]OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "float32",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitForText",
+            "doc": "Waits for sub-locators containing specified text to appear in the current locator area.\ntimeout: Timeout duration.\ntexts: Text list to wait for. Multiple texts mean all must be present.\nreturn: On success, returns matched sub-locators that contain all texts,\nsorted by area from small to large. Returns error on timeout or recognition failure.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              },
+              {
+                "name": "texts",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForText(timeout time.Duration, texts ...string) ([]OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitForVision",
+            "doc": "Waits for sub-locators with specific visual shapes to appear,\nusing the vision module in the current locator area.\ntimeout: Timeout duration.\ndescription: Description of the target shape, for example: a red circular button,\nor a blue rectangular input box.\nmin_size: Minimum size of sub-locators to find; nil means no minimum limit.\nmax_size: Maximum size of sub-locators to find; nil means no maximum limit.\nreturn: On success, returns matched sub-locators sorted by coordinates\nfrom left to right and top to bottom. Returns error on timeout or recognition failure.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              },
+              {
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "name": "min_size",
+                "type": "*basic.Size"
+              },
+              {
+                "name": "max_size",
+                "type": "*basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForVision(timeout time.Duration, description string, min_size *basic.Size, max_size *basic.Size) ([]OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          }
+        ],
+        "embeds": [
+          {
+            "type": "gui.GuiLocator",
+            "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiLocator"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          },
+          {
+            "expr": "OSGuiLocator",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+            "local": true
+          },
+          {
+            "expr": "basic.Point",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+          },
+          {
+            "expr": "basic.Size",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "float32",
+            "builtin": true
+          },
+          {
+            "expr": "gui.GuiLocator",
+            "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiLocator"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          },
+          {
+            "expr": "time.Duration",
+            "import_path": "time",
+            "qualified_name": "time.Duration"
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#OSGuiWindow",
+        "name": "OSGuiWindow",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiWindow",
+        "kind": "interface",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "doc": "OSGuiWindow defines the interface of a GUI window, providing methods for window information,\nwindow operations, and simulated input.",
+        "signature": "type OSGuiWindow interface",
+        "source": {
+          "file": "osgui/osgui_window.go",
+          "line": 13,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "BodyLocator",
+            "doc": "Gets the locator for the window client area.",
+            "params": [],
+            "results": [
+              {
+                "type": "OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "BodyLocator() (OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetHwnd",
+            "doc": "Gets the native window handle.",
+            "params": [],
+            "results": [
+              {
+                "type": "uintptr"
+              }
+            ],
+            "signature": "GetHwnd() uintptr",
+            "type_refs": [
+              {
+                "expr": "uintptr",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetInitiatorPath",
+            "doc": "Gets the executable path of the process that launched the window.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetInitiatorPath() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetMonitor",
+            "doc": "Gets information about the monitor that contains the window.",
+            "params": [],
+            "results": [
+              {
+                "type": "ossys.MonitorInfo"
+              }
+            ],
+            "signature": "GetMonitor() ossys.MonitorInfo",
+            "type_refs": [
+              {
+                "expr": "ossys.MonitorInfo",
+                "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.MonitorInfo"
+              }
+            ]
+          },
+          {
+            "name": "GetWindowCaretPos",
+            "doc": "Gets the current IME caret position relative to the window; returns nil if outside the window.",
+            "params": [],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "GetWindowCaretPos() *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "GetWindowCursorPos",
+            "doc": "Gets the mouse position relative to the current window; returns nil if outside the window.",
+            "params": [],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "GetWindowCursorPos() *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "GetWindowRect",
+            "doc": "Gets the window rectangle in screen coordinates.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.Rect"
+              }
+            ],
+            "signature": "GetWindowRect() basic.Rect",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          },
+          {
+            "name": "GetWindowSchema",
+            "doc": "Gets the application path associated with the window itself.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetWindowSchema() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "MoveTo",
+            "doc": "Moves the window to the specified position.",
+            "params": [
+              {
+                "name": "global_x",
+                "type": "int"
+              },
+              {
+                "name": "global_y",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "MoveTo(global_x int, global_y int) (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "PressKeys",
+            "doc": "Simulates keyboard input at the current window.\nThis method will unfocus any control within the window that currently has focus,\nthen set focus to the entire window, and finally send the specified key sequence.\nkeys: Key sequence to input (for example: ctrl + alt + del).\nSupported keys are defined by the Keyboard type.",
+            "params": [
+              {
+                "name": "keys",
+                "type": "...Keyboard"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "PressKeys(keys ...Keyboard) error",
+            "type_refs": [
+              {
+                "expr": "Keyboard",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "RectLocator",
+            "doc": "Gets a locator for the specified rectangle, clipped to the window bounds.",
+            "params": [
+              {
+                "name": "rect",
+                "type": "basic.Rect"
+              }
+            ],
+            "results": [
+              {
+                "type": "OSGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "RectLocator(rect basic.Rect) (OSGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "OSGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "ResizeTo",
+            "doc": "Resizes the window.",
+            "params": [
+              {
+                "name": "width",
+                "type": "int"
+              },
+              {
+                "name": "height",
+                "type": "int"
+              }
+            ],
+            "results": [
+              {
+                "type": "bool"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ResizeTo(width int, height int) (bool, error)",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "embeds": [
+          {
+            "type": "gui.GuiWindow",
+            "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiWindow"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          },
+          {
+            "expr": "OSGuiLocator",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.OSGuiLocator",
+            "local": true
+          },
+          {
+            "expr": "basic.Point",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+          },
+          {
+            "expr": "basic.Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "gui.GuiWindow",
+            "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiWindow"
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
+          {
+            "expr": "ossys.MonitorInfo",
+            "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/ossys.MonitorInfo"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          },
+          {
+            "expr": "uintptr",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Pagedown",
+        "name": "Pagedown",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Pagedown",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Pagedown Keyboard = \"pagedown\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 87,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"pagedown\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Pageup",
+        "name": "Pageup",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Pageup",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Pageup Keyboard = \"pageup\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 86,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"pageup\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Print",
+        "name": "Print",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Print",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Print Keyboard = \"print\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 131,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"print\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Printscreen",
+        "name": "Printscreen",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Printscreen",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Printscreen Keyboard = \"printscreen\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 132,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"printscreen\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Ralt",
+        "name": "Ralt",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Ralt",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Ralt Keyboard = \"ralt\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 120,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"ralt\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Rcmd",
+        "name": "Rcmd",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Rcmd",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Rcmd Keyboard = \"rcmd\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 116,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"rcmd\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Rctrl",
+        "name": "Rctrl",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Rctrl",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Rctrl Keyboard = \"rctrl\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 123,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"rctrl\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Right",
+        "name": "Right",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Right",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Right Keyboard = \"right\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 82,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"right\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Rshift",
+        "name": "Rshift",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Rshift",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Rshift Keyboard = \"rshift\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 127,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"rshift\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Shift",
+        "name": "Shift",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Shift",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Shift Keyboard = \"shift\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 125,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"shift\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Space",
+        "name": "Space",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Space",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Space Keyboard = \"space\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 130,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"space\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Tab",
+        "name": "Tab",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Tab",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Tab Keyboard = \"tab\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 77,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"tab\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/osgui#Up",
+        "name": "Up",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Up",
+        "kind": "const",
+        "package": "osgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+        "signature": "const Up Keyboard = \"up\"",
+        "source": {
+          "file": "osgui/osgui_const_enum.go",
+          "line": 80,
+          "column": 2
+        },
+        "const_type": "Keyboard",
+        "const_value": "\"up\"",
+        "type_refs": [
+          {
+            "expr": "Keyboard",
+            "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/osgui.Keyboard",
+            "local": true
+          }
+        ]
+      }
+    ]
+  }
+}

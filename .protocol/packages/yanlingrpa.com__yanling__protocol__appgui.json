@@ -1,0 +1,1474 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "package": {
+    "name": "appgui",
+    "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+    "directory": "/appgui",
+    "files": [
+      "appgui/appgui_const_enum.go",
+      "appgui/appgui_locator.go",
+      "appgui/appgui_window.go"
+    ],
+    "imports": [
+      {
+        "path": "time",
+        "aliases": [
+          "time"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/basic",
+        "aliases": [
+          "basic"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/internal/gui",
+        "aliases": [
+          "gui"
+        ]
+      }
+    ],
+    "dependencies": [
+      "time",
+      "yanlingrpa.com/yanling/protocol/basic",
+      "yanlingrpa.com/yanling/protocol/internal/gui"
+    ],
+    "counts": {
+      "symbols": 20,
+      "interfaces": 2,
+      "methods": 27,
+      "named_types": 1,
+      "consts": 17
+    },
+    "symbols": [
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#AppGuiLocator",
+        "name": "AppGuiLocator",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+        "kind": "interface",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "doc": "AppGuiLocator defines a locator interface for a rectangular region on a mobile app screen,\nproviding methods for retrieving locator information, performing touch gestures,\nand simulating input.",
+        "signature": "type AppGuiLocator interface",
+        "source": {
+          "file": "appgui/appgui_locator.go",
+          "line": 15,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "CardLocator",
+            "doc": "Finds card-like sub-locators in the current locator area.\nA card-like sub-locator is an independent card-shaped region that usually includes\ngraphics and text, commonly seen in list items and buttons.\nmin_size: Minimum size of sub-locators to find; nil means no minimum limit.\nmax_size: Maximum size of sub-locators to find; nil means no maximum limit.\nreturn: List of matched sub-locators; returns nil if none are found.\nResults are sorted by coordinates from left to right and top to bottom.",
+            "params": [
+              {
+                "name": "min_size",
+                "type": "*basic.Size"
+              },
+              {
+                "name": "max_size",
+                "type": "*basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "CardLocator(min_size *basic.Size, max_size *basic.Size) ([]AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "DoubleTap",
+            "doc": "Performs a double tap at the specified position inside the locator.\nlocator_point: Relative position within the locator.\nnil means current touch position in the locator.\nIf there is no active touch inside the locator, the locator center is used.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "DoubleTap(locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetLocatorTouchPos",
+            "doc": "Gets the current touch position relative to the locator.\nreturn: Relative touch position in the locator; returns nil if no active touch inside.",
+            "params": [],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "GetLocatorTouchPos() *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "ImageLocator",
+            "doc": "Finds sub-locators containing visually similar images within the current locator area.\nimage: Path/URL/Base64 image string relative to the current project.\nsim: Similarity threshold in range 0.1~1.0; higher means more similar.\nreturn: List of matched sub-locators; returns nil if none are found.\nResults are sorted by similarity descending, and items below the threshold are filtered out.",
+            "params": [
+              {
+                "name": "image",
+                "type": "string"
+              },
+              {
+                "name": "sim",
+                "type": "float32"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "ImageLocator(image string, sim float32) ([]AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "float32",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "LongPress",
+            "doc": "Performs a long press at the specified position inside the locator.\nlocator_point: Relative position within the locator.\nnil means current touch position in the locator.\nIf there is no active touch inside the locator, the locator center is used.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "LongPress(locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Pinch",
+            "doc": "Performs a pinch gesture in the current locator area.\nspread: true to spread fingers (zoom in), false to pinch fingers (zoom out).\nscale: Scale factor for the gesture distance, range 0.1~1.0; larger means more spread/pinch.",
+            "params": [
+              {
+                "name": "spread",
+                "type": "bool"
+              },
+              {
+                "name": "scale",
+                "type": "float32"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Pinch(spread bool, scale float32) error",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "float32",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "PressKeys",
+            "doc": "Simulates pressing a hardware or system key while the locator is focused.\nkeys: Key sequence to press, as defined by the AppKey type.",
+            "params": [
+              {
+                "name": "keys",
+                "type": "...AppKey"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "PressKeys(keys ...AppKey) error",
+            "type_refs": [
+              {
+                "expr": "AppKey",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "SubLocator",
+            "doc": "Gets a sub-locator of the current locator, clipped to the intersection with current bounds.\nlocator_point: Relative position of the sub-locator within the current locator.\nsize: Size of the sub-locator.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "basic.Point"
+              },
+              {
+                "name": "size",
+                "type": "basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "AppGuiLocator"
+              }
+            ],
+            "signature": "SubLocator(locator_point basic.Point, size basic.Size) AppGuiLocator",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              }
+            ]
+          },
+          {
+            "name": "SwipeTo",
+            "doc": "Performs a swipe gesture from a start position to an end position within the current locator.\nBoth positions are relative coordinates within the current locator.\nfrom_locator_point: Relative start position; nil means the current touch position,\nor the locator center if no active touch.\nto_locator_point: Relative end position; nil means the current touch position,\nor the locator center if no active touch.",
+            "params": [
+              {
+                "name": "from_locator_point",
+                "type": "*basic.Point"
+              },
+              {
+                "name": "to_locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "SwipeTo(from_locator_point *basic.Point, to_locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Tap",
+            "doc": "Performs a single tap at the specified position inside the locator.\nlocator_point: Relative position within the locator.\nnil means current touch position in the locator.\nIf there is no active touch inside the locator, the locator center is used.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Tap(locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "TextLocator",
+            "doc": "Finds sub-locators containing specified text within the current locator area.\ntexts: Text list to find. Multiple texts mean all must be present.\nreturn: List of matched sub-locators; returns nil if none are found.\nOnly locators containing all texts are returned, sorted by area from small to large.",
+            "params": [
+              {
+                "name": "texts",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "TextLocator(texts ...string) ([]AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "TouchDown",
+            "doc": "Presses a finger down at the current touch position within the locator.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "TouchDown() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "TouchMove",
+            "doc": "Moves the touch point to a specified position inside the locator without lifting.\nlocator_point: Relative position within the locator.\nnil means the center position of the current locator.",
+            "params": [
+              {
+                "name": "locator_point",
+                "type": "*basic.Point"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "TouchMove(locator_point *basic.Point) error",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "TouchUp",
+            "doc": "Lifts the finger at the current touch position within the locator.",
+            "params": [],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "TouchUp() error",
+            "type_refs": [
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "VisionLocator",
+            "doc": "Uses the vision module to find sub-locators with specific visual shapes\nin the current locator area.\ndescription: Description of the target shape, for example: a red circular button,\nor a blue rectangular input box.\nmin_size: Minimum size of sub-locators to find; nil means no minimum limit.\nmax_size: Maximum size of sub-locators to find; nil means no maximum limit.\nreturn: List of matched sub-locators; returns nil if none are found.\nResults are sorted by coordinates from left to right and top to bottom.",
+            "params": [
+              {
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "name": "min_size",
+                "type": "*basic.Size"
+              },
+              {
+                "name": "max_size",
+                "type": "*basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "VisionLocator(description string, min_size *basic.Size, max_size *basic.Size) ([]AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "WaitForCard",
+            "doc": "Waits for card-like sub-locators to appear in the current locator area.\nA card-like sub-locator is an independent card-shaped region that usually includes\ngraphics and text, commonly seen in list items and buttons.\ntimeout: Timeout duration.\nmin_size: Minimum size of sub-locators to find; nil means no minimum limit.\nmax_size: Maximum size of sub-locators to find; nil means no maximum limit.\nreturn: On success, returns matched sub-locators sorted by coordinates\nfrom left to right and top to bottom. Returns error on timeout or recognition failure.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              },
+              {
+                "name": "min_size",
+                "type": "*basic.Size"
+              },
+              {
+                "name": "max_size",
+                "type": "*basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForCard(timeout time.Duration, min_size *basic.Size, max_size *basic.Size) ([]AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitForEditing",
+            "doc": "Waits until the current locator enters a text-editable state or times out.\ntimeout: Timeout duration.\nreturn: Sub-locator containing the text input caret.\nReturns error on timeout; returns nil if no caret exists in the locator.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              }
+            ],
+            "results": [
+              {
+                "type": "AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForEditing(timeout time.Duration) (AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitForImage",
+            "doc": "Waits for sub-locators containing visually similar images to appear in the current locator area.\ntimeout: Timeout duration.\nimage: Path/URL/Base64 image string relative to the current project.\nsim: Similarity threshold in range 0.1~1.0; higher means more similar.\nreturn: On success, returns matched sub-locators sorted by similarity descending;\nresults below sim are filtered out. Returns error on timeout or recognition failure.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              },
+              {
+                "name": "image",
+                "type": "string"
+              },
+              {
+                "name": "sim",
+                "type": "float32"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForImage(timeout time.Duration, image string, sim float32) ([]AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "float32",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitForText",
+            "doc": "Waits for sub-locators containing specified text to appear in the current locator area.\ntimeout: Timeout duration.\ntexts: Text list to wait for. Multiple texts mean all must be present.\nreturn: On success, returns matched sub-locators that contain all texts,\nsorted by area from small to large. Returns error on timeout or recognition failure.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              },
+              {
+                "name": "texts",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForText(timeout time.Duration, texts ...string) ([]AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          },
+          {
+            "name": "WaitForVision",
+            "doc": "Waits for sub-locators with specific visual shapes to appear,\nusing the vision module in the current locator area.\ntimeout: Timeout duration.\ndescription: Description of the target shape, for example: a red circular button,\nor a blue rectangular input box.\nmin_size: Minimum size of sub-locators to find; nil means no minimum limit.\nmax_size: Maximum size of sub-locators to find; nil means no maximum limit.\nreturn: On success, returns matched sub-locators sorted by coordinates\nfrom left to right and top to bottom. Returns error on timeout or recognition failure.",
+            "params": [
+              {
+                "name": "timeout",
+                "type": "time.Duration"
+              },
+              {
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "name": "min_size",
+                "type": "*basic.Size"
+              },
+              {
+                "name": "max_size",
+                "type": "*basic.Size"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "WaitForVision(timeout time.Duration, description string, min_size *basic.Size, max_size *basic.Size) ([]AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Size",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              },
+              {
+                "expr": "time.Duration",
+                "import_path": "time",
+                "qualified_name": "time.Duration"
+              }
+            ]
+          }
+        ],
+        "embeds": [
+          {
+            "type": "gui.GuiLocator",
+            "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiLocator"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "AppGuiLocator",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+            "local": true
+          },
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          },
+          {
+            "expr": "basic.Point",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+          },
+          {
+            "expr": "basic.Size",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Size"
+          },
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "float32",
+            "builtin": true
+          },
+          {
+            "expr": "gui.GuiLocator",
+            "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiLocator"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          },
+          {
+            "expr": "time.Duration",
+            "import_path": "time",
+            "qualified_name": "time.Duration"
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#AppGuiWindow",
+        "name": "AppGuiWindow",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiWindow",
+        "kind": "interface",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "doc": "AppGuiWindow defines the interface of a mobile app window (screen), providing methods\nfor window information, app operations, and simulated touch/key input.",
+        "signature": "type AppGuiWindow interface",
+        "source": {
+          "file": "appgui/appgui_window.go",
+          "line": 12,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "BodyLocator",
+            "doc": "Gets the locator for the window content area.",
+            "params": [],
+            "results": [
+              {
+                "type": "AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "BodyLocator() (AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetAppActivity",
+            "doc": "Gets the current activity name (Android) or view controller name (iOS).",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetAppActivity() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetAppPackage",
+            "doc": "Gets the package name (Android) or bundle ID (iOS) of the app.",
+            "params": [],
+            "results": [
+              {
+                "type": "string"
+              }
+            ],
+            "signature": "GetAppPackage() string",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GetScreenRect",
+            "doc": "Gets the screen rectangle in device coordinates.",
+            "params": [],
+            "results": [
+              {
+                "type": "basic.Rect"
+              }
+            ],
+            "signature": "GetScreenRect() basic.Rect",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          },
+          {
+            "name": "GetWindowTouchPos",
+            "doc": "Gets the current touch position relative to the window; returns nil if no active touch in the window.",
+            "params": [],
+            "results": [
+              {
+                "type": "*basic.Point"
+              }
+            ],
+            "signature": "GetWindowTouchPos() *basic.Point",
+            "type_refs": [
+              {
+                "expr": "basic.Point",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+              }
+            ]
+          },
+          {
+            "name": "PressKey",
+            "doc": "Simulates pressing a hardware or system key.\nkey: The key to press, as defined by the AppKey type.",
+            "params": [
+              {
+                "name": "key",
+                "type": "AppKey"
+              }
+            ],
+            "results": [
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "PressKey(key AppKey) error",
+            "type_refs": [
+              {
+                "expr": "AppKey",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+                "local": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "RectLocator",
+            "doc": "Gets a locator for the specified rectangle, clipped to the window bounds.",
+            "params": [
+              {
+                "name": "rect",
+                "type": "basic.Rect"
+              }
+            ],
+            "results": [
+              {
+                "type": "AppGuiLocator"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "RectLocator(rect basic.Rect) (AppGuiLocator, error)",
+            "type_refs": [
+              {
+                "expr": "AppGuiLocator",
+                "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+                "local": true
+              },
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "embeds": [
+          {
+            "type": "gui.GuiWindow",
+            "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiWindow"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "AppGuiLocator",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppGuiLocator",
+            "local": true
+          },
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          },
+          {
+            "expr": "basic.Point",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Point"
+          },
+          {
+            "expr": "basic.Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "gui.GuiWindow",
+            "import_path": "yanlingrpa.com/yanling/protocol/internal/gui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/internal/gui.GuiWindow"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#AppKey",
+        "name": "AppKey",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+        "kind": "named_type",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "doc": "AppKey represents a hardware or system key on a mobile device.",
+        "signature": "type AppKey string",
+        "underlying_type": "string",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 6,
+          "column": 6
+        },
+        "type_refs": [
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyBack",
+        "name": "KeyBack",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyBack",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "doc": "Navigation keys",
+        "signature": "const KeyBack AppKey = \"back\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 10,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"back\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyBackspace",
+        "name": "KeyBackspace",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyBackspace",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyBackspace AppKey = \"backspace\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 32,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"backspace\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyDelete",
+        "name": "KeyDelete",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyDelete",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyDelete AppKey = \"delete\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 25,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"delete\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyDone",
+        "name": "KeyDone",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyDone",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyDone AppKey = \"done\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 28,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"done\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyEnter",
+        "name": "KeyEnter",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyEnter",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "doc": "Soft keyboard keys",
+        "signature": "const KeyEnter AppKey = \"enter\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 24,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"enter\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyHome",
+        "name": "KeyHome",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyHome",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyHome AppKey = \"home\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 11,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"home\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyMenu",
+        "name": "KeyMenu",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyMenu",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyMenu AppKey = \"menu\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 12,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"menu\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyNext",
+        "name": "KeyNext",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyNext",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyNext AppKey = \"next\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 29,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"next\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyPower",
+        "name": "KeyPower",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyPower",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "doc": "Power key",
+        "signature": "const KeyPower AppKey = \"power\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 21,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"power\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyPrevious",
+        "name": "KeyPrevious",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyPrevious",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyPrevious AppKey = \"previous\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 30,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"previous\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyRecent",
+        "name": "KeyRecent",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyRecent",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyRecent AppKey = \"recent\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 13,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"recent\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeySearch",
+        "name": "KeySearch",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeySearch",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeySearch AppKey = \"search\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 27,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"search\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeySpace",
+        "name": "KeySpace",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeySpace",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeySpace AppKey = \"space\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 31,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"space\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyTab",
+        "name": "KeyTab",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyTab",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyTab AppKey = \"tab\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 26,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"tab\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyVolumeDown",
+        "name": "KeyVolumeDown",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyVolumeDown",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyVolumeDown AppKey = \"volume_down\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 17,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"volume_down\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyVolumeMute",
+        "name": "KeyVolumeMute",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyVolumeMute",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "signature": "const KeyVolumeMute AppKey = \"volume_mute\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 18,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"volume_mute\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/appgui#KeyVolumeUp",
+        "name": "KeyVolumeUp",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.KeyVolumeUp",
+        "kind": "const",
+        "package": "appgui",
+        "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+        "doc": "Volume keys",
+        "signature": "const KeyVolumeUp AppKey = \"volume_up\"",
+        "source": {
+          "file": "appgui/appgui_const_enum.go",
+          "line": 16,
+          "column": 2
+        },
+        "const_type": "AppKey",
+        "const_value": "\"volume_up\"",
+        "type_refs": [
+          {
+            "expr": "AppKey",
+            "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/appgui.AppKey",
+            "local": true
+          }
+        ]
+      }
+    ]
+  }
+}

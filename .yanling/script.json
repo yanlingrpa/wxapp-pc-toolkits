@@ -1,0 +1,15 @@
+{
+  "module": {
+    "specifier": "github.com/yanlingrpa/meituan-wxapp-pc-collector@v1.2.3",
+    "package": "main",
+    "description": "WXApp PC Utils.",
+    "tags": ["automation", "browser", "export"],
+    "website": "https://yanlingrpa.com/demo-script",
+    "update_time": "2026-04-22T12:30:00Z",
+    "author": "Yanling RPA Team",
+    "email": "automation@yanlingrpa.com",
+    "license": "MIT",
+    "devices": ["windows", "mac"],
+    "engine_version": ">=1.0.0"
+  }
+}

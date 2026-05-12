@@ -1,0 +1,296 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T07:46:49Z",
+  "module": "yanlingrpa.com/yanling/protocol",
+  "package": {
+    "name": "component",
+    "import_path": "yanlingrpa.com/yanling/protocol/component",
+    "directory": "/component",
+    "files": [
+      "component/ocr_worker.go",
+      "component/vision_worker.go"
+    ],
+    "imports": [
+      {
+        "path": "yanlingrpa.com/yanling/protocol/basic",
+        "aliases": [
+          "basic"
+        ]
+      }
+    ],
+    "dependencies": [
+      "yanlingrpa.com/yanling/protocol/basic"
+    ],
+    "counts": {
+      "symbols": 2,
+      "interfaces": 2,
+      "methods": 5
+    },
+    "symbols": [
+      {
+        "id": "yanlingrpa.com/yanling/protocol/component#OcrWorker",
+        "name": "OcrWorker",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/component.OcrWorker",
+        "kind": "interface",
+        "package": "component",
+        "import_path": "yanlingrpa.com/yanling/protocol/component",
+        "signature": "type OcrWorker interface",
+        "source": {
+          "file": "component/ocr_worker.go",
+          "line": 5,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "OcrImage",
+            "doc": "Performs OCR recognition on an image.\nimage: Byte array of the image.\nreturn: OCR result containing recognized text and corresponding position information.",
+            "params": [
+              {
+                "name": "image",
+                "type": "[]byte"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.OcrResult"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "OcrImage(image []byte) (*basic.OcrResult, error)",
+            "type_refs": [
+              {
+                "expr": "basic.OcrResult",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrResult"
+              },
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "basic.OcrResult",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrResult"
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "yanlingrpa.com/yanling/protocol/component#VisionWorker",
+        "name": "VisionWorker",
+        "qualified_name": "yanlingrpa.com/yanling/protocol/component.VisionWorker",
+        "kind": "interface",
+        "package": "component",
+        "import_path": "yanlingrpa.com/yanling/protocol/component",
+        "signature": "type VisionWorker interface",
+        "source": {
+          "file": "component/vision_worker.go",
+          "line": 5,
+          "column": 6
+        },
+        "methods": [
+          {
+            "name": "Detect",
+            "doc": "Performs visual detection on an image.\nimage: Byte array of the image.\ninstruction: Detection instruction that clearly describes the target and requirements,\nfor example, \"Detect all faces in the image and return the age and gender of each face\".\nschema: JSON Schema definition of the detection result, describing structure and fields\nso callers can parse and use the returned data.\nreturn: Detection result conforming to the schema, usually a JSON string containing\ninformation detected from the image according to the instruction.",
+            "params": [
+              {
+                "name": "image",
+                "type": "[]byte"
+              },
+              {
+                "name": "instruction",
+                "type": "string"
+              },
+              {
+                "name": "schema",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Detect(image []byte, instruction string, schema string) (string, error)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Locate",
+            "doc": "Performs visual localization on an image.\nimage: Byte array of the image.\ntexts: List of texts to locate; can include one or more text values.\nreturn: Localization result containing position information of all matched texts,\nsorted from left to right and top to bottom; texts not found are excluded from the result.",
+            "params": [
+              {
+                "name": "image",
+                "type": "[]byte"
+              },
+              {
+                "name": "texts",
+                "type": "...string"
+              }
+            ],
+            "results": [
+              {
+                "type": "[]basic.Rect"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Locate(image []byte, texts ...string) ([]basic.Rect, error)",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              },
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Ocr",
+            "doc": "Performs OCR recognition on an image.\nimage: Byte array of the image.\nreturn: OCR result containing recognized text and corresponding position information.",
+            "params": [
+              {
+                "name": "image",
+                "type": "[]byte"
+              }
+            ],
+            "results": [
+              {
+                "type": "*basic.OcrResult"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Ocr(image []byte) (*basic.OcrResult, error)",
+            "type_refs": [
+              {
+                "expr": "basic.OcrResult",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrResult"
+              },
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Read",
+            "doc": "Performs visual reading on an image.\nimage: Byte array of the image.\ninstruction: Reading instruction that clearly describes what text to read,\nfor example, \"Read all text in the image and return the content and position of each text\".\nschema: JSON Schema definition of the reading result, describing the result structure,\nsuch as start and end positions for each text segment.\nreturn: Reading result conforming to the schema, usually a JSON string containing\ninformation read from the image according to the instruction.",
+            "params": [
+              {
+                "name": "image",
+                "type": "[]byte"
+              },
+              {
+                "name": "instruction",
+                "type": "string"
+              },
+              {
+                "name": "schema",
+                "type": "string"
+              }
+            ],
+            "results": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "error"
+              }
+            ],
+            "signature": "Read(image []byte, instruction string, schema string) (string, error)",
+            "type_refs": [
+              {
+                "expr": "byte",
+                "builtin": true
+              },
+              {
+                "expr": "error",
+                "builtin": true
+              },
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "basic.OcrResult",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.OcrResult"
+          },
+          {
+            "expr": "basic.Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+          },
+          {
+            "expr": "byte",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      }
+    ]
+  }
+}

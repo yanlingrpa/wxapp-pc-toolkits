@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "yanling.machine-first/v1 symbols.json",
+  "$defs": {
+    "CountsDoc": {
+      "type": "object",
+      "properties": {
+        "packages": { "type": "integer", "minimum": 0 },
+        "symbols": { "type": "integer", "minimum": 0 },
+        "interfaces": { "type": "integer", "minimum": 0 },
+        "structs": { "type": "integer", "minimum": 0 },
+        "functions": { "type": "integer", "minimum": 0 },
+        "methods": { "type": "integer", "minimum": 0 },
+        "named_types": { "type": "integer", "minimum": 0 },
+        "type_aliases": { "type": "integer", "minimum": 0 },
+        "func_types": { "type": "integer", "minimum": 0 },
+        "consts": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "SourceDoc": {
+      "type": "object",
+      "required": ["file", "line", "column"],
+      "properties": {
+        "file": { "type": "string" },
+        "line": { "type": "integer", "minimum": 1 },
+        "column": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": true
+    },
+    "TypeRefDoc": {
+      "type": "object",
+      "required": ["expr"],
+      "properties": {
+        "expr": { "type": "string" },
+        "import_path": { "type": "string" },
+        "qualified_name": { "type": "string" },
+        "local": { "type": "boolean" },
+        "builtin": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "SymbolIndexEntry": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "qualified_name",
+        "kind",
+        "package",
+        "import_path",
+        "source",
+        "package_file"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "qualified_name": { "type": "string" },
+        "kind": { "type": "string" },
+        "package": { "type": "string" },
+        "import_path": { "type": "string" },
+        "doc": { "type": "string" },
+        "signature": { "type": "string" },
+        "source": { "$ref": "#/$defs/SourceDoc" },
+        "package_file": { "type": "string" },
+        "type_refs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TypeRefDoc" }
+        },
+        "method_count": { "type": "integer", "minimum": 0 },
+        "field_count": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": true
+    }
+  },
+  "type": "object",
+  "required": ["schema_version", "generated_at", "module", "counts", "symbols"],
+  "properties": {
+    "schema_version": {
+      "const": "yanling.machine-first/v1"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "module": {
+      "type": "string",
+      "minLength": 1
+    },
+    "counts": {
+      "$ref": "#/$defs/CountsDoc"
+    },
+    "symbols": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SymbolIndexEntry"
+      }
+    }
+  },
+  "additionalProperties": true
+}
