@@ -153,6 +153,8 @@ func CheckWxappReady(rt script.ModuleRuntime, guiId string) (bool, error) {
 	}
 
 	// Step 4: no blocking popup detected, publish readiness event.
+
+	// app_ready：微信小程序已就绪，可以开始后续的自动化操作了。
 	if err := rt.Publish("app_ready", AppReadyData{
 		AppName: win.GetWindowTitle(),
 		GuId:    guiId,

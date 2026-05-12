@@ -6,6 +6,18 @@ import (
 	"strings"
 )
 
+var excludedTopLevelDirs = map[string]struct{}{
+	".git":      {},
+	".vscode":   {},
+	".protocol": {},
+	".yanling":  {},
+	"cmd":       {},
+	"doc":       {},
+	"tests":     {},
+	"symbols":   {},
+	"schema":    {},
+}
+
 func main() {
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "usage: %s <script.go>\n", os.Args[0])

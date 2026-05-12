@@ -1,0 +1,30 @@
+{
+  "$schema": "./schema/yanling.machine-first.v1/topics.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T09:50:54Z",
+  "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
+  "topics": [
+    {
+      "name": "app_ready",
+      "doc": "app_ready：微信小程序已就绪，可以开始后续的自动化操作了。",
+      "direction": "publish",
+      "go_struct_name": "AppReadyData",
+      "payload": {
+        "type": "object",
+        "properties": {
+          "app_name": {
+            "type": "string"
+          },
+          "guid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "app_name",
+          "guid"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

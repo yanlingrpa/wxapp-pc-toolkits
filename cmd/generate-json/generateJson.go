@@ -23,16 +23,19 @@ const (
 	moduleSchemaRef  = "./schema/yanling.machine-first.v1/module.schema.json"
 	symbolsSchemaRef = "./schema/yanling.machine-first.v1/symbols.schema.json"
 	packageSchemaRef = "./../schema/yanling.machine-first.v1/package.schema.json"
-	topicSchemaRef   = "./schema/yanling.machine-first.v1/topic.schema.json"
+	topicsSchemaRef  = "./schema/yanling.machine-first.v1/topics.schema.json"
 )
 
 var excludedTopLevelDirs = map[string]struct{}{
-	".yanling": {},
-	"cmd":      {},
-	"doc":      {},
-	"tests":    {},
-	"symbols":  {},
-	"schema":   {},
+	".git":      {},
+	".vscode":   {},
+	".protocol": {},
+	".yanling":  {},
+	"cmd":       {},
+	"doc":       {},
+	"tests":     {},
+	"symbols":   {},
+	"schema":    {},
 }
 
 var builtinTypes = map[string]struct{}{
@@ -250,6 +253,38 @@ type TypeRefDoc struct {
 	Builtin       bool   `json:"builtin,omitempty"`
 }
 
+// TopicFieldSchema describes a topic payload field (or the root payload object) in JSON Schema style.
+type TopicFieldSchema struct {
+	Type                 string                       `json:"type,omitempty"`
+	Description          string                       `json:"description,omitempty"`
+	Nullable             bool                         `json:"nullable,omitempty"`
+	GoTypeHint           string                       `json:"go_type_hint,omitempty"`
+	GoFieldName          string                       `json:"go_field_name,omitempty"`
+	Format               string                       `json:"format,omitempty"`
+	Properties           map[string]*TopicFieldSchema `json:"properties,omitempty"`
+	Items                *TopicFieldSchema            `json:"items,omitempty"`
+	Required             []string                     `json:"required,omitempty"`
+	AdditionalProperties *bool                        `json:"additionalProperties,omitempty"`
+}
+
+// TopicDoc describes a single event topic published by this module.
+type TopicDoc struct {
+	Name         string           `json:"name"`
+	Doc          string           `json:"doc,omitempty"`
+	Direction    string           `json:"direction,omitempty"`
+	GoStructName string           `json:"go_struct_name,omitempty"`
+	Payload      TopicFieldSchema `json:"payload"`
+}
+
+// TopicsOutput is the top-level structure for topics.json.
+type TopicsOutput struct {
+	SchemaRef     string     `json:"$schema,omitempty"`
+	SchemaVersion string     `json:"schema_version"`
+	GeneratedAt   string     `json:"generated_at"`
+	Module        string     `json:"module"`
+	Topics        []TopicDoc `json:"topics"`
+}
+
 func main() {
 	rootDir, err := findProjectRoot()
 	if err != nil {
@@ -312,6 +347,25 @@ func main() {
 	fmt.Printf("generated %s\n", filepath.Join(outputDir, "symbols.json"))
 	fmt.Printf("generated %s\n", filepath.Join(outputDir, "symbols.lite.json"))
 	fmt.Printf("generated %s\n", packagesDir)
+
+	symbolIndex := buildSymbolIndex(packages)
+	topicDocs, err := scanTopics(rootDir, moduleName, symbolIndex)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "failed to scan topics: %v\n", err)
+		os.Exit(1)
+	}
+	topicsOutput := TopicsOutput{
+		SchemaRef:     topicsSchemaRef,
+		SchemaVersion: schemaVersion,
+		GeneratedAt:   generatedAt,
+		Module:        moduleName,
+		Topics:        topicDocs,
+	}
+	if err := writeJSON(filepath.Join(outputDir, "topics.json"), topicsOutput); err != nil {
+		fmt.Fprintf(os.Stderr, "failed to write topics.json: %v\n", err)
+		os.Exit(1)
+	}
+	fmt.Printf("generated %s\n", filepath.Join(outputDir, "topics.json"))
 }
 
 func findProjectRoot() (string, error) {
@@ -1405,6 +1459,7 @@ func cleanupOutputDir(outputDir string) error {
 		filepath.Join(outputDir, "module.json"),
 		filepath.Join(outputDir, "symbols.json"),
 		filepath.Join(outputDir, "symbols.lite.json"),
+		filepath.Join(outputDir, "topics.json"),
 	}
 	for _, item := range paths {
 		if err := os.RemoveAll(item); err != nil {
@@ -1435,4 +1490,309 @@ func oneLineDoc(text string) string {
 		}
 	}
 	return ""
+}
+
+// buildSymbolIndex creates a qualified-name → *SymbolDoc map for fast type lookup.
+func buildSymbolIndex(packages []*packageAggregate) map[string]*SymbolDoc {
+	index := make(map[string]*SymbolDoc)
+	for _, pkg := range packages {
+		for _, symbol := range pkg.Symbols {
+			index[symbol.QualifiedName] = symbol
+		}
+	}
+	return index
+}
+
+// scanTopics walks the source tree looking for .Publish(topic, payload) calls,
+// deduplicates by topic name, extracts preceding doc comments and payload struct
+// types, and returns a sorted slice of TopicDoc entries.
+func scanTopics(rootDir, moduleName string, symbolIndex map[string]*SymbolDoc) ([]TopicDoc, error) {
+	fset := token.NewFileSet()
+
+	type rawTopic struct {
+		doc               string
+		payloadTypeName   string
+		payloadImportPath string
+	}
+	seen := make(map[string]*rawTopic)
+
+	err := filepath.WalkDir(rootDir, func(filePath string, d os.DirEntry, walkErr error) error {
+		if walkErr != nil {
+			return walkErr
+		}
+		if d.IsDir() {
+			if shouldSkipDir(rootDir, filePath, d.Name()) {
+				return filepath.SkipDir
+			}
+			return nil
+		}
+		if !strings.HasSuffix(d.Name(), ".go") || strings.HasSuffix(d.Name(), "_test.go") {
+			return nil
+		}
+
+		fileAst, err := parser.ParseFile(fset, filePath, nil, parser.ParseComments)
+		if err != nil {
+			return nil // skip files with parse errors
+		}
+
+		imports := buildImportMap(fileAst)
+
+		relPath, _ := filepath.Rel(rootDir, filePath)
+		relPath = filepath.ToSlash(relPath)
+		relDir := filepath.ToSlash(filepath.Dir(relPath))
+		if relDir == "." {
+			relDir = ""
+		}
+		pkgImportPath := moduleName
+		if relDir != "" {
+			pkgImportPath = moduleName + "/" + relDir
+		}
+
+		// Map: comment-group end line → cleaned comment text.
+		// Used to locate the doc comment immediately preceding a Publish call.
+		commentByEndLine := make(map[int]string)
+		for _, cg := range fileAst.Comments {
+			endLine := fset.Position(cg.End()).Line
+			commentByEndLine[endLine] = cleanComment(cg.Text())
+		}
+
+		ast.Inspect(fileAst, func(n ast.Node) bool {
+			callExpr, ok := n.(*ast.CallExpr)
+			if !ok {
+				return true
+			}
+			sel, ok := callExpr.Fun.(*ast.SelectorExpr)
+			if !ok || sel.Sel.Name != "Publish" {
+				return true
+			}
+			if len(callExpr.Args) != 2 {
+				return true
+			}
+			topicLit, ok := callExpr.Args[0].(*ast.BasicLit)
+			if !ok || topicLit.Kind != token.STRING {
+				return true
+			}
+			topic := strings.Trim(topicLit.Value, `"`)
+			if topic == "" {
+				return true
+			}
+
+			callLine := fset.Position(callExpr.Pos()).Line
+			// Search for a comment ending 1-3 lines before the call.
+			doc := ""
+			for delta := 1; delta <= 3; delta++ {
+				if c, found := commentByEndLine[callLine-delta]; found {
+					doc = c
+					break
+				}
+			}
+
+			typeName, typeImportPath := resolvePayloadType(callExpr.Args[1], imports, pkgImportPath)
+
+			if existing, exists := seen[topic]; !exists {
+				seen[topic] = &rawTopic{
+					doc:               doc,
+					payloadTypeName:   typeName,
+					payloadImportPath: typeImportPath,
+				}
+			} else {
+				if existing.doc == "" && doc != "" {
+					existing.doc = doc
+				}
+				if existing.payloadTypeName == "" && typeName != "" {
+					existing.payloadTypeName = typeName
+					existing.payloadImportPath = typeImportPath
+				}
+			}
+			return true
+		})
+		return nil
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	topics := make([]TopicDoc, 0, len(seen))
+	for topicName, raw := range seen {
+		payload := buildTopicPayload(raw.payloadTypeName, raw.payloadImportPath, symbolIndex)
+		entry := TopicDoc{
+			Name:      topicName,
+			Doc:       raw.doc,
+			Direction: "publish",
+			Payload:   payload,
+		}
+		if raw.payloadTypeName != "" && ast.IsExported(raw.payloadTypeName) {
+			entry.GoStructName = raw.payloadTypeName
+		}
+		topics = append(topics, entry)
+	}
+	sort.Slice(topics, func(i, j int) bool {
+		return topics[i].Name < topics[j].Name
+	})
+	return topics, nil
+}
+
+// resolvePayloadType extracts the struct type name and its import path from a
+// Publish payload expression (typically a composite literal).
+func resolvePayloadType(expr ast.Expr, imports map[string]string, localImportPath string) (string, string) {
+	switch t := expr.(type) {
+	case *ast.CompositeLit:
+		if t.Type != nil {
+			return resolvePayloadType(t.Type, imports, localImportPath)
+		}
+	case *ast.Ident:
+		return t.Name, localImportPath
+	case *ast.SelectorExpr:
+		if pkgIdent, ok := t.X.(*ast.Ident); ok {
+			if importPath, found := imports[pkgIdent.Name]; found {
+				return t.Sel.Name, importPath
+			}
+		}
+	case *ast.StarExpr:
+		return resolvePayloadType(t.X, imports, localImportPath)
+	case *ast.UnaryExpr:
+		return resolvePayloadType(t.X, imports, localImportPath)
+	}
+	return "", ""
+}
+
+// buildTopicPayload constructs the root TopicFieldSchema for a named struct type.
+func buildTopicPayload(typeName, importPath string, symbolIndex map[string]*SymbolDoc) TopicFieldSchema {
+	if typeName == "" || importPath == "" {
+		return TopicFieldSchema{Type: "object", Properties: map[string]*TopicFieldSchema{}}
+	}
+	qname := qualifiedName(importPath, typeName)
+	symbol, ok := symbolIndex[qname]
+	if !ok || symbol.Kind != "struct" {
+		return TopicFieldSchema{Type: "object", GoTypeHint: typeName, Properties: map[string]*TopicFieldSchema{}}
+	}
+	return buildStructPayload(symbol.Fields, symbolIndex, 0)
+}
+
+// buildStructPayload converts a slice of FieldDoc into a TopicFieldSchema of type "object".
+func buildStructPayload(fields []FieldDoc, symbolIndex map[string]*SymbolDoc, depth int) TopicFieldSchema {
+	props := make(map[string]*TopicFieldSchema)
+	required := make([]string, 0)
+
+	for _, field := range fields {
+		if field.Embedded {
+			continue
+		}
+		jsonKey := extractJSONFieldName(field)
+		if jsonKey == "" || jsonKey == "-" {
+			continue
+		}
+		isOmitempty := strings.Contains(field.Tag, "omitempty")
+		fieldSchema := goTypeToFieldSchema(field.Type, field.TypeRefs, field.Doc, symbolIndex, depth)
+		props[jsonKey] = &fieldSchema
+		if !isOmitempty {
+			required = append(required, jsonKey)
+		}
+	}
+	sort.Strings(required)
+
+	falseVal := false
+	return TopicFieldSchema{
+		Type:                 "object",
+		Properties:           props,
+		Required:             required,
+		AdditionalProperties: &falseVal,
+	}
+}
+
+// extractJSONFieldName returns the JSON key for a struct field by reading its json tag,
+// falling back to the field name when no tag is present.
+func extractJSONFieldName(field FieldDoc) string {
+	if field.Tag != "" {
+		idx := strings.Index(field.Tag, `json:"`)
+		if idx >= 0 {
+			rest := field.Tag[idx+6:]
+			end := strings.Index(rest, `"`)
+			if end > 0 {
+				parts := strings.SplitN(rest[:end], ",", 2)
+				if parts[0] != "" {
+					return parts[0]
+				}
+			}
+		}
+	}
+	return field.Name
+}
+
+// goTypeToFieldSchema maps a Go type string to a TopicFieldSchema.
+// Named types are resolved recursively via symbolIndex up to depth 6.
+func goTypeToFieldSchema(goType string, typeRefs []TypeRefDoc, doc string, symbolIndex map[string]*SymbolDoc, depth int) TopicFieldSchema {
+	if depth > 6 {
+		return TopicFieldSchema{Type: "object", Description: doc}
+	}
+
+	// Pointer: strip * and mark the inner schema as nullable.
+	if strings.HasPrefix(goType, "*") {
+		inner := goTypeToFieldSchema(goType[1:], typeRefs, doc, symbolIndex, depth)
+		inner.Nullable = true
+		return inner
+	}
+
+	// Primitive types.
+	switch goType {
+	case "string":
+		return TopicFieldSchema{Type: "string", Description: doc}
+	case "bool":
+		return TopicFieldSchema{Type: "boolean", Description: doc}
+	case "int", "int8", "int16", "int32", "int64",
+		"uint", "uint8", "uint16", "uint32", "uint64", "byte", "rune":
+		return TopicFieldSchema{Type: "integer", Description: doc}
+	case "float32", "float64":
+		return TopicFieldSchema{Type: "number", Description: doc}
+	case "any", "interface{}":
+		return TopicFieldSchema{Description: doc}
+	case "time.Time":
+		return TopicFieldSchema{Type: "string", Format: "date-time", GoTypeHint: "time.Time", Description: doc}
+	}
+
+	// Slice: []T → array with items schema.
+	if strings.HasPrefix(goType, "[]") {
+		innerType := goType[2:]
+		var innerRefs []TypeRefDoc
+		for _, ref := range typeRefs {
+			if !ref.Builtin {
+				innerRefs = append(innerRefs, ref)
+			}
+		}
+		innerSchema := goTypeToFieldSchema(innerType, innerRefs, "", symbolIndex, depth)
+		return TopicFieldSchema{Type: "array", Items: &innerSchema, Description: doc}
+	}
+
+	// Map: map[K]V → generic object with go_type_hint.
+	if strings.HasPrefix(goType, "map[") {
+		return TopicFieldSchema{Type: "object", GoTypeHint: goType, Description: doc}
+	}
+
+	// Named types: look up via typeRefs → symbolIndex.
+	for _, ref := range typeRefs {
+		if ref.Builtin || ref.QualifiedName == "" {
+			continue
+		}
+		// Special case: time.Time from the standard library.
+		if ref.ImportPath == "time" && ref.QualifiedName == "time.Time" {
+			return TopicFieldSchema{Type: "string", Format: "date-time", GoTypeHint: "time.Time", Description: doc}
+		}
+		symbol, ok := symbolIndex[ref.QualifiedName]
+		if !ok {
+			continue
+		}
+		switch symbol.Kind {
+		case "struct":
+			result := buildStructPayload(symbol.Fields, symbolIndex, depth+1)
+			result.Description = doc
+			return result
+		case "named_type":
+			return goTypeToFieldSchema(symbol.UnderlyingType, symbol.TypeRefs, doc, symbolIndex, depth)
+		case "type_alias":
+			return goTypeToFieldSchema(symbol.UnderlyingType, symbol.TypeRefs, doc, symbolIndex, depth)
+		}
+	}
+
+	// Unknown type: preserve as go_type_hint for downstream code generators.
+	return TopicFieldSchema{GoTypeHint: goType, Description: doc}
 }

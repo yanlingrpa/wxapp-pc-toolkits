@@ -1,0 +1,149 @@
+{
+  "$schema": "./schema/yanling.machine-first.v1/symbols.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T09:50:54Z",
+  "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
+  "counts": {
+    "packages": 1,
+    "symbols": 5,
+    "structs": 3,
+    "functions": 2
+  },
+  "symbols": [
+    {
+      "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#AppReadyData",
+      "name": "AppReadyData",
+      "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.AppReadyData",
+      "kind": "struct",
+      "package": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "signature": "type AppReadyData struct",
+      "source": {
+        "file": "wxapputils/check_wxapp_ready.go",
+        "line": 18,
+        "column": 6
+      },
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json",
+      "type_refs": [
+        {
+          "expr": "string",
+          "builtin": true
+        }
+      ],
+      "field_count": 2
+    },
+    {
+      "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#ChangeGPSLocation",
+      "name": "ChangeGPSLocation",
+      "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.ChangeGPSLocation",
+      "kind": "function",
+      "package": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "doc": "修改微信小程序的GPS位置",
+      "signature": "ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) error",
+      "source": {
+        "file": "wxapputils/change_gps_location.go",
+        "line": 31,
+        "column": 1
+      },
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json",
+      "type_refs": [
+        {
+          "expr": "PreferedLocation",
+          "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+          "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PreferedLocation",
+          "local": true
+        },
+        {
+          "expr": "error",
+          "builtin": true
+        },
+        {
+          "expr": "script.ModuleRuntime",
+          "import_path": "yanlingrpa.com/yanling/protocol/script",
+          "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleRuntime"
+        }
+      ]
+    },
+    {
+      "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#CheckWxappReady",
+      "name": "CheckWxappReady",
+      "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.CheckWxappReady",
+      "kind": "function",
+      "package": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "doc": "检测微信小程序是否准备就绪",
+      "signature": "CheckWxappReady(rt script.ModuleRuntime, guiId string) (bool, error)",
+      "source": {
+        "file": "wxapputils/check_wxapp_ready.go",
+        "line": 77,
+        "column": 1
+      },
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json",
+      "type_refs": [
+        {
+          "expr": "bool",
+          "builtin": true
+        },
+        {
+          "expr": "error",
+          "builtin": true
+        },
+        {
+          "expr": "script.ModuleRuntime",
+          "import_path": "yanlingrpa.com/yanling/protocol/script",
+          "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleRuntime"
+        },
+        {
+          "expr": "string",
+          "builtin": true
+        }
+      ]
+    },
+    {
+      "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#PopupDialogInfo",
+      "name": "PopupDialogInfo",
+      "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PopupDialogInfo",
+      "kind": "struct",
+      "package": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "signature": "type PopupDialogInfo struct",
+      "source": {
+        "file": "wxapputils/check_wxapp_ready.go",
+        "line": 13,
+        "column": 6
+      },
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json",
+      "type_refs": [
+        {
+          "expr": "basic.Rect",
+          "import_path": "yanlingrpa.com/yanling/protocol/basic",
+          "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+        }
+      ],
+      "field_count": 2
+    },
+    {
+      "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#PreferedLocation",
+      "name": "PreferedLocation",
+      "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PreferedLocation",
+      "kind": "struct",
+      "package": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "signature": "type PreferedLocation struct",
+      "source": {
+        "file": "wxapputils/change_gps_location.go",
+        "line": 11,
+        "column": 6
+      },
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json",
+      "type_refs": [
+        {
+          "expr": "string",
+          "builtin": true
+        }
+      ],
+      "field_count": 2
+    }
+  ]
+}

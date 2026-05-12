@@ -1,0 +1,298 @@
+{
+  "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-12T09:50:54Z",
+  "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
+  "package": {
+    "name": "wxapputils",
+    "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+    "directory": "/wxapputils",
+    "files": [
+      "wxapputils/change_gps_location.go",
+      "wxapputils/check_wxapp_ready.go"
+    ],
+    "imports": [
+      {
+        "path": "encoding/json",
+        "aliases": [
+          "json"
+        ]
+      },
+      {
+        "path": "fmt",
+        "aliases": [
+          "fmt"
+        ]
+      },
+      {
+        "path": "strings",
+        "aliases": [
+          "strings"
+        ]
+      },
+      {
+        "path": "time",
+        "aliases": [
+          "time"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/basic",
+        "aliases": [
+          "basic"
+        ]
+      },
+      {
+        "path": "yanlingrpa.com/yanling/protocol/script",
+        "aliases": [
+          "script"
+        ]
+      }
+    ],
+    "dependencies": [
+      "yanlingrpa.com/yanling/protocol/basic",
+      "yanlingrpa.com/yanling/protocol/script"
+    ],
+    "counts": {
+      "symbols": 5,
+      "structs": 3,
+      "functions": 2
+    },
+    "symbols": [
+      {
+        "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#AppReadyData",
+        "name": "AppReadyData",
+        "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.AppReadyData",
+        "kind": "struct",
+        "package": "wxapputils",
+        "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+        "signature": "type AppReadyData struct",
+        "source": {
+          "file": "wxapputils/check_wxapp_ready.go",
+          "line": 18,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "AppName",
+            "type": "string",
+            "tag": "json:\"app_name\"",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "GuId",
+            "type": "string",
+            "tag": "json:\"guid\"",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#ChangeGPSLocation",
+        "name": "ChangeGPSLocation",
+        "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.ChangeGPSLocation",
+        "kind": "function",
+        "package": "wxapputils",
+        "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+        "doc": "修改微信小程序的GPS位置\n1. 在小程序界面上找到GPS定位元素并点击\n2. 等待调整到地址选择界面\n3. 通过OCR读取地址选择界面上的文本，找到与Keyword匹配的地址选项\n4. 点击匹配的地址选项，完成GPS位置修改\n5. 如果过程中出现任何异常（例如未找到GPS元素、未找到匹配的地址选项等），返回错误",
+        "signature": "ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) error",
+        "source": {
+          "file": "wxapputils/change_gps_location.go",
+          "line": 31,
+          "column": 1
+        },
+        "params": [
+          {
+            "name": "rt",
+            "type": "script.ModuleRuntime"
+          },
+          {
+            "name": "location",
+            "type": "PreferedLocation"
+          }
+        ],
+        "results": [
+          {
+            "type": "error"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "PreferedLocation",
+            "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+            "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PreferedLocation",
+            "local": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "script.ModuleRuntime",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleRuntime"
+          }
+        ]
+      },
+      {
+        "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#CheckWxappReady",
+        "name": "CheckWxappReady",
+        "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.CheckWxappReady",
+        "kind": "function",
+        "package": "wxapputils",
+        "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+        "doc": "检测微信小程序是否准备就绪\n1. 获取GUI窗口和Body定位器\n2. 循环进行视觉检测，查找是否存在阻塞交互的弹窗\n3. 如果检测到弹窗，点击其关闭按钮并等待一段时间后继续检测，直到达到最大检测轮数\n4. 发布app_ready事件，通知调用方微信小程序已就绪",
+        "signature": "CheckWxappReady(rt script.ModuleRuntime, guiId string) (bool, error)",
+        "source": {
+          "file": "wxapputils/check_wxapp_ready.go",
+          "line": 77,
+          "column": 1
+        },
+        "params": [
+          {
+            "name": "rt",
+            "type": "script.ModuleRuntime"
+          },
+          {
+            "name": "guiId",
+            "type": "string"
+          }
+        ],
+        "results": [
+          {
+            "type": "bool"
+          },
+          {
+            "type": "error"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "script.ModuleRuntime",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleRuntime"
+          },
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#PopupDialogInfo",
+        "name": "PopupDialogInfo",
+        "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PopupDialogInfo",
+        "kind": "struct",
+        "package": "wxapputils",
+        "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+        "signature": "type PopupDialogInfo struct",
+        "source": {
+          "file": "wxapputils/check_wxapp_ready.go",
+          "line": 13,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Border",
+            "type": "basic.Rect",
+            "tag": "json:\"border\"",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          },
+          {
+            "name": "CloseBtn",
+            "type": "basic.Rect",
+            "tag": "json:\"close_btn\"",
+            "type_refs": [
+              {
+                "expr": "basic.Rect",
+                "import_path": "yanlingrpa.com/yanling/protocol/basic",
+                "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "basic.Rect",
+            "import_path": "yanlingrpa.com/yanling/protocol/basic",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/basic.Rect"
+          }
+        ]
+      },
+      {
+        "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#PreferedLocation",
+        "name": "PreferedLocation",
+        "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PreferedLocation",
+        "kind": "struct",
+        "package": "wxapputils",
+        "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+        "signature": "type PreferedLocation struct",
+        "source": {
+          "file": "wxapputils/change_gps_location.go",
+          "line": 11,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "GuiId",
+            "type": "string",
+            "tag": "json:\"gui_id\"",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Keyword",
+            "type": "string",
+            "tag": "json:\"keyword\"",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      }
+    ]
+  }
+}
