@@ -39,9 +39,17 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Step 1.1: 从 .yanling/config.json 读取目标 package 名。
+	// 只有该 package 的 Go 文件会参与合并和导出提取。
+	targetPackage, err := loadTargetPackageName(rootDir)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "failed to load target package from config: %v\n", err)
+		os.Exit(1)
+	}
+
 	// Step 2: 收集项目内参与编译脚本的 Go 文件。
 	// 会跳过 excludedTopLevelDirs 中声明的顶层目录，以及 *_test.go。
-	goFiles, err := collectGoFiles(rootDir)
+	goFiles, err := collectGoFiles(rootDir, targetPackage)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to collect go files: %v\n", err)
 		os.Exit(1)
@@ -62,7 +70,7 @@ func main() {
 	exportedStructs := make(map[string]*ExportedStruct)
 
 	// 4.1 提取 method 来源 struct（含其递归依赖）
-	methodStructs, err := extractMethodStructs(rootDir)
+	methodStructs, err := extractMethodStructs(rootDir, targetPackage)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to extract method structs: %v\n", err)
 		os.Exit(1)
@@ -78,7 +86,7 @@ func main() {
 
 	// 4.2 提取 publish 来源 struct（含其递归依赖）
 	// 若与 method 重复，保留已有来源，不重复覆盖。
-	publishStructs, err := extractPublishStructs(rootDir)
+	publishStructs, err := extractPublishStructs(rootDir, targetPackage)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to extract publish structs: %v\n", err)
 		os.Exit(1)
@@ -127,6 +135,9 @@ func main() {
 			return nil
 		}
 		if !strings.HasSuffix(d.Name(), ".go") || strings.HasSuffix(d.Name(), "_test.go") {
+			return nil
+		}
+		if !matchesTargetPackage(filePath, targetPackage) {
 			return nil
 		}
 		f, err := parser.ParseFile(fset, filePath, nil, parser.ParseComments)

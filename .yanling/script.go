@@ -1,4 +1,4 @@
-package yscript
+package main
 
 import (
 	"encoding/json"

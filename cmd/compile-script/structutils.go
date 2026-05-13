@@ -48,7 +48,7 @@ func collectStructDependencies(
 	}
 }
 
-func extractMethodStructs(rootDir string) (map[string]string, error) {
+func extractMethodStructs(rootDir, targetPackage string) (map[string]string, error) {
 	fset := token.NewFileSet()
 	structDefs := make(map[string]string)
 	astStructs := make(map[string]*ast.StructType)
@@ -73,6 +73,9 @@ func extractMethodStructs(rootDir string) (map[string]string, error) {
 			return nil
 		}
 		if !strings.HasSuffix(d.Name(), ".go") || strings.HasSuffix(d.Name(), "_test.go") {
+			return nil
+		}
+		if !matchesTargetPackage(filePath, targetPackage) {
 			return nil
 		}
 
@@ -136,7 +139,7 @@ func extractMethodStructs(rootDir string) (map[string]string, error) {
 	return collected, nil
 }
 
-func extractPublishStructs(rootDir string) (map[string]string, error) {
+func extractPublishStructs(rootDir, targetPackage string) (map[string]string, error) {
 	fset := token.NewFileSet()
 	structDefs := make(map[string]string)
 	astStructs := make(map[string]*ast.StructType)
@@ -162,6 +165,9 @@ func extractPublishStructs(rootDir string) (map[string]string, error) {
 			return nil
 		}
 		if !strings.HasSuffix(d.Name(), ".go") || strings.HasSuffix(d.Name(), "_test.go") {
+			return nil
+		}
+		if !matchesTargetPackage(filePath, targetPackage) {
 			return nil
 		}
 
@@ -213,6 +219,9 @@ func extractPublishStructs(rootDir string) (map[string]string, error) {
 			return nil
 		}
 		if !strings.HasSuffix(d.Name(), ".go") || strings.HasSuffix(d.Name(), "_test.go") {
+			return nil
+		}
+		if !matchesTargetPackage(filePath, targetPackage) {
 			return nil
 		}
 
@@ -280,7 +289,7 @@ func extractPublishStructs(rootDir string) (map[string]string, error) {
 
 func generateExportGo(moduleName string, exportedStructs map[string]*ExportedStruct) string {
 	var buf bytes.Buffer
-	buf.WriteString("package yscript\n\n")
+	buf.WriteString("package main\n\n")
 
 	// Sort struct names for consistent output
 	var names []string

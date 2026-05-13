@@ -15,7 +15,7 @@ func mergeGoFiles(rootDir string, goFiles []string, moduleName string) (string, 
 	fset := token.NewFileSet()
 	var buf bytes.Buffer
 
-	buf.WriteString("package yscript\n\n")
+	buf.WriteString("package main\n\n")
 
 	// Collect all imports
 	allImports := make(map[string]bool)

@@ -1,4 +1,4 @@
-package yscript
+package main
 
 // AppReadyData (publish)
 type Github_com__yanlingrpa__wxapp_pc_toolkits__AppReadyData struct {

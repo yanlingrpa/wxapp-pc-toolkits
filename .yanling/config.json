@@ -3,7 +3,7 @@
   "schema_version": "yanling.machine-first/v1",
   "module": {
     "specifier": "github.com/yanlingrpa/meituan-wxapp-pc-collector",
-    "package": "main",
+    "package": "wxapputils",
     "description": "WXApp PC Utils.",
     "tags": ["automation", "browser", "export"],
     "website": "https://yanlingrpa.com/demo-script",
