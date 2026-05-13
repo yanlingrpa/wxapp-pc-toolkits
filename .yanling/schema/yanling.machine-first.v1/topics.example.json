@@ -1,210 +1,31 @@
 {
   "$schema": "./topics.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-04-22T12:00:00Z",
-  "module": "yanlingrpa.com/yanling/protocol/script",
+  "generated_at": "2026-05-13T02:42:54Z",
+  "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
   "topics": [
     {
-      "name": "user.created",
-      "doc": "Published when a new user is created.",
+      "name": "app_ready",
+      "doc": "app_ready：微信小程序已就绪，可以开始后续的自动化操作了。",
       "direction": "publish",
-      "go_struct_name": "UserCreatedPayload",
+      "go_struct_name": "AppReadyData",
+      "go_import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
       "payload": {
         "type": "object",
-        "required": ["id", "name", "created_at", "profile"],
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "Unique user ID."
+          "app_name": {
+            "type": "string"
           },
-          "name": {
-            "type": "string",
-            "description": "User display name."
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "description": "User email address."
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "go_type_hint": "time.Time",
-            "go_field_name": "CreatedAt",
-            "description": "Creation time in RFC3339 format."
-          },
-          "profile": {
-            "type": "object",
-            "description": "User profile information.",
-            "required": ["age", "active"],
-            "properties": {
-              "age": {
-                "type": "integer",
-                "description": "User age."
-              },
-              "active": {
-                "type": "boolean",
-                "description": "Whether the user is active."
-              },
-              "nickname": {
-                "type": "string",
-                "nullable": true,
-                "description": "Optional nickname; may be null."
-              },
-              "avatar_url": {
-                "type": "string",
-                "format": "uri",
-                "description": "Avatar URL."
-              }
-            },
-            "additionalProperties": false
-          },
-          "tags": {
-            "type": "array",
-            "description": "User tags.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "addresses": {
-            "type": "array",
-            "description": "User address list.",
-            "items": {
-              "type": "object",
-              "required": ["city", "country"],
-              "properties": {
-                "city": {
-                  "type": "string",
-                  "description": "City name."
-                },
-                "country": {
-                  "type": "string",
-                  "description": "Country name."
-                },
-                "postal_code": {
-                  "type": "string",
-                  "go_field_name": "PostalCode",
-                  "description": "Postal code."
-                }
-              },
-              "additionalProperties": false
-            }
-          },
-          "metadata": {
-            "type": "string",
-            "go_type_hint": "json.RawMessage",
-            "nullable": true,
-            "description": "Raw metadata that should remain as JSON in Go code."
+          "guid": {
+            "type": "string"
           }
         },
+        "required": [
+          "app_name",
+          "guid"
+        ],
         "additionalProperties": false
-      },
-      "examples": [
-        {
-          "id": "u_1001",
-          "name": "Alice",
-          "email": "alice@example.com",
-          "created_at": "2026-04-22T10:30:00Z",
-          "profile": {
-            "age": 30,
-            "active": true,
-            "nickname": null,
-            "avatar_url": "https://cdn.example.com/avatar/alice.png"
-          },
-          "tags": ["vip", "beta"],
-          "addresses": [
-            {
-              "city": "Shanghai",
-              "country": "CN",
-              "postal_code": "200000"
-            }
-          ],
-          "metadata": "{\"source\":\"signup\"}"
-        }
-      ],
-      "deprecated": false
-    },
-    {
-      "name": "order.paid",
-      "doc": "Published when an order payment succeeds.",
-      "direction": "publish",
-      "go_struct_name": "OrderPaidPayload",
-      "payload": {
-        "type": "object",
-        "required": ["order_id", "amount", "currency", "paid_at", "items"],
-        "properties": {
-          "order_id": {
-            "type": "string",
-            "go_field_name": "OrderID",
-            "description": "Order identifier."
-          },
-          "amount": {
-            "type": "number",
-            "description": "Paid amount."
-          },
-          "currency": {
-            "type": "string",
-            "enum": ["CNY", "USD", "EUR"],
-            "description": "Currency code."
-          },
-          "paid_at": {
-            "type": "string",
-            "format": "date-time",
-            "go_type_hint": "time.Time",
-            "go_field_name": "PaidAt",
-            "description": "Payment completion time."
-          },
-          "items": {
-            "type": "array",
-            "description": "Purchased order items.",
-            "items": {
-              "type": "object",
-              "required": ["sku", "quantity", "unit_price"],
-              "properties": {
-                "sku": {
-                  "type": "string",
-                  "go_field_name": "SKU",
-                  "description": "Stock keeping unit."
-                },
-                "quantity": {
-                  "type": "integer",
-                  "description": "Purchased quantity."
-                },
-                "unit_price": {
-                  "type": "number",
-                  "go_field_name": "UnitPrice",
-                  "description": "Unit price."
-                }
-              },
-              "additionalProperties": false
-            }
-          },
-          "coupon_code": {
-            "type": "string",
-            "nullable": true,
-            "go_field_name": "CouponCode",
-            "description": "Coupon code if one was used."
-          }
-        },
-        "additionalProperties": false
-      },
-      "examples": [
-        {
-          "order_id": "ord_20260422_0001",
-          "amount": 199.5,
-          "currency": "CNY",
-          "paid_at": "2026-04-22T11:00:00Z",
-          "items": [
-            {
-              "sku": "sku-book-001",
-              "quantity": 2,
-              "unit_price": 99.75
-            }
-          ],
-          "coupon_code": null
-        }
-      ],
-      "deprecated": false
+      }
     }
   ]
 }

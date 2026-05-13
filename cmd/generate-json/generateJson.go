@@ -273,6 +273,7 @@ type TopicDoc struct {
 	Doc          string           `json:"doc,omitempty"`
 	Direction    string           `json:"direction,omitempty"`
 	GoStructName string           `json:"go_struct_name,omitempty"`
+	GoImportPath string           `json:"go_import_path,omitempty"`
 	Payload      TopicFieldSchema `json:"payload"`
 }
 
@@ -1623,6 +1624,7 @@ func scanTopics(rootDir, moduleName string, symbolIndex map[string]*SymbolDoc) (
 		}
 		if raw.payloadTypeName != "" && ast.IsExported(raw.payloadTypeName) {
 			entry.GoStructName = raw.payloadTypeName
+			entry.GoImportPath = raw.payloadImportPath
 		}
 		topics = append(topics, entry)
 	}

@@ -48,6 +48,11 @@
           "pattern": "^[A-Z][A-Za-z0-9_]*$",
           "description": "Optional Go struct name to use for the topic payload. If omitted, generators may derive one from the topic name."
         },
+        "go_import_path": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_./-]+$",
+          "description": "Go import path of the struct type used for the topic payload. Should be a valid Go package import path."
+        },        
         "payload": {
           "$ref": "#/$defs/TopicPayloadSchemaDoc"
         },

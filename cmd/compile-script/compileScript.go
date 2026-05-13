@@ -63,11 +63,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Step 4: Extract exported structs
+	// Step 4: Extract exported structs (collect all, mark来源)
 	exportedStructs := make(map[string]*ExportedStruct)
 
-	// Extract structs from methods (first param ModuleRuntime, second param struct)
-	methodStructs, err := extractMethodStructs(rootDir, moduleName)
+	methodStructs, err := extractMethodStructs(rootDir)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to extract method structs: %v\n", err)
 		os.Exit(1)
@@ -81,8 +80,7 @@ func main() {
 		}
 	}
 
-	// Extract structs from Publish payloads
-	publishStructs, err := extractPublishStructs(rootDir, moduleName)
+	publishStructs, err := extractPublishStructs(rootDir)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to extract publish structs: %v\n", err)
 		os.Exit(1)
@@ -98,8 +96,80 @@ func main() {
 		}
 	}
 
-	// Step 5: Generate export.go with renamed structs
-	exportContent := generateExportGo(moduleName, exportedStructs)
+	// Step 5: 递归收集所有 struct（包括子 struct），并全部重命名输出
+	// 1. 合并所有 struct 名和代码
+	allStructs := make(map[string]*ExportedStruct)
+	for name, s := range exportedStructs {
+		allStructs[name] = s
+	}
+	// 2. 递归收集所有依赖 struct
+	// 2.1 收集所有 struct 定义和 ast
+	fset := token.NewFileSet()
+	structDefs := make(map[string]string)
+	astStructs := make(map[string]*ast.StructType)
+	_ = filepath.WalkDir(rootDir, func(filePath string, d os.DirEntry, walkErr error) error {
+		if walkErr != nil {
+			return walkErr
+		}
+		if d.IsDir() {
+			relPath, err := filepath.Rel(rootDir, filePath)
+			if err != nil {
+				return nil
+			}
+			if relPath == "." {
+				return nil
+			}
+			topLevelDir := strings.Split(relPath, string(os.PathSeparator))[0]
+			if _, excluded := excludedTopLevelDirs[topLevelDir]; excluded {
+				return filepath.SkipDir
+			}
+			return nil
+		}
+		if !strings.HasSuffix(d.Name(), ".go") || strings.HasSuffix(d.Name(), "_test.go") {
+			return nil
+		}
+		f, err := parser.ParseFile(fset, filePath, nil, parser.ParseComments)
+		if err != nil {
+			return nil
+		}
+		for _, decl := range f.Decls {
+			if gd, ok := decl.(*ast.GenDecl); ok && gd.Tok == token.TYPE {
+				for _, spec := range gd.Specs {
+					if ts, ok := spec.(*ast.TypeSpec); ok {
+						if st, ok := ts.Type.(*ast.StructType); ok {
+							if ts.Name.IsExported() {
+								var structBuf bytes.Buffer
+								fmt.Fprintf(&structBuf, "type ")
+								printer.Fprint(&structBuf, fset, ts)
+								structDefs[ts.Name.Name] = structBuf.String()
+								astStructs[ts.Name.Name] = st
+							}
+						}
+					}
+				}
+			}
+		}
+		return nil
+	})
+	// 2.2 递归收集所有依赖 struct
+	collected := make(map[string]string)
+	for name := range allStructs {
+		collectStructDependencies(name, structDefs, collected, astStructs)
+	}
+	// 2.3 生成新的 allStructs，全部来源标记为 "recursive"
+	for name, code := range collected {
+		if _, exists := allStructs[name]; !exists {
+			allStructs[name] = &ExportedStruct{
+				Name:    name,
+				Code:    code,
+				Source:  "recursive",
+				ModPath: moduleName,
+			}
+		}
+	}
+
+	// Step 6: Generate export.go with renamed structs (全部 struct 都重命名)
+	exportContent := generateExportGo(moduleName, allStructs)
 
 	// Write files
 	outputDir := filepath.Join(rootDir, ".yanling")
@@ -232,9 +302,40 @@ func mergeGoFiles(rootDir string, goFiles []string, moduleName string) (string, 
 	return buf.String(), nil
 }
 
-func extractMethodStructs(rootDir, moduleName string) (map[string]string, error) {
+// collectStructDependencies 递归收集 struct 依赖
+func collectStructDependencies(
+	structName string,
+	structDefs map[string]string,
+	collected map[string]string,
+	astStructs map[string]*ast.StructType,
+) {
+	if _, exists := collected[structName]; exists {
+		return
+	}
+	code, ok := structDefs[structName]
+	if !ok {
+		return
+	}
+	collected[structName] = code
+
+	st, ok := astStructs[structName]
+	if !ok {
+		return
+	}
+	for _, field := range st.Fields.List {
+		typeName := extractStructName(field.Type)
+		if typeName != "" && isExportedType(typeName) {
+			collectStructDependencies(typeName, structDefs, collected, astStructs)
+		}
+	}
+}
+
+// extractMethodStructs 递归收集所有依赖 struct
+func extractMethodStructs(rootDir string) (map[string]string, error) {
 	fset := token.NewFileSet()
-	methodStructs := make(map[string]string)
+	structDefs := make(map[string]string)
+	astStructs := make(map[string]*ast.StructType)
+	usedStructs := make(map[string]struct{})
 
 	err := filepath.WalkDir(rootDir, func(filePath string, d os.DirEntry, walkErr error) error {
 		if walkErr != nil {
@@ -263,17 +364,18 @@ func extractMethodStructs(rootDir, moduleName string) (map[string]string, error)
 			return nil
 		}
 
-		// Find struct definitions
+		// Collect struct definitions in this file
 		for _, decl := range f.Decls {
 			if gd, ok := decl.(*ast.GenDecl); ok && gd.Tok == token.TYPE {
 				for _, spec := range gd.Specs {
 					if ts, ok := spec.(*ast.TypeSpec); ok {
-						if _, ok := ts.Type.(*ast.StructType); ok {
+						if st, ok := ts.Type.(*ast.StructType); ok {
 							if ts.Name.IsExported() {
 								var structBuf bytes.Buffer
 								fmt.Fprintf(&structBuf, "type ")
 								printer.Fprint(&structBuf, fset, ts)
-								methodStructs[ts.Name.Name] = structBuf.String()
+								structDefs[ts.Name.Name] = structBuf.String()
+								astStructs[ts.Name.Name] = st
 							}
 						}
 					}
@@ -281,47 +383,48 @@ func extractMethodStructs(rootDir, moduleName string) (map[string]string, error)
 			}
 		}
 
-		// Find methods to validate which structs to include
+		// Find methods with signature func(rt script.ModuleRuntime, param StructType)
 		for _, decl := range f.Decls {
 			if fd, ok := decl.(*ast.FuncDecl); ok {
 				if !fd.Name.IsExported() {
 					continue
 				}
-
-				// Check if it has 2 parameters
 				if fd.Type.Params == nil || len(fd.Type.Params.List) != 2 {
 					continue
 				}
-
-				// Check first parameter is script.ModuleRuntime
 				firstParam := fd.Type.Params.List[0]
 				if !isModuleRuntimeType(firstParam.Type) {
 					continue
 				}
-
-				// Check second parameter is a struct type
 				secondParam := fd.Type.Params.List[1]
 				if len(secondParam.Names) == 0 {
 					continue
 				}
-
 				structName := extractStructName(secondParam.Type)
 				if structName != "" && isExportedType(structName) {
-					// Mark that this struct is used in a method
+					usedStructs[structName] = struct{}{}
 				}
 			}
 		}
-
 		return nil
 	})
-
-	return methodStructs, err
+	if err != nil {
+		return nil, err
+	}
+	// 递归收集所有依赖 struct
+	collected := make(map[string]string)
+	for name := range usedStructs {
+		collectStructDependencies(name, structDefs, collected, astStructs)
+	}
+	return collected, nil
 }
 
-func extractPublishStructs(rootDir, moduleName string) (map[string]string, error) {
+// extractPublishStructs 递归收集所有依赖 struct
+func extractPublishStructs(rootDir string) (map[string]string, error) {
 	fset := token.NewFileSet()
-	publishStructs := make(map[string]string)
-	structDefs := make(map[string]*ast.StructType)
+	structDefs := make(map[string]string)
+	astStructs := make(map[string]*ast.StructType)
+	usedStructs := make(map[string]struct{})
 
 	// First pass: collect all struct definitions
 	err := filepath.WalkDir(rootDir, func(filePath string, d os.DirEntry, walkErr error) error {
@@ -357,7 +460,11 @@ func extractPublishStructs(rootDir, moduleName string) (map[string]string, error
 					if ts, ok := spec.(*ast.TypeSpec); ok {
 						if st, ok := ts.Type.(*ast.StructType); ok {
 							if ts.Name.IsExported() {
-								structDefs[ts.Name.Name] = st
+								var structBuf bytes.Buffer
+								fmt.Fprintf(&structBuf, "type ")
+								printer.Fprint(&structBuf, fset, ts)
+								structDefs[ts.Name.Name] = structBuf.String()
+								astStructs[ts.Name.Name] = st
 							}
 						}
 					}
@@ -366,12 +473,11 @@ func extractPublishStructs(rootDir, moduleName string) (map[string]string, error
 		}
 		return nil
 	})
-
 	if err != nil {
-		return publishStructs, err
+		return nil, err
 	}
 
-	// Second pass: find Publish calls and collect struct definitions
+	// Second pass: find rt.Publish calls inside functions where rt is script.ModuleRuntime
 	err = filepath.WalkDir(rootDir, func(filePath string, d os.DirEntry, walkErr error) error {
 		if walkErr != nil {
 			return walkErr
@@ -399,44 +505,61 @@ func extractPublishStructs(rootDir, moduleName string) (map[string]string, error
 			return nil
 		}
 
-		ast.Inspect(f, func(n ast.Node) bool {
-			if call, ok := n.(*ast.CallExpr); ok {
-				if sel, ok := call.Fun.(*ast.SelectorExpr); ok && sel.Sel.Name == "Publish" {
-					if len(call.Args) >= 2 {
-						payloadArg := call.Args[1]
-						if comp, ok := payloadArg.(*ast.CompositeLit); ok {
-							structName := extractStructName(comp.Type)
-							if structName != "" && isExportedType(structName) {
-								publishStructs[structName] = ""
-							}
-						}
+		for _, decl := range f.Decls {
+			fd, ok := decl.(*ast.FuncDecl)
+			if !ok || fd.Body == nil {
+				continue
+			}
+			// Find name of the script.ModuleRuntime parameter
+			rtName := ""
+			if fd.Type.Params != nil {
+				for _, param := range fd.Type.Params.List {
+					if isModuleRuntimeType(param.Type) && len(param.Names) > 0 {
+						rtName = param.Names[0].Name
+						break
 					}
 				}
 			}
-			return true
-		})
+			if rtName == "" {
+				continue
+			}
+			// Inspect function body for rtName.Publish(...) calls
+			ast.Inspect(fd.Body, func(n ast.Node) bool {
+				call, ok := n.(*ast.CallExpr)
+				if !ok {
+					return true
+				}
+				sel, ok := call.Fun.(*ast.SelectorExpr)
+				if !ok || sel.Sel.Name != "Publish" {
+					return true
+				}
+				recv, ok := sel.X.(*ast.Ident)
+				if !ok || recv.Name != rtName {
+					return true
+				}
+				if len(call.Args) >= 2 {
+					payloadArg := call.Args[1]
+					if comp, ok := payloadArg.(*ast.CompositeLit); ok {
+						structName := extractStructName(comp.Type)
+						if structName != "" && isExportedType(structName) {
+							usedStructs[structName] = struct{}{}
+						}
+					}
+				}
+				return true
+			})
+		}
 		return nil
 	})
-
-	// Build full struct definitions for publish payloads
-	for name := range publishStructs {
-		if st, ok := structDefs[name]; ok {
-			var buf bytes.Buffer
-			fmt.Fprintf(&buf, "type %s struct {", name)
-			if st.Fields != nil && len(st.Fields.List) > 0 {
-				buf.WriteString("\n")
-				for _, field := range st.Fields.List {
-					var fieldBuf bytes.Buffer
-					printer.Fprint(&fieldBuf, fset, field)
-					fmt.Fprintf(&buf, "\t%s\n", fieldBuf.String())
-				}
-			}
-			buf.WriteString("}")
-			publishStructs[name] = buf.String()
-		}
+	if err != nil {
+		return nil, err
 	}
-
-	return publishStructs, err
+	// 递归收集所有依赖 struct
+	collected := make(map[string]string)
+	for name := range usedStructs {
+		collectStructDependencies(name, structDefs, collected, astStructs)
+	}
+	return collected, nil
 }
 
 func generateExportGo(moduleName string, exportedStructs map[string]*ExportedStruct) string {
@@ -460,7 +583,7 @@ func generateExportGo(moduleName string, exportedStructs map[string]*ExportedStr
 		pattern := regexp.MustCompile(`\btype\s+` + regexp.QuoteMeta(name) + `\b`)
 		code = pattern.ReplaceAllString(code, "type "+newName)
 
-		fmt.Fprintf(&buf, "// %s (%s)\n", newName, s.Source)
+		fmt.Fprintf(&buf, "// %s (%s)\n", name, s.Source)
 		buf.WriteString(code)
 		buf.WriteString("\n\n")
 	}
