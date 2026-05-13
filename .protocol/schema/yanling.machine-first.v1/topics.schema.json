@@ -27,8 +27,13 @@
   "$defs": {
     "TopicDoc": {
       "type": "object",
-      "required": ["name", "payload"],
+      "required": ["specifier", "name", "payload"],
       "properties": {
+        "specifier": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Module/topic namespace specifier, typically the module import path, used to disambiguate same topic names across modules."
+        },
         "name": {
           "type": "string",
           "minLength": 1,

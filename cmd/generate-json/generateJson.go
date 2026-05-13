@@ -24,6 +24,7 @@ const (
 	symbolsSchemaRef = "./schema/yanling.machine-first.v1/symbols.schema.json"
 	packageSchemaRef = "./../schema/yanling.machine-first.v1/package.schema.json"
 	topicsSchemaRef  = "./schema/yanling.machine-first.v1/topics.schema.json"
+	indexSchemaRef   = "./schema/yanling.machine-first.v1/index.schema.json"
 )
 
 var excludedTopLevelDirs = map[string]struct{}{
@@ -270,6 +271,7 @@ type TopicFieldSchema struct {
 // TopicDoc describes a single event topic published by this module.
 type TopicDoc struct {
 	Name         string           `json:"name"`
+	Specifier    string           `json:"specifier"`
 	Doc          string           `json:"doc,omitempty"`
 	Direction    string           `json:"direction,omitempty"`
 	GoStructName string           `json:"go_struct_name,omitempty"`
@@ -284,6 +286,49 @@ type TopicsOutput struct {
 	GeneratedAt   string     `json:"generated_at"`
 	Module        string     `json:"module"`
 	Topics        []TopicDoc `json:"topics"`
+}
+
+type IndexOutput struct {
+	SchemaRef     string              `json:"$schema,omitempty"`
+	SchemaVersion string              `json:"schema_version"`
+	GeneratedAt   string              `json:"generated_at"`
+	Module        string              `json:"module"`
+	Files         IndexFilesDoc       `json:"files"`
+	Packages      []IndexPackageEntry `json:"packages"`
+	Topics        []IndexTopicEntry   `json:"topics"`
+	Symbols       []IndexSymbolEntry  `json:"symbols"`
+}
+
+type IndexFilesDoc struct {
+	SymbolIndex     string `json:"symbol_index"`
+	SymbolIndexLite string `json:"symbol_index_lite,omitempty"`
+	PackageDir      string `json:"package_dir"`
+	Topics          string `json:"topics"`
+}
+
+type IndexPackageEntry struct {
+	Name        string `json:"name"`
+	ImportPath  string `json:"import_path"`
+	Directory   string `json:"directory"`
+	Doc         string `json:"doc,omitempty"`
+	PackageFile string `json:"package_file"`
+}
+
+type IndexTopicEntry struct {
+	Name         string `json:"name"`
+	Specifier    string `json:"specifier"`
+	GoStructName string `json:"go_struct_name,omitempty"`
+	GoImportPath string `json:"go_import_path,omitempty"`
+	Doc          string `json:"doc,omitempty"`
+}
+
+type IndexSymbolEntry struct {
+	Name        string `json:"name"`
+	Kind        string `json:"kind"`
+	ImportPath  string `json:"import_path"`
+	Package     string `json:"package"`
+	Doc         string `json:"doc,omitempty"`
+	PackageFile string `json:"package_file"`
 }
 
 func main() {
@@ -367,6 +412,13 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Printf("generated %s\n", filepath.Join(outputDir, "topics.json"))
+
+	indexOutput := buildIndexOutput(moduleDoc, symbolsDoc, topicDocs)
+	if err := writeJSON(filepath.Join(outputDir, "index.json"), indexOutput); err != nil {
+		fmt.Fprintf(os.Stderr, "failed to write index.json: %v\n", err)
+		os.Exit(1)
+	}
+	fmt.Printf("generated %s\n", filepath.Join(outputDir, "index.json"))
 }
 
 func findProjectRoot() (string, error) {
@@ -1461,6 +1513,7 @@ func cleanupOutputDir(outputDir string) error {
 		filepath.Join(outputDir, "symbols.json"),
 		filepath.Join(outputDir, "symbols.lite.json"),
 		filepath.Join(outputDir, "topics.json"),
+		filepath.Join(outputDir, "index.json"),
 	}
 	for _, item := range paths {
 		if err := os.RemoveAll(item); err != nil {
@@ -1491,6 +1544,76 @@ func oneLineDoc(text string) string {
 		}
 	}
 	return ""
+}
+
+func buildIndexOutput(moduleDoc ModuleOutput, symbolsDoc SymbolsOutput, topicDocs []TopicDoc) IndexOutput {
+	index := IndexOutput{
+		SchemaRef:     indexSchemaRef,
+		SchemaVersion: moduleDoc.SchemaVersion,
+		GeneratedAt:   moduleDoc.GeneratedAt,
+		Module:        moduleDoc.Module,
+		Files: IndexFilesDoc{
+			SymbolIndex:     moduleDoc.Files.SymbolIndex,
+			SymbolIndexLite: moduleDoc.Files.SymbolIndexLite,
+			PackageDir:      moduleDoc.Files.PackageDir,
+			Topics:          "topics.json",
+		},
+		Packages: make([]IndexPackageEntry, 0, len(moduleDoc.Packages)),
+		Topics:   make([]IndexTopicEntry, 0, len(topicDocs)),
+		Symbols:  make([]IndexSymbolEntry, 0, len(symbolsDoc.Symbols)),
+	}
+
+	if index.Files.SymbolIndex == "" {
+		index.Files.SymbolIndex = "symbols.json"
+	}
+	if index.Files.PackageDir == "" {
+		index.Files.PackageDir = "packages"
+	}
+	if index.Files.SymbolIndexLite == "" {
+		index.Files.SymbolIndexLite = "symbols.lite.json"
+	}
+	if index.Files.Topics == "" {
+		index.Files.Topics = "topics.json"
+	}
+
+	for _, pkg := range moduleDoc.Packages {
+		index.Packages = append(index.Packages, IndexPackageEntry{
+			Name:        pkg.Name,
+			ImportPath:  pkg.ImportPath,
+			Directory:   pkg.Directory,
+			Doc:         pkg.Doc,
+			PackageFile: pkg.PackageFile,
+		})
+	}
+
+	for _, topic := range topicDocs {
+		index.Topics = append(index.Topics, IndexTopicEntry{
+			Name:         topic.Name,
+			Specifier:    topic.Specifier,
+			GoStructName: topic.GoStructName,
+			GoImportPath: topic.GoImportPath,
+			Doc:          oneLineDoc(topic.Doc),
+		})
+	}
+
+	for _, symbol := range symbolsDoc.Symbols {
+		index.Symbols = append(index.Symbols, IndexSymbolEntry{
+			Name:        symbol.Name,
+			Kind:        symbol.Kind,
+			ImportPath:  symbol.ImportPath,
+			Package:     symbol.Package,
+			Doc:         symbol.Doc,
+			PackageFile: symbol.PackageFile,
+		})
+	}
+
+	index.Files = IndexFilesDoc{
+		SymbolIndex:     index.Files.SymbolIndex,
+		SymbolIndexLite: index.Files.SymbolIndexLite,
+		PackageDir:      index.Files.PackageDir,
+		Topics:          index.Files.Topics,
+	}
+	return index
 }
 
 // buildSymbolIndex creates a qualified-name → *SymbolDoc map for fast type lookup.
@@ -1618,6 +1741,7 @@ func scanTopics(rootDir, moduleName string, symbolIndex map[string]*SymbolDoc) (
 		payload := buildTopicPayload(raw.payloadTypeName, raw.payloadImportPath, symbolIndex)
 		entry := TopicDoc{
 			Name:      topicName,
+			Specifier: moduleName,
 			Doc:       raw.doc,
 			Direction: "publish",
 			Payload:   payload,

@@ -1,11 +1,18 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "yanling.machine-first/v1/script.schema.json",
-  "title": "yanling.machine-first/v1 script.json",
-  "description": "Schema for the script.json configuration file of a YanLing RPA script module.",
+  "$id": "yanling.machine-first/v1/config.schema.json",
+  "title": "yanling.machine-first/v1 config.json",
+  "description": "Schema for the config.json configuration file of a YanLing RPA script module.",
   "type": "object",
   "required": ["module"],
   "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Optional schema reference for tooling."
+    },
+    "schema_version": {
+      "const": "yanling.machine-first/v1"
+    },    
     "module": {
       "$ref": "#/$defs/ModuleInfo"
     },

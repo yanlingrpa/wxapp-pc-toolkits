@@ -1,0 +1,68 @@
+{
+  "$schema": "./schema/yanling.machine-first.v1/index.schema.json",
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-13T03:55:12Z",
+  "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
+  "files": {
+    "symbol_index": "symbols.json",
+    "symbol_index_lite": "symbols.lite.json",
+    "package_dir": "packages",
+    "topics": "topics.json"
+  },
+  "packages": [
+    {
+      "name": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "directory": "/wxapputils",
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    }
+  ],
+  "topics": [
+    {
+      "name": "app_ready",
+      "specifier": "github.com/yanlingrpa/wxapp-pc-toolkits",
+      "go_struct_name": "AppReadyData",
+      "go_import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "doc": "app_ready：微信小程序已就绪，可以开始后续的自动化操作了。"
+    }
+  ],
+  "symbols": [
+    {
+      "name": "AppReadyData",
+      "kind": "struct",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "package": "wxapputils",
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    },
+    {
+      "name": "ChangeGPSLocation",
+      "kind": "function",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "package": "wxapputils",
+      "doc": "修改微信小程序的GPS位置",
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    },
+    {
+      "name": "CheckWxappReady",
+      "kind": "function",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "package": "wxapputils",
+      "doc": "检测微信小程序是否准备就绪",
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    },
+    {
+      "name": "PopupDialogInfo",
+      "kind": "struct",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "package": "wxapputils",
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    },
+    {
+      "name": "PreferedLocation",
+      "kind": "struct",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "package": "wxapputils",
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    }
+  ]
+}
