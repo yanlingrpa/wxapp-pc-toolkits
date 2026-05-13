@@ -12,38 +12,56 @@ import (
 	"strings"
 )
 
+// main 是 compile-script 命令的入口函数。
+//
+// 该命令的目标：
+// 1) 扫描项目 Go 源码并合并为 .yanling/script.go（统一执行脚本内容）。
+// 2) 提取对外暴露且被方法参数/Publish payload 使用到的 struct。
+// 3) 递归补齐这些 struct 的依赖 struct，并统一重命名后输出到 .yanling/export.go。
+//
+// 失败策略：任一步骤失败都立即输出错误并退出（exit code = 1），避免产生不完整产物。
 func main() {
+	// 参数约定：仅接受一个参数 root_dir，表示要扫描的项目根目录。
+	// 示例：go run ./cmd/compile-script .
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "usage: %s <root_dir>\n", os.Args[0])
 		os.Exit(1)
 	}
 
+	// rootDir 是后续所有扫描、解析、输出的基准目录。
 	rootDir := os.Args[1]
 
-	// Step 1: Get module name
+	// Step 1: 读取 go.mod 中的 module 名称。
+	// moduleName 会用于后续 struct 重命名，确保生成名具备全局唯一前缀。
 	moduleName, err := parseModuleName(filepath.Join(rootDir, "go.mod"))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to parse module name: %v\n", err)
 		os.Exit(1)
 	}
 
-	// Step 2: Collect all go files (excluding excludedTopLevelDirs)
+	// Step 2: 收集项目内参与编译脚本的 Go 文件。
+	// 会跳过 excludedTopLevelDirs 中声明的顶层目录，以及 *_test.go。
 	goFiles, err := collectGoFiles(rootDir)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to collect go files: %v\n", err)
 		os.Exit(1)
 	}
 
-	// Step 3: Merge go files into script.go
+	// Step 3: 将收集到的文件合并为单一脚本内容 scriptContent。
+	// 合并逻辑会统一包名、汇总 imports，并按文件顺序拼接声明。
 	scriptContent, err := mergeGoFiles(rootDir, goFiles, moduleName)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to merge go files: %v\n", err)
 		os.Exit(1)
 	}
 
-	// Step 4: Extract exported structs (collect all, mark来源)
+	// Step 4: 提取需要导出的 struct，并记录来源（method / publish）。
+	// exportedStructs 是初始集合：
+	// - method: 来自公开方法参数中的 struct
+	// - publish: 来自 rt.Publish(...) payload 中的 struct
 	exportedStructs := make(map[string]*ExportedStruct)
 
+	// 4.1 提取 method 来源 struct（含其递归依赖）
 	methodStructs, err := extractMethodStructs(rootDir)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to extract method structs: %v\n", err)
@@ -58,6 +76,8 @@ func main() {
 		}
 	}
 
+	// 4.2 提取 publish 来源 struct（含其递归依赖）
+	// 若与 method 重复，保留已有来源，不重复覆盖。
 	publishStructs, err := extractPublishStructs(rootDir)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to extract publish structs: %v\n", err)
@@ -74,14 +94,17 @@ func main() {
 		}
 	}
 
-	// Step 5: 递归收集所有 struct（包括子 struct），并全部重命名输出
-	// 1. 合并所有 struct 名和代码
+	// Step 5: 二次递归补齐 struct 依赖集合。
+	// 目的：确保输出 export.go 时，不仅有入口 struct，还有字段引用到的子 struct。
+	//
+	// 5.1 拷贝初始导出集合。
 	allStructs := make(map[string]*ExportedStruct)
 	for name, s := range exportedStructs {
 		allStructs[name] = s
 	}
-	// 2. 递归收集所有依赖 struct
-	// 2.1 收集所有 struct 定义和 ast
+	// 5.2 扫描全项目，建立 struct 定义与 AST 索引：
+	// - structDefs: struct 名 -> 源码片段
+	// - astStructs: struct 名 -> AST 结构（用于继续递归字段类型）
 	fset := token.NewFileSet()
 	structDefs := make(map[string]string)
 	astStructs := make(map[string]*ast.StructType)
@@ -130,12 +153,12 @@ func main() {
 		}
 		return nil
 	})
-	// 2.2 递归收集所有依赖 struct
+	// 5.3 以当前 allStructs 为起点，递归收集依赖 struct。
 	collected := make(map[string]string)
 	for name := range allStructs {
 		collectStructDependencies(name, structDefs, collected, astStructs)
 	}
-	// 2.3 生成新的 allStructs，全部来源标记为 "recursive"
+	// 5.4 将新增依赖并入 allStructs，来源标记为 recursive。
 	for name, code := range collected {
 		if _, exists := allStructs[name]; !exists {
 			allStructs[name] = &ExportedStruct{
@@ -147,10 +170,13 @@ func main() {
 		}
 	}
 
-	// Step 6: Generate export.go with renamed structs (全部 struct 都重命名)
+	// Step 6: 生成 export.go 内容。
+	// 会对 allStructs 中所有 struct 进行统一重命名（含 module 前缀），避免跨模块名称冲突。
 	exportContent := generateExportGo(moduleName, allStructs)
 
-	// Write files
+	// Step 7: 落盘输出到 .yanling 目录。
+	// - script.go: 合并后的脚本源码
+	// - export.go: 重命名后的导出 struct 定义
 	outputDir := filepath.Join(rootDir, ".yanling")
 	if err := os.MkdirAll(outputDir, 0755); err != nil {
 		fmt.Fprintf(os.Stderr, "failed to create output directory: %v\n", err)
@@ -167,6 +193,7 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Step 8: 打印输出路径，便于调用方确认产物位置。
 	fmt.Printf("generated %s\n", filepath.Join(outputDir, "script.go"))
 	fmt.Printf("generated %s\n", filepath.Join(outputDir, "export.go"))
 }
