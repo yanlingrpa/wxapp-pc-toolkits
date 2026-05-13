@@ -227,11 +227,16 @@ type IndexOutput struct {
 	SchemaRef     string              `json:"$schema,omitempty"`
 	SchemaVersion string              `json:"schema_version"`
 	GeneratedAt   string              `json:"generated_at"`
-	Module        string              `json:"module"`
-	Files         IndexFilesDoc       `json:"files"`
+	Modules       []IndexModuleEntry  `json:"modules"`
 	Packages      []IndexPackageEntry `json:"packages"`
 	Topics        []IndexTopicEntry   `json:"topics"`
 	Symbols       []IndexSymbolEntry  `json:"symbols"`
+}
+
+// IndexModuleEntry holds per-module metadata and its local file references.
+type IndexModuleEntry struct {
+	Module string        `json:"module"`
+	Files  IndexFilesDoc `json:"files"`
 }
 
 type IndexFilesDoc struct {
@@ -242,6 +247,7 @@ type IndexFilesDoc struct {
 }
 
 type IndexPackageEntry struct {
+	Module      string `json:"module"`
 	Name        string `json:"name"`
 	ImportPath  string `json:"import_path"`
 	Directory   string `json:"directory"`
@@ -250,6 +256,7 @@ type IndexPackageEntry struct {
 }
 
 type IndexTopicEntry struct {
+	Module       string `json:"module"`
 	Name         string `json:"name"`
 	Specifier    string `json:"specifier"`
 	GoStructName string `json:"go_struct_name,omitempty"`
@@ -258,6 +265,7 @@ type IndexTopicEntry struct {
 }
 
 type IndexSymbolEntry struct {
+	Module      string `json:"module"`
 	Name        string `json:"name"`
 	Kind        string `json:"kind"`
 	ImportPath  string `json:"import_path"`

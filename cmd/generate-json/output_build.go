@@ -254,37 +254,37 @@ func buildTypeSignature(name string, alias bool, underlying string) string {
 }
 
 func buildIndexOutput(moduleDoc ModuleOutput, symbolsDoc SymbolsOutput, topicDocs []TopicDoc) IndexOutput {
+	files := IndexFilesDoc{
+		SymbolIndex:     moduleDoc.Files.SymbolIndex,
+		SymbolIndexLite: moduleDoc.Files.SymbolIndexLite,
+		PackageDir:      moduleDoc.Files.PackageDir,
+		Topics:          "topics.json",
+	}
+	if files.SymbolIndex == "" {
+		files.SymbolIndex = "symbols.json"
+	}
+	if files.SymbolIndexLite == "" {
+		files.SymbolIndexLite = "symbols.lite.json"
+	}
+	if files.PackageDir == "" {
+		files.PackageDir = "packages"
+	}
+
 	index := IndexOutput{
 		SchemaRef:     indexSchemaRef,
 		SchemaVersion: moduleDoc.SchemaVersion,
 		GeneratedAt:   moduleDoc.GeneratedAt,
-		Module:        moduleDoc.Module,
-		Files: IndexFilesDoc{
-			SymbolIndex:     moduleDoc.Files.SymbolIndex,
-			SymbolIndexLite: moduleDoc.Files.SymbolIndexLite,
-			PackageDir:      moduleDoc.Files.PackageDir,
-			Topics:          "topics.json",
+		Modules: []IndexModuleEntry{
+			{Module: moduleDoc.Module, Files: files},
 		},
 		Packages: make([]IndexPackageEntry, 0, len(moduleDoc.Packages)),
 		Topics:   make([]IndexTopicEntry, 0, len(topicDocs)),
 		Symbols:  make([]IndexSymbolEntry, 0, len(symbolsDoc.Symbols)),
 	}
 
-	if index.Files.SymbolIndex == "" {
-		index.Files.SymbolIndex = "symbols.json"
-	}
-	if index.Files.PackageDir == "" {
-		index.Files.PackageDir = "packages"
-	}
-	if index.Files.SymbolIndexLite == "" {
-		index.Files.SymbolIndexLite = "symbols.lite.json"
-	}
-	if index.Files.Topics == "" {
-		index.Files.Topics = "topics.json"
-	}
-
 	for _, pkg := range moduleDoc.Packages {
 		index.Packages = append(index.Packages, IndexPackageEntry{
+			Module:      moduleDoc.Module,
 			Name:        pkg.Name,
 			ImportPath:  pkg.ImportPath,
 			Directory:   pkg.Directory,
@@ -295,6 +295,7 @@ func buildIndexOutput(moduleDoc ModuleOutput, symbolsDoc SymbolsOutput, topicDoc
 
 	for _, topic := range topicDocs {
 		index.Topics = append(index.Topics, IndexTopicEntry{
+			Module:       moduleDoc.Module,
 			Name:         topic.Name,
 			Specifier:    topic.Specifier,
 			GoStructName: topic.GoStructName,
@@ -305,6 +306,7 @@ func buildIndexOutput(moduleDoc ModuleOutput, symbolsDoc SymbolsOutput, topicDoc
 
 	for _, symbol := range symbolsDoc.Symbols {
 		index.Symbols = append(index.Symbols, IndexSymbolEntry{
+			Module:      moduleDoc.Module,
 			Name:        symbol.Name,
 			Kind:        symbol.Kind,
 			ImportPath:  symbol.ImportPath,
@@ -314,11 +316,5 @@ func buildIndexOutput(moduleDoc ModuleOutput, symbolsDoc SymbolsOutput, topicDoc
 		})
 	}
 
-	index.Files = IndexFilesDoc{
-		SymbolIndex:     index.Files.SymbolIndex,
-		SymbolIndexLite: index.Files.SymbolIndexLite,
-		PackageDir:      index.Files.PackageDir,
-		Topics:          index.Files.Topics,
-	}
 	return index
 }

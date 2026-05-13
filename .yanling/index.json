@@ -1,16 +1,21 @@
 {
   "$schema": "./schema/yanling.machine-first.v1/index.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-13T04:07:59Z",
-  "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-  "files": {
-    "symbol_index": "symbols.json",
-    "symbol_index_lite": "symbols.lite.json",
-    "package_dir": "packages",
-    "topics": "topics.json"
-  },
+  "generated_at": "2026-05-13T06:44:45Z",
+  "modules": [
+    {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
+      "files": {
+        "symbol_index": "symbols.json",
+        "symbol_index_lite": "symbols.lite.json",
+        "package_dir": "packages",
+        "topics": "topics.json"
+      }
+    }
+  ],
   "packages": [
     {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "name": "wxapputils",
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
       "directory": "/wxapputils",
@@ -19,6 +24,7 @@
   ],
   "topics": [
     {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "name": "app_ready",
       "specifier": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "go_struct_name": "AppReadyData",
@@ -28,6 +34,7 @@
   ],
   "symbols": [
     {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "name": "AppReadyData",
       "kind": "struct",
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
@@ -35,6 +42,7 @@
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
     },
     {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "name": "ChangeGPSLocation",
       "kind": "function",
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
@@ -43,6 +51,7 @@
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
     },
     {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "name": "CheckWxappReady",
       "kind": "function",
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
@@ -51,6 +60,7 @@
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
     },
     {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "name": "PopupDialogInfo",
       "kind": "struct",
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
@@ -58,6 +68,7 @@
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
     },
     {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "name": "PreferedLocation",
       "kind": "struct",
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
