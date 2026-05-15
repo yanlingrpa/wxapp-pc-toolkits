@@ -103,7 +103,10 @@ func extractMethodStructs(rootDir, targetPackage string) (map[string]string, err
 			}
 		}
 
-		// Find methods with signature func(rt script.ModuleRuntime, param StructType)
+		// Find exported functions that match the current validation rules:
+		// - first param: script.ModuleRuntime
+		// - second param: struct or primitive (only struct needs exporting)
+		// - first return: struct or primitive (only struct needs exporting)
 		for _, decl := range f.Decls {
 			if fd, ok := decl.(*ast.FuncDecl); ok {
 				if !fd.Name.IsExported() {
@@ -123,6 +126,13 @@ func extractMethodStructs(rootDir, targetPackage string) (map[string]string, err
 				structName := extractStructName(secondParam.Type)
 				if structName != "" && isExportedType(structName) {
 					usedStructs[structName] = struct{}{}
+				}
+
+				if fd.Type.Results != nil && len(fd.Type.Results.List) > 0 {
+					resultStructName := extractResultStructName(fd.Type.Results.List[0].Type)
+					if resultStructName != "" && isExportedType(resultStructName) {
+						usedStructs[resultStructName] = struct{}{}
+					}
 				}
 			}
 		}
@@ -348,6 +358,18 @@ func extractStructName(expr ast.Expr) string {
 		return extractStructName(t.X)
 	case *ast.CompositeLit:
 		return extractStructName(t.Type)
+	}
+	return ""
+}
+
+func extractResultStructName(expr ast.Expr) string {
+	switch t := expr.(type) {
+	case *ast.StarExpr:
+		return extractResultStructName(t.X)
+	case *ast.Ident:
+		return t.Name
+	case *ast.CompositeLit:
+		return extractResultStructName(t.Type)
 	}
 	return ""
 }

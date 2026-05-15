@@ -84,7 +84,7 @@ func CheckWxappReady(rt script.ModuleRuntime, guiId string) (bool, error) {
 	}
 
 	// Step 2: resolve window + body locator that will be used for screenshot/click.
-	win, exist := rt.GuiWindow(guiId)
+	win, exist := rt.OsGuiWindow(guiId)
 	if !exist {
 		logger.Error("CheckWxappReady failed: gui window not found, guiId=%s", guiId)
 		return false, fmt.Errorf("gui windows {%s} not exist", guiId)
