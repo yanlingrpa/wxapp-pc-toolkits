@@ -1,7 +1,7 @@
 {
   "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-13T06:44:45Z",
+  "generated_at": "2026-05-15T07:25:51Z",
   "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
   "package": {
     "name": "wxapputils",
@@ -9,7 +9,8 @@
     "directory": "/wxapputils",
     "files": [
       "wxapputils/change_gps_location.go",
-      "wxapputils/check_wxapp_ready.go"
+      "wxapputils/check_wxapp_ready.go",
+      "wxapputils/get_page_info.go"
     ],
     "imports": [
       {
@@ -54,9 +55,9 @@
       "yanlingrpa.com/yanling/protocol/script"
     ],
     "counts": {
-      "symbols": 5,
-      "structs": 3,
-      "functions": 2
+      "symbols": 7,
+      "structs": 4,
+      "functions": 3
     },
     "symbols": [
       {
@@ -111,7 +112,7 @@
         "package": "wxapputils",
         "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
         "doc": "修改微信小程序的GPS位置\n1. 在小程序界面上找到GPS定位元素并点击\n2. 等待调整到地址选择界面\n3. 通过OCR读取地址选择界面上的文本，找到与Keyword匹配的地址选项\n4. 点击匹配的地址选项，完成GPS位置修改\n5. 如果过程中出现任何异常（例如未找到GPS元素、未找到匹配的地址选项等），返回错误",
-        "signature": "ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) error",
+        "signature": "ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) (bool, error)",
         "source": {
           "file": "wxapputils/change_gps_location.go",
           "line": 31,
@@ -129,6 +130,9 @@
         ],
         "results": [
           {
+            "type": "bool"
+          },
+          {
             "type": "error"
           }
         ],
@@ -138,6 +142,10 @@
             "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
             "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PreferedLocation",
             "local": true
+          },
+          {
+            "expr": "bool",
+            "builtin": true
           },
           {
             "expr": "error",
@@ -199,6 +207,52 @@
           {
             "expr": "string",
             "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#GetPageInfo",
+        "name": "GetPageInfo",
+        "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.GetPageInfo",
+        "kind": "function",
+        "package": "wxapputils",
+        "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+        "doc": "获取当前页面信息",
+        "signature": "GetPageInfo(rt script.ModuleRuntime) (WxappPageInfo, error)",
+        "source": {
+          "file": "wxapputils/get_page_info.go",
+          "line": 17,
+          "column": 1
+        },
+        "params": [
+          {
+            "name": "rt",
+            "type": "script.ModuleRuntime"
+          }
+        ],
+        "results": [
+          {
+            "type": "WxappPageInfo"
+          },
+          {
+            "type": "error"
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "WxappPageInfo",
+            "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+            "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.WxappPageInfo",
+            "local": true
+          },
+          {
+            "expr": "error",
+            "builtin": true
+          },
+          {
+            "expr": "script.ModuleRuntime",
+            "import_path": "yanlingrpa.com/yanling/protocol/script",
+            "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleRuntime"
           }
         ]
       },
@@ -287,6 +341,121 @@
           }
         ],
         "type_refs": [
+          {
+            "expr": "string",
+            "builtin": true
+          }
+        ]
+      },
+      {
+        "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#WxappPageInfo",
+        "name": "WxappPageInfo",
+        "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.WxappPageInfo",
+        "kind": "struct",
+        "package": "wxapputils",
+        "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+        "doc": "WxappPageInfo represents the information of the current page in the WeChat mini program.",
+        "signature": "type WxappPageInfo struct",
+        "source": {
+          "file": "wxapputils/get_page_info.go",
+          "line": 6,
+          "column": 6
+        },
+        "fields": [
+          {
+            "name": "Backable",
+            "type": "bool",
+            "tag": "json:\"backable\"",
+            "doc": "页面上是否有返回按钮",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "FootNavCount",
+            "type": "int",
+            "tag": "json:\"foot_nav_count\"",
+            "doc": "底部导航的总数量，如果没有底部导航栏则为0",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "FootNavIndex",
+            "type": "int",
+            "tag": "json:\"foot_nav_index\"",
+            "doc": "如果是底部导航页面，返回对应的导航索引；否则为-1",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "HeadNavCount",
+            "type": "int",
+            "tag": "json:\"head_nav_count\"",
+            "doc": "顶部导航的总数量，如果没有顶部导航栏则为0",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "HeadNavIndex",
+            "type": "int",
+            "tag": "json:\"head_nav_index\"",
+            "doc": "如果是顶部导航页面，返回对应的导航索引；否则为-1",
+            "type_refs": [
+              {
+                "expr": "int",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "PageType",
+            "type": "string",
+            "tag": "json:\"page_type\"",
+            "doc": "页面类型，例如：主页、商品页、订单页、搜索页、购物车页、用户中心页等",
+            "type_refs": [
+              {
+                "expr": "string",
+                "builtin": true
+              }
+            ]
+          },
+          {
+            "name": "Searchable",
+            "type": "bool",
+            "tag": "json:\"searchable\"",
+            "doc": "页面上是否有搜索框",
+            "type_refs": [
+              {
+                "expr": "bool",
+                "builtin": true
+              }
+            ]
+          }
+        ],
+        "type_refs": [
+          {
+            "expr": "bool",
+            "builtin": true
+          },
+          {
+            "expr": "int",
+            "builtin": true
+          },
           {
             "expr": "string",
             "builtin": true

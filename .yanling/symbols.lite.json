@@ -1,12 +1,12 @@
 {
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-13T06:44:45Z",
+  "generated_at": "2026-05-15T07:25:51Z",
   "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
   "counts": {
     "packages": 1,
-    "symbols": 5,
-    "structs": 3,
-    "functions": 2
+    "symbols": 7,
+    "structs": 4,
+    "functions": 3
   },
   "symbols": [
     {
@@ -52,6 +52,20 @@
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
     },
     {
+      "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#GetPageInfo",
+      "name": "GetPageInfo",
+      "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.GetPageInfo",
+      "kind": "function",
+      "package": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "source": {
+        "file": "wxapputils/get_page_info.go",
+        "line": 17,
+        "column": 1
+      },
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    },
+    {
       "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#PopupDialogInfo",
       "name": "PopupDialogInfo",
       "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PopupDialogInfo",
@@ -75,6 +89,20 @@
       "source": {
         "file": "wxapputils/change_gps_location.go",
         "line": 11,
+        "column": 6
+      },
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    },
+    {
+      "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#WxappPageInfo",
+      "name": "WxappPageInfo",
+      "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.WxappPageInfo",
+      "kind": "struct",
+      "package": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "source": {
+        "file": "wxapputils/get_page_info.go",
+        "line": 6,
         "column": 6
       },
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"

@@ -30,19 +30,19 @@ const (
  * 4. 点击匹配的地址选项，完成GPS位置修改
  * 5. 如果过程中出现任何异常（例如未找到GPS元素、未找到匹配的地址选项等），返回错误
  */
-func ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) error {
+func ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) (bool, error) {
 	logger := rt.Logger()
 	logger.Debug("ChangeGPSLocation start: location=%+v", location)
 
-	win, exist := rt.GuiWindow(location.GuiId)
+	win, exist := rt.OsGuiWindow(location.GuiId)
 	if !exist {
 		logger.Error("ChangeGPSLocation failed: gui window not found, guiId=%s", location.GuiId)
-		return fmt.Errorf("gui windows {%s} not exist", location.GuiId)
+		return false, fmt.Errorf("gui windows {%s} not exist", location.GuiId)
 	}
 	body, err := win.BodyLocator()
 	if err != nil {
 		logger.Error("ChangeGPSLocation failed: BodyLocator error, guiId=%s, err=%v", location.GuiId, err)
-		return fmt.Errorf("failed to locate body for gui window {%s}: %v", location.GuiId, err)
+		return false, fmt.Errorf("failed to locate body for gui window {%s}: %v", location.GuiId, err)
 	}
 
 	header := body.GetBodyRect().HeaderPercent(15)
@@ -50,31 +50,31 @@ func ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) error
 	gpsLocators, err := headLocator.VisionLocator(gpsElementDescription, nil, nil)
 	if err != nil {
 		logger.Error("ChangeGPSLocation failed: VisionLocator error, guiId=%s, err=%v", location.GuiId, err)
-		return fmt.Errorf("failed to locate GPS element for gui window {%s}: %v", location.GuiId, err)
+		return false, fmt.Errorf("failed to locate GPS element for gui window {%s}: %v", location.GuiId, err)
 	}
 	if len(gpsLocators) == 0 {
 		logger.Error("ChangeGPSLocation failed: GPS element not found, guiId=%s", location.GuiId)
-		return fmt.Errorf("GPS element not found in gui window {%s}", location.GuiId)
+		return false, fmt.Errorf("GPS element not found in gui window {%s}", location.GuiId)
 	}
 	logger.Debug("ChangeGPSLocation GPS element found: count=%d guiId=%s", len(gpsLocators), location.GuiId)
 
 	if err := gpsLocators[0].Click(nil); err != nil {
 		logger.Error("ChangeGPSLocation failed: click GPS element error, guiId=%s, err=%v", location.GuiId, err)
-		return fmt.Errorf("failed to click GPS element for gui window {%s}: %v", location.GuiId, err)
+		return false, fmt.Errorf("failed to click GPS element for gui window {%s}: %v", location.GuiId, err)
 	}
 	logger.Debug("ChangeGPSLocation GPS element clicked, guiId=%s", location.GuiId)
 
 	_, err = body.WaitForVision(gpsWaitTimeout, gpsAddressDescription, nil, nil)
 	if err != nil {
 		logger.Error("ChangeGPSLocation failed: address selection screen did not appear, guiId=%s, err=%v", location.GuiId, err)
-		return fmt.Errorf("address selection screen did not appear for gui window {%s}: %v", location.GuiId, err)
+		return false, fmt.Errorf("address selection screen did not appear for gui window {%s}: %v", location.GuiId, err)
 	}
 	logger.Debug("ChangeGPSLocation address selection screen loaded, guiId=%s", location.GuiId)
 
 	ocrResult, err := body.OcrRead(gpsOcrConfidence)
 	if err != nil {
 		logger.Error("ChangeGPSLocation failed: OCR read error, guiId=%s, err=%v", location.GuiId, err)
-		return fmt.Errorf("failed to read address options for gui window {%s}: %v", location.GuiId, err)
+		return false, fmt.Errorf("failed to read address options for gui window {%s}: %v", location.GuiId, err)
 	}
 
 	for _, t := range ocrResult.Texts {
@@ -83,15 +83,15 @@ func ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) error
 			logger.Debug("ChangeGPSLocation match found: keyword=%s text=%s point=(%d,%d)", location.Keyword, t.Text, pnt.X, pnt.Y)
 			if err := body.Click(&pnt); err != nil {
 				logger.Error("ChangeGPSLocation failed: click address error, guiId=%s, err=%v", location.GuiId, err)
-				return fmt.Errorf("failed to click matched address for gui window {%s}: %v", location.GuiId, err)
+				return false, fmt.Errorf("failed to click matched address for gui window {%s}: %v", location.GuiId, err)
 			}
 			logger.Info("ChangeGPSLocation success: guiId=%s keyword=%s matched=%s", location.GuiId, location.Keyword, t.Text)
-			return nil
+			return true, nil
 		}
 	}
 
 	logger.Error("ChangeGPSLocation failed: no matching address found, guiId=%s, keyword=%s", location.GuiId, location.Keyword)
-	return fmt.Errorf("no address matching keyword {%s} found in gui window {%s}", location.Keyword, location.GuiId)
+	return false, fmt.Errorf("no address matching keyword {%s} found in gui window {%s}", location.Keyword, location.GuiId)
 }
 
 // File: wxapputils\check_wxapp_ready.go
@@ -166,7 +166,7 @@ func CheckWxappReady(rt script.ModuleRuntime, guiId string) (bool, error) {
 		return false, fmt.Errorf("guiId not set")
 	}
 
-	win, exist := rt.GuiWindow(guiId)
+	win, exist := rt.OsGuiWindow(guiId)
 	if !exist {
 		logger.Error("CheckWxappReady failed: gui window not found, guiId=%s", guiId)
 		return false, fmt.Errorf("gui windows {%s} not exist", guiId)
@@ -242,5 +242,22 @@ func CheckWxappReady(rt script.ModuleRuntime, guiId string) (bool, error) {
 	logger.Info("CheckWxappReady success: app is ready, guiId=%s title=%s", guiId, win.GetWindowTitle())
 
 	return true, nil
+}
+
+// File: wxapputils\get_page_info.go
+// WxappPageInfo represents the information of the current page in the WeChat mini program.
+type WxappPageInfo struct {
+	PageType	string	`json:"page_type"`	// 页面类型，例如：主页、商品页、订单页、搜索页、购物车页、用户中心页等
+	Searchable	bool	`json:"searchable"`	// 页面上是否有搜索框
+	Backable	bool	`json:"backable"`	// 页面上是否有返回按钮
+	HeadNavCount	int	`json:"head_nav_count"`	// 顶部导航的总数量，如果没有顶部导航栏则为0
+	HeadNavIndex	int	`json:"head_nav_index"`	// 如果是顶部导航页面，返回对应的导航索引；否则为-1
+	FootNavCount	int	`json:"foot_nav_count"`	// 底部导航的总数量，如果没有底部导航栏则为0
+	FootNavIndex	int	`json:"foot_nav_index"`	// 如果是底部导航页面，返回对应的导航索引；否则为-1
+}
+
+// 获取当前页面信息
+func GetPageInfo(rt script.ModuleRuntime) (WxappPageInfo, error) {
+	return WxappPageInfo{}, nil
 }
 

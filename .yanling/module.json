@@ -1,13 +1,13 @@
 {
   "$schema": "./schema/yanling.machine-first.v1/module.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-13T06:44:45Z",
+  "generated_at": "2026-05-15T07:25:51Z",
   "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
   "counts": {
     "packages": 1,
-    "symbols": 5,
-    "structs": 3,
-    "functions": 2
+    "symbols": 7,
+    "structs": 4,
+    "functions": 3
   },
   "files": {
     "symbol_index": "symbols.json",
@@ -20,9 +20,9 @@
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
       "directory": "/wxapputils",
       "counts": {
-        "symbols": 5,
-        "structs": 3,
-        "functions": 2
+        "symbols": 7,
+        "structs": 4,
+        "functions": 3
       },
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json",
       "dependencies": [

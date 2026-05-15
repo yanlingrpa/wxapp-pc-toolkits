@@ -1,13 +1,13 @@
 {
   "$schema": "./schema/yanling.machine-first.v1/symbols.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-13T06:44:45Z",
+  "generated_at": "2026-05-15T07:25:51Z",
   "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
   "counts": {
     "packages": 1,
-    "symbols": 5,
-    "structs": 3,
-    "functions": 2
+    "symbols": 7,
+    "structs": 4,
+    "functions": 3
   },
   "symbols": [
     {
@@ -40,7 +40,7 @@
       "package": "wxapputils",
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
       "doc": "修改微信小程序的GPS位置",
-      "signature": "ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) error",
+      "signature": "ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) (bool, error)",
       "source": {
         "file": "wxapputils/change_gps_location.go",
         "line": 31,
@@ -53,6 +53,10 @@
           "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
           "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PreferedLocation",
           "local": true
+        },
+        {
+          "expr": "bool",
+          "builtin": true
         },
         {
           "expr": "error",
@@ -101,6 +105,39 @@
       ]
     },
     {
+      "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#GetPageInfo",
+      "name": "GetPageInfo",
+      "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.GetPageInfo",
+      "kind": "function",
+      "package": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "doc": "获取当前页面信息",
+      "signature": "GetPageInfo(rt script.ModuleRuntime) (WxappPageInfo, error)",
+      "source": {
+        "file": "wxapputils/get_page_info.go",
+        "line": 17,
+        "column": 1
+      },
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json",
+      "type_refs": [
+        {
+          "expr": "WxappPageInfo",
+          "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+          "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.WxappPageInfo",
+          "local": true
+        },
+        {
+          "expr": "error",
+          "builtin": true
+        },
+        {
+          "expr": "script.ModuleRuntime",
+          "import_path": "yanlingrpa.com/yanling/protocol/script",
+          "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleRuntime"
+        }
+      ]
+    },
+    {
       "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#PopupDialogInfo",
       "name": "PopupDialogInfo",
       "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.PopupDialogInfo",
@@ -144,6 +181,37 @@
         }
       ],
       "field_count": 2
+    },
+    {
+      "id": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils#WxappPageInfo",
+      "name": "WxappPageInfo",
+      "qualified_name": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils.WxappPageInfo",
+      "kind": "struct",
+      "package": "wxapputils",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "doc": "WxappPageInfo represents the information of the current page in the WeChat mini program.",
+      "signature": "type WxappPageInfo struct",
+      "source": {
+        "file": "wxapputils/get_page_info.go",
+        "line": 6,
+        "column": 6
+      },
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json",
+      "type_refs": [
+        {
+          "expr": "bool",
+          "builtin": true
+        },
+        {
+          "expr": "int",
+          "builtin": true
+        },
+        {
+          "expr": "string",
+          "builtin": true
+        }
+      ],
+      "field_count": 7
     }
   ]
 }

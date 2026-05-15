@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/yanling.machine-first.v1/index.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-13T06:44:45Z",
+  "generated_at": "2026-05-15T07:25:51Z",
   "modules": [
     {
       "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
@@ -61,6 +61,15 @@
     },
     {
       "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
+      "name": "GetPageInfo",
+      "kind": "function",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "package": "wxapputils",
+      "doc": "获取当前页面信息",
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    },
+    {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "name": "PopupDialogInfo",
       "kind": "struct",
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
@@ -73,6 +82,15 @@
       "kind": "struct",
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
       "package": "wxapputils",
+      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
+    },
+    {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
+      "name": "WxappPageInfo",
+      "kind": "struct",
+      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
+      "package": "wxapputils",
+      "doc": "WxappPageInfo represents the information of the current page in the WeChat mini program.",
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
     }
   ]

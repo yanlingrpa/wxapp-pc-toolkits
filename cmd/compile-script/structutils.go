@@ -105,27 +105,29 @@ func extractMethodStructs(rootDir, targetPackage string) (map[string]string, err
 
 		// Find exported functions that match the current validation rules:
 		// - first param: script.ModuleRuntime
-		// - second param: struct or primitive (only struct needs exporting)
+		// - second param: none or struct or primitive (only struct needs exporting)
 		// - first return: struct or primitive (only struct needs exporting)
 		for _, decl := range f.Decls {
 			if fd, ok := decl.(*ast.FuncDecl); ok {
 				if !fd.Name.IsExported() {
 					continue
 				}
-				if fd.Type.Params == nil || len(fd.Type.Params.List) != 2 {
+				if fd.Type.Params == nil || len(fd.Type.Params.List) > 2 {
 					continue
 				}
 				firstParam := fd.Type.Params.List[0]
 				if !isModuleRuntimeType(firstParam.Type) {
 					continue
 				}
-				secondParam := fd.Type.Params.List[1]
-				if len(secondParam.Names) == 0 {
-					continue
-				}
-				structName := extractStructName(secondParam.Type)
-				if structName != "" && isExportedType(structName) {
-					usedStructs[structName] = struct{}{}
+				if len(fd.Type.Params.List) == 2 {
+					secondParam := fd.Type.Params.List[1]
+					if len(secondParam.Names) == 0 {
+						continue
+					}
+					structName := extractStructName(secondParam.Type)
+					if structName != "" && isExportedType(structName) {
+						usedStructs[structName] = struct{}{}
+					}
 				}
 
 				if fd.Type.Results != nil && len(fd.Type.Results.List) > 0 {
