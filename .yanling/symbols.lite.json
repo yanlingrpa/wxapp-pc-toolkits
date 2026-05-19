@@ -1,6 +1,6 @@
 {
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-19T07:03:38Z",
+  "generated_at": "2026-05-19T07:24:21Z",
   "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
   "counts": {
     "packages": 1,
@@ -60,7 +60,7 @@
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
       "source": {
         "file": "wxapputils/get_page_info.go",
-        "line": 17,
+        "line": 119,
         "column": 1
       },
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
@@ -102,7 +102,7 @@
       "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
       "source": {
         "file": "wxapputils/get_page_info.go",
-        "line": 6,
+        "line": 108,
         "column": 6
       },
       "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"

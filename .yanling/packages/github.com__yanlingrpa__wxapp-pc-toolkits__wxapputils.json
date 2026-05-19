@@ -1,7 +1,7 @@
 {
   "$schema": "./../schema/yanling.machine-first.v1/package.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-19T07:03:38Z",
+  "generated_at": "2026-05-19T07:24:21Z",
   "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
   "package": {
     "name": "wxapputils",
@@ -218,16 +218,20 @@
         "package": "wxapputils",
         "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
         "doc": "获取当前页面信息",
-        "signature": "GetPageInfo(rt script.ModuleRuntime) (WxappPageInfo, error)",
+        "signature": "GetPageInfo(rt script.ModuleRuntime, guiId string) (WxappPageInfo, error)",
         "source": {
           "file": "wxapputils/get_page_info.go",
-          "line": 17,
+          "line": 119,
           "column": 1
         },
         "params": [
           {
             "name": "rt",
             "type": "script.ModuleRuntime"
+          },
+          {
+            "name": "guiId",
+            "type": "string"
           }
         ],
         "results": [
@@ -253,6 +257,10 @@
             "expr": "script.ModuleRuntime",
             "import_path": "yanlingrpa.com/yanling/protocol/script",
             "qualified_name": "yanlingrpa.com/yanling/protocol/script.ModuleRuntime"
+          },
+          {
+            "expr": "string",
+            "builtin": true
           }
         ]
       },
@@ -358,7 +366,7 @@
         "signature": "type WxappPageInfo struct",
         "source": {
           "file": "wxapputils/get_page_info.go",
-          "line": 6,
+          "line": 108,
           "column": 6
         },
         "fields": [

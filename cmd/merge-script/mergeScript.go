@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"go/ast"
+	"go/format"
 	"go/parser"
 	"go/printer"
 	"go/token"
@@ -184,6 +185,22 @@ func main() {
 	// Step 6: 生成 export.go 内容。
 	// 会对 allStructs 中所有 struct 进行统一重命名（含 module 前缀），避免跨模块名称冲突。
 	exportContent := generateExportGo(moduleName, allStructs)
+
+	// Step 6.1: 对生成的 Go 源码执行 go fmt（等价的标准库格式化）。
+	// 失败时直接退出，避免产出不可格式化或语法异常的文件。
+	formattedScript, err := format.Source([]byte(scriptContent))
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "failed to format merge.go: %v\n", err)
+		os.Exit(1)
+	}
+	scriptContent = string(formattedScript)
+
+	formattedExport, err := format.Source([]byte(exportContent))
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "failed to format export.go: %v\n", err)
+		os.Exit(1)
+	}
+	exportContent = string(formattedExport)
 
 	// Step 7: 落盘输出到 .yanling 目录。
 	// - merge.go: 合并后的脚本源码
