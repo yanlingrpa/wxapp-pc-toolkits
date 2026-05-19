@@ -57,7 +57,7 @@ func main() {
 
 	// Step 3: 将收集到的文件合并为单一脚本内容 scriptContent。
 	// 合并逻辑会统一包名、汇总 imports，并按文件顺序拼接声明。
-	scriptContent, err := mergeGoFiles(rootDir, goFiles, moduleName)
+	scriptContent, err := mergeGoFiles(rootDir, goFiles)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to merge go files: %v\n", err)
 		os.Exit(1)
@@ -186,7 +186,7 @@ func main() {
 	exportContent := generateExportGo(moduleName, allStructs)
 
 	// Step 7: 落盘输出到 .yanling 目录。
-	// - script.go: 合并后的脚本源码
+	// - merge.go: 合并后的脚本源码
 	// - export.go: 重命名后的导出 struct 定义
 	outputDir := filepath.Join(rootDir, ".yanling")
 	if err := os.MkdirAll(outputDir, 0755); err != nil {
@@ -194,8 +194,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := os.WriteFile(filepath.Join(outputDir, "script.go"), []byte(scriptContent), 0644); err != nil {
-		fmt.Fprintf(os.Stderr, "failed to write script.go: %v\n", err)
+	if err := os.WriteFile(filepath.Join(outputDir, "merge.go"), []byte(scriptContent), 0644); err != nil {
+		fmt.Fprintf(os.Stderr, "failed to write merge.go: %v\n", err)
 		os.Exit(1)
 	}
 
@@ -205,6 +205,6 @@ func main() {
 	}
 
 	// Step 8: 打印输出路径，便于调用方确认产物位置。
-	fmt.Printf("generated %s\n", filepath.Join(outputDir, "script.go"))
+	fmt.Printf("generated %s\n", filepath.Join(outputDir, "merge.go"))
 	fmt.Printf("generated %s\n", filepath.Join(outputDir, "export.go"))
 }

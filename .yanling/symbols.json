@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/yanling.machine-first.v1/symbols.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-15T07:25:51Z",
+  "generated_at": "2026-05-19T07:03:38Z",
   "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
   "counts": {
     "packages": 1,

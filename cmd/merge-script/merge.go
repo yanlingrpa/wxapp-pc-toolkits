@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-func mergeGoFiles(rootDir string, goFiles []string, moduleName string) (string, error) {
+func mergeGoFiles(rootDir string, goFiles []string) (string, error) {
 	fset := token.NewFileSet()
 	var buf bytes.Buffer
 

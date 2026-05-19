@@ -6,6 +6,7 @@ import (
 	"go/token"
 	"os"
 	"reflect"
+	"regexp"
 	"sort"
 	"strings"
 )
@@ -19,11 +20,34 @@ func validateAll(files []*fileInfo, structs map[string]*structDef, targetPackage
 	publishStructs := make(map[string]struct{})
 	publicFnCount := 0
 
+	// Forbidden prefix: 0+ underscores + yanling (case-insensitive) + underscore
+	forbiddenPrefixPattern := "^_*(?i:yanling)_"
+
 	for _, fi := range files {
 		for _, decl := range fi.Ast.Decls {
 			fd, ok := decl.(*ast.FuncDecl)
 			if !ok {
 				continue
+			}
+
+			// Check forbidden method name prefix for all top-level functions (exported and unexported)
+			if fd.Recv == nil && fd.Name != nil {
+				matched, reErr := regexpMustMatch(forbiddenPrefixPattern, fd.Name.Name)
+				if reErr != nil {
+					pos := fset.Position(fd.Pos())
+					errs = append(errs, validationError{
+						File: fi.RelPath,
+						Line: pos.Line,
+						Msg:  fmt.Sprintf("internal regexp error for function %q: %v", fd.Name.Name, reErr),
+					})
+				} else if matched {
+					pos := fset.Position(fd.Pos())
+					errs = append(errs, validationError{
+						File: fi.RelPath,
+						Line: pos.Line,
+						Msg:  fmt.Sprintf("function name %q uses forbidden prefix (0+ underscores + yanling + underscore)", fd.Name.Name),
+					})
+				}
 			}
 
 			if fd.Recv == nil && fd.Name != nil && fd.Name.IsExported() {
@@ -65,6 +89,15 @@ func validateAll(files []*fileInfo, structs map[string]*structDef, targetPackage
 
 	errs = append(errs, validateRecordedStructs(recorded, structs, fset)...)
 	return errs
+}
+
+// regexpMustMatch returns (true, nil) if the string matches the pattern, (false, error) if regexp error.
+func regexpMustMatch(pattern, s string) (bool, error) {
+	matched, err := regexp.MatchString(pattern, s)
+	if err != nil {
+		return false, err
+	}
+	return matched, nil
 }
 
 func printValidationErrors(errs []validationError) {

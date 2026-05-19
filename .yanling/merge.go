@@ -5,22 +5,21 @@ import (
 	"fmt"
 	"strings"
 	"time"
-
-	"reflect"
+	"yanlingrpa.com/yanling/protocol/basic"
 	"yanlingrpa.com/yanling/protocol/script"
 )
 
 // File: wxapputils\change_gps_location.go
 type PreferedLocation struct {
-	GuiId   string `json:"gui_id"`
-	Keyword string `json:"keyword"`
+	GuiId	string	`json:"gui_id"`
+	Keyword	string	`json:"keyword"`
 }
 
 const (
-	gpsElementDescription = "GPS location or position button, address entry field, or location icon in the WeChat mini program"
-	gpsAddressDescription = "address selection list or location picker showing candidate addresses"
-	gpsWaitTimeout        = 10 * time.Second
-	gpsOcrConfidence      = 0.6
+	gpsElementDescription	= "GPS location or position button, address entry field, or location icon in the WeChat mini program"
+	gpsAddressDescription	= "address selection list or location picker showing candidate addresses"
+	gpsWaitTimeout		= 10 * time.Second
+	gpsOcrConfidence	= 0.6
 )
 
 /**
@@ -97,26 +96,26 @@ func ChangeGPSLocation(rt script.ModuleRuntime, location PreferedLocation) (bool
 
 // File: wxapputils\check_wxapp_ready.go
 type PopupDialogInfo struct {
-	Border   basic.Rect `json:"border"`
-	CloseBtn basic.Rect `json:"close_btn"`
+	Border		basic.Rect	`json:"border"`
+	CloseBtn	basic.Rect	`json:"close_btn"`
 }
 
 type AppReadyData struct {
-	AppName string `json:"app_name"`
-	GuId    string `json:"guid"`
+	AppName	string	`json:"app_name"`
+	GuId	string	`json:"guid"`
 }
 
 const (
-	popupDetectInstruction = "Detect all modal popups that block interaction in the WeChat mini program window. Return each popup border and its close button area. Return an empty array if no popup exists."
-	popupDetectSchema      = `[
+	popupDetectInstruction	= "Detect all modal popups that block interaction in the WeChat mini program window. Return each popup border and its close button area. Return an empty array if no popup exists."
+	popupDetectSchema	= `[
   {
     "border": {"x": 0, "y": 0, "width": 0, "height": 0},
     "close_btn": {"x": 0, "y": 0, "width": 0, "height": 0}
   }
 ]`
-	maxPopupCheckRounds = 3
-	popupClickDelay     = 150 * time.Millisecond
-	popupRoundDelay     = 300 * time.Millisecond
+	maxPopupCheckRounds	= 3
+	popupClickDelay		= 150 * time.Millisecond
+	popupRoundDelay		= 300 * time.Millisecond
 )
 
 type popupDialogEnvelope struct {
@@ -233,8 +232,8 @@ func CheckWxappReady(rt script.ModuleRuntime, guiId string) (bool, error) {
 	}
 
 	if err := rt.Publish("app_ready", AppReadyData{
-		AppName: win.GetWindowTitle(),
-		GuId:    guiId,
+		AppName:	win.GetWindowTitle(),
+		GuId:		guiId,
 	}); err != nil {
 		logger.Error("CheckWxappReady failed: publish app_ready error, guiId=%s, err=%v", guiId, err)
 		return false, fmt.Errorf("failed to publish app_ready for gui window {%s}: %v", guiId, err)
@@ -248,13 +247,13 @@ func CheckWxappReady(rt script.ModuleRuntime, guiId string) (bool, error) {
 // File: wxapputils\get_page_info.go
 // WxappPageInfo represents the information of the current page in the WeChat mini program.
 type WxappPageInfo struct {
-	PageType     string `json:"page_type"`      // 页面类型，例如：主页、商品页、订单页、搜索页、购物车页、用户中心页等
-	Searchable   bool   `json:"searchable"`     // 页面上是否有搜索框
-	Backable     bool   `json:"backable"`       // 页面上是否有返回按钮
-	HeadNavCount int    `json:"head_nav_count"` // 顶部导航的总数量，如果没有顶部导航栏则为0
-	HeadNavIndex int    `json:"head_nav_index"` // 如果是顶部导航页面，返回对应的导航索引；否则为-1
-	FootNavCount int    `json:"foot_nav_count"` // 底部导航的总数量，如果没有底部导航栏则为0
-	FootNavIndex int    `json:"foot_nav_index"` // 如果是底部导航页面，返回对应的导航索引；否则为-1
+	PageType	string	`json:"page_type"`	// 页面类型，例如：主页、商品页、订单页、搜索页、购物车页、用户中心页等
+	Searchable	bool	`json:"searchable"`	// 页面上是否有搜索框
+	Backable	bool	`json:"backable"`	// 页面上是否有返回按钮
+	HeadNavCount	int	`json:"head_nav_count"`	// 顶部导航的总数量，如果没有顶部导航栏则为0
+	HeadNavIndex	int	`json:"head_nav_index"`	// 如果是顶部导航页面，返回对应的导航索引；否则为-1
+	FootNavCount	int	`json:"foot_nav_count"`	// 底部导航的总数量，如果没有底部导航栏则为0
+	FootNavIndex	int	`json:"foot_nav_index"`	// 如果是底部导航页面，返回对应的导航索引；否则为-1
 }
 
 // 获取当前页面信息
@@ -262,123 +261,3 @@ func GetPageInfo(rt script.ModuleRuntime) (WxappPageInfo, error) {
 	return WxappPageInfo{}, nil
 }
 
-// adjust-generated helpers
-func __yanling_newValuePtrByTypeName(typeName string) (any, error) {
-	switch typeName {
-	case "bool":
-		return new(bool), nil
-	case "string":
-		return new(string), nil
-	case "int":
-		return new(int), nil
-	case "int8":
-		return new(int8), nil
-	case "int16":
-		return new(int16), nil
-	case "int32":
-		return new(int32), nil
-	case "int64":
-		return new(int64), nil
-	case "uint":
-		return new(uint), nil
-	case "uint8":
-		return new(uint8), nil
-	case "uint16":
-		return new(uint16), nil
-	case "uint32":
-		return new(uint32), nil
-	case "uint64":
-		return new(uint64), nil
-	case "uintptr":
-		return new(uintptr), nil
-	case "byte":
-		return new(byte), nil
-	case "rune":
-		return new(rune), nil
-	case "float32":
-		return new(float32), nil
-	case "float64":
-		return new(float64), nil
-	case "AppReadyData":
-		return &AppReadyData{}, nil
-	case "PopupDialogInfo":
-		return &PopupDialogInfo{}, nil
-	case "PreferedLocation":
-		return &PreferedLocation{}, nil
-	case "WxappPageInfo":
-		return &WxappPageInfo{}, nil
-	default:
-		return nil, fmt.Errorf("unsupported targetType: %s", typeName)
-	}
-}
-
-func __yanling_convertJSONToValue(jsonStr string, targetType string, ref bool) (result any, err error) {
-	ptr, err := __yanling_newValuePtrByTypeName(targetType)
-	if err != nil {
-		return nil, err
-	}
-
-	if err := json.Unmarshal([]byte(jsonStr), ptr); err != nil {
-		return nil, fmt.Errorf("unmarshal %s failed: %w", targetType, err)
-	}
-
-	if ref {
-		return ptr, nil
-	}
-
-	v := reflect.ValueOf(ptr)
-	if v.Kind() != reflect.Ptr {
-		return nil, fmt.Errorf("internal error: target is not pointer for %s", targetType)
-	}
-	return v.Elem().Interface(), nil
-}
-
-func Yanling_ChangeGPSLocation(rt script.ModuleRuntime, locationJsonStr string) (string, error) {
-	locationAny, err := __yanling_convertJSONToValue(locationJsonStr, "PreferedLocation", false)
-	if err != nil {
-		return "", err
-	}
-	location := locationAny.(PreferedLocation)
-	result, err := ChangeGPSLocation(rt, location)
-	if err != nil {
-		return "", err
-	}
-	resultBytes, err := json.Marshal(result)
-	if err != nil {
-		return "", fmt.Errorf("failed to marshal result: %w", err)
-	}
-	return string(resultBytes), nil
-}
-
-func Yanling_CheckWxappReady(rt script.ModuleRuntime, guiIdJsonStr string) (string, error) {
-	guiIdAny, err := __yanling_convertJSONToValue(guiIdJsonStr, "string", false)
-	if err != nil {
-		return "", err
-	}
-	guiId := guiIdAny.(string)
-	result, err := CheckWxappReady(rt, guiId)
-	if err != nil {
-		return "", err
-	}
-	resultBytes, err := json.Marshal(result)
-	if err != nil {
-		return "", fmt.Errorf("failed to marshal result: %w", err)
-	}
-	return string(resultBytes), nil
-}
-
-func Yanling_GetPageInfo(rt script.ModuleRuntime) (string, error) {
-	result, err := GetPageInfo(rt)
-	if err != nil {
-		return "", err
-	}
-	resultBytes, err := json.Marshal(result)
-	if err != nil {
-		return "", fmt.Errorf("failed to marshal result: %w", err)
-	}
-	return string(resultBytes), nil
-}
-
-func Yanling_onTopicTrigger(specifierTopic string, payloadJson string, occuredAt time.Time) error {
-	return nil
-}

@@ -1,0 +1,1884 @@
+{
+  "schema_version": "yanling.machine-first/v1",
+  "generated_at": "2026-05-19T07:03:32Z",
+  "modules": [
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "files": {
+        "symbol_index": "symbols.json",
+        "symbol_index_lite": "symbols.lite.json",
+        "package_dir": "packages",
+        "topics": "topics.json"
+      }
+    }
+  ],
+  "packages": [
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "appgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "directory": "/appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "basic",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "directory": "/basic",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "browser",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "directory": "/browser",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "component",
+      "import_path": "yanlingrpa.com/yanling/protocol/component",
+      "directory": "/component",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__component.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "osgui",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "directory": "/osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "ossys",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "directory": "/ossys",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "script",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "directory": "/script",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    }
+  ],
+  "topics": [],
+  "symbols": [
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AppGuiLocator",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "doc": "AppGuiLocator defines a locator interface for a rectangular region on a mobile app screen,",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AppGuiWindow",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "doc": "AppGuiWindow defines the interface of a mobile app window (screen), providing methods",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AppKey",
+      "kind": "named_type",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "doc": "AppKey represents a hardware or system key on a mobile device.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyBack",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "doc": "Navigation keys",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyBackspace",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyDelete",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyDone",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyEnter",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "doc": "Soft keyboard keys",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyHome",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyMenu",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyNext",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyPower",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "doc": "Power key",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyPrevious",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyRecent",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeySearch",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeySpace",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyTab",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyVolumeDown",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyVolumeMute",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyVolumeUp",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/appgui",
+      "package": "appgui",
+      "doc": "Volume keys",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__appgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "FPoint",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "FPoint represents a 2D floating-point coordinate point.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "MaxAreaRect",
+      "kind": "function",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "MaxAreaRect returns the rectangle with the largest area.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "MergeAllRectangles",
+      "kind": "function",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "MergeAllRectangles merges all rectangles into the smallest rectangle containing all of them.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "MergeGroupRectangles",
+      "kind": "function",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "MergeGroupRectangles merges rectangles from multiple groups in all possible combinations.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "MergeOverlappingRectangles",
+      "kind": "function",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "MergeOverlappingRectangles merges overlapping rectangles.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "MinAreaRect",
+      "kind": "function",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "MinAreaRect returns the rectangle with the smallest area.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "OcrResult",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "OcrResult represents the OCR recognition result of the entire image.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "OcrText",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "OcrText represents a single OCR text recognition result.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Point",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "Point represents a 2D integer coordinate point.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Rect",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "Rect represents a rectangular region, defined by the top-left coordinate and width/height.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Size",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/basic",
+      "package": "basic",
+      "doc": "Size represents width and height.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__basic.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "BrowserElement",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "package": "browser",
+      "doc": "BrowserElement defines the common operation interface for browser elements.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "BrowserFramePage",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "package": "browser",
+      "doc": "BrowserFramePage defines the common interface for browser pages or frame pages.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "BrowserTabPage",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "package": "browser",
+      "doc": "BrowserTabPage defines the browser tab page interface.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "BrowserWindow",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/browser",
+      "package": "browser",
+      "doc": "BrowserWindow defines the browser window interface.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__browser.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "OcrWorker",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/component",
+      "package": "component",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__component.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "VisionWorker",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/component",
+      "package": "component",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__component.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Alt",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "doc": "\"command\"",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioForward",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioMute",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioNext",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioPause",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioPlay",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioPrev",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioRandom",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioRepeat",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioRewind",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioStop",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioVolDown",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "AudioVolUp",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Backspace",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "doc": "Backspace backspace key string",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapA",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapB",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapC",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapD",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapE",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapF",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapG",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapH",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapI",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapJ",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapK",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapL",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapM",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapN",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapO",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapP",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapQ",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapR",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapS",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapT",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapU",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapV",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapW",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapX",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapY",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "CapZ",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Capslock",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "doc": "\"right_shift\"",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Cmd",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Control",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Ctrl",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Delete",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Down",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "End",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Enter",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Esc",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Escape",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F1",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F10",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F11",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F12",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F13",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F14",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F15",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F16",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F17",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F18",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F19",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F2",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F20",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F21",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F22",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F23",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F24",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F3",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F4",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F5",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F6",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F7",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F8",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "F9",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Home",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Insert",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key0",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "doc": "Number keys",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key1",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key2",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key3",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key4",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key5",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key6",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key7",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key8",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Key9",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyA",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "doc": "Letter keys",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyB",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyC",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyD",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyE",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyF",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyG",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyH",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyI",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyJ",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyK",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyL",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyM",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyN",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyO",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyP",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyQ",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyR",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyS",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyT",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyU",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyV",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyW",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyX",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyY",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "KeyZ",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Keyboard",
+      "kind": "named_type",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Lalt",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Lcmd",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Lctrl",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Left",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "LightsKbdDown",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "LightsKbdToggle",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "LightsKbdUp",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "LightsMonDown",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "LightsMonUp",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Lshift",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Menu",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Num0",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Num1",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Num2",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Num3",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Num4",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Num5",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Num6",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Num7",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Num8",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "NumClear",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "NumDecimal",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "NumDiv",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "NumEnter",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "NumEqual",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "NumLock",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "NumMinus",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "NumMul",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "NumPlus",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "OSGuiLocator",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "doc": "OSGuiLocator defines a locator interface that provides methods for retrieving locator information,",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "OSGuiWindow",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "doc": "OSGuiWindow defines the interface of a GUI window, providing methods for window information,",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Pagedown",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Pageup",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Print",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Printscreen",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Ralt",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Rcmd",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Rctrl",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Right",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Rshift",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Shift",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Space",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Tab",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Up",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/osgui",
+      "package": "osgui",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__osgui.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "BrokerInfo",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "package": "ossys",
+      "doc": "DeviceInfo defines capabilities for querying device information.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "HttpClient",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "package": "ossys",
+      "doc": "HttpClient defines capabilities for HTTP requests and domain-level configuration.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "LocalFilesystem",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "package": "ossys",
+      "doc": "LocalFilesystem defines capabilities for local filesystem operations.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "LocalStorage",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "package": "ossys",
+      "doc": "LocalStorage defines local key-value storage capabilities.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "MonitorInfo",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "package": "ossys",
+      "doc": "MonitorInfo defines capabilities for querying monitor information.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "ScriptLogger",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/ossys",
+      "package": "ossys",
+      "doc": "ScriptLogger defines script runtime logging capabilities.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__ossys.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Event",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "Event defines event data for the local event bus.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "EventHandler",
+      "kind": "func_type",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "EventHandler defines the event handler function signature.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "GuiApplication",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "GuiApplication defines GUI application configuration.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "MobileApplication",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "MobileApplication defines mobile application configuration for Android/iOS devices.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "ModuleInfo",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "ModuleInfo defines script module metadata.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "ModuleRuntime",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "ModuleRuntime defines script runtime context capabilities.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "ParseSpecifier",
+      "kind": "function",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "ParseSpecifier parses a module specifier string.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "ScriptVariable",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "ScriptVariable defines script variable configuration.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Specifier",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "Specifier defines module specification information.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "Subscriber",
+      "kind": "interface",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "Subscriber defines event subscriber information.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "UrlPermission",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "UrlPermission defines network access permissions.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "VariableBoolean",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "VariableBoolean boolean type.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "VariableDataType",
+      "kind": "named_type",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "VariableDataType defines data types for script variables.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "VariableFilePath",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "VariableFilePath file path type.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "VariableInteger",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "VariableInteger integer type.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "VariableJson",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "VariableJson JSON object type.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "VariableNumber",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "VariableNumber floating-point float type.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "VariableString",
+      "kind": "const",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "VariableString string type.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "WebApplication",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "WebApplication defines browser application configuration.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    },
+    {
+      "module": "yanlingrpa.com/yanling/protocol",
+      "name": "YScript",
+      "kind": "struct",
+      "import_path": "yanlingrpa.com/yanling/protocol/script",
+      "package": "script",
+      "doc": "YScript defines the top-level script configuration structure.",
+      "package_file": "packages/yanlingrpa.com__yanling__protocol__script.json"
+    }
+  ]
+}
