@@ -253,68 +253,43 @@ func buildTypeSignature(name string, alias bool, underlying string) string {
 	return "type " + name + " " + underlying
 }
 
-func buildIndexOutput(moduleDoc ModuleOutput, symbolsDoc SymbolsOutput, topicDocs []TopicDoc) IndexOutput {
-	files := IndexFilesDoc{
+func buildIndexOutput(moduleDoc ModuleOutput, symbolsDoc SymbolsOutput, topicDocs []TopicDoc, moduleDescription string, moduleTags []string) IndexOutput {
+	yanlingFiles := YanlingFiles{
 		SymbolIndex:     moduleDoc.Files.SymbolIndex,
 		SymbolIndexLite: moduleDoc.Files.SymbolIndexLite,
 		PackageDir:      moduleDoc.Files.PackageDir,
 		Topics:          "topics.json",
 	}
-	if files.SymbolIndex == "" {
-		files.SymbolIndex = "symbols.json"
+	if yanlingFiles.SymbolIndex == "" {
+		yanlingFiles.SymbolIndex = "symbols.json"
 	}
-	if files.SymbolIndexLite == "" {
-		files.SymbolIndexLite = "symbols.lite.json"
+	if yanlingFiles.SymbolIndexLite == "" {
+		yanlingFiles.SymbolIndexLite = "symbols.lite.json"
 	}
-	if files.PackageDir == "" {
-		files.PackageDir = "packages"
+	if yanlingFiles.PackageDir == "" {
+		yanlingFiles.PackageDir = "packages"
 	}
 
-	index := IndexOutput{
+	counts := IndexCounts{
+		Packages: len(moduleDoc.Packages),
+		Topics:   len(topicDocs),
+		Symbols:  len(symbolsDoc.Symbols),
+	}
+
+	module := IndexModule{
+		Name:         moduleDoc.Module,
+		Version:      "${module_version}",
+		Description:  moduleDescription,
+		ProjectRoot:  "${project_root}",
+		Tags:         moduleTags,
+		YanlingFiles: yanlingFiles,
+		Counts:       counts,
+	}
+
+	return IndexOutput{
 		SchemaRef:     indexSchemaRef,
 		SchemaVersion: moduleDoc.SchemaVersion,
 		GeneratedAt:   moduleDoc.GeneratedAt,
-		Modules: []IndexModuleEntry{
-			{Module: moduleDoc.Module, Files: files},
-		},
-		Packages: make([]IndexPackageEntry, 0, len(moduleDoc.Packages)),
-		Topics:   make([]IndexTopicEntry, 0, len(topicDocs)),
-		Symbols:  make([]IndexSymbolEntry, 0, len(symbolsDoc.Symbols)),
+		Module:        module,
 	}
-
-	for _, pkg := range moduleDoc.Packages {
-		index.Packages = append(index.Packages, IndexPackageEntry{
-			Module:      moduleDoc.Module,
-			Name:        pkg.Name,
-			ImportPath:  pkg.ImportPath,
-			Directory:   pkg.Directory,
-			Doc:         pkg.Doc,
-			PackageFile: pkg.PackageFile,
-		})
-	}
-
-	for _, topic := range topicDocs {
-		index.Topics = append(index.Topics, IndexTopicEntry{
-			Module:       moduleDoc.Module,
-			Name:         topic.Name,
-			Specifier:    topic.Specifier,
-			GoStructName: topic.GoStructName,
-			GoImportPath: topic.GoImportPath,
-			Doc:          oneLineDoc(topic.Doc),
-		})
-	}
-
-	for _, symbol := range symbolsDoc.Symbols {
-		index.Symbols = append(index.Symbols, IndexSymbolEntry{
-			Module:      moduleDoc.Module,
-			Name:        symbol.Name,
-			Kind:        symbol.Kind,
-			ImportPath:  symbol.ImportPath,
-			Package:     symbol.Package,
-			Doc:         symbol.Doc,
-			PackageFile: symbol.PackageFile,
-		})
-	}
-
-	return index
 }

@@ -2,9 +2,9 @@
   "$schema": "./topics.schema.json",
   "schema_version": "yanling.machine-first/v1",
   "generated_at": "2026-05-13T02:42:54Z",
-  "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
   "topics": [
     {
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "name": "app_ready",
       "doc": "app_ready：微信小程序已就绪，可以开始后续的自动化操作了。",
       "direction": "publish",

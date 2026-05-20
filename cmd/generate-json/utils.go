@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"go/ast"
 	"go/printer"
 	"go/token"
@@ -207,4 +208,46 @@ func oneLineDoc(text string) string {
 		}
 	}
 	return ""
+}
+
+func readModuleDescriptionFromConfig(outputDir string) (string, error) {
+	configPath := filepath.Join(outputDir, "config.json")
+	content, err := os.ReadFile(configPath)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			return "", nil
+		}
+		return "", err
+	}
+
+	var doc struct {
+		Module struct {
+			Description string `json:"description"`
+		} `json:"module"`
+	}
+	if err := json.Unmarshal(content, &doc); err != nil {
+		return "", err
+	}
+	return doc.Module.Description, nil
+}
+
+func readModuleTagsFromConfig(outputDir string) ([]string, error) {
+	configPath := filepath.Join(outputDir, "config.json")
+	content, err := os.ReadFile(configPath)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			return []string{}, nil
+		}
+		return nil, err
+	}
+
+	var doc struct {
+		Module struct {
+			Tags []string `json:"tags"`
+		} `json:"module"`
+	}
+	if err := json.Unmarshal(content, &doc); err != nil {
+		return nil, err
+	}
+	return doc.Module.Tags, nil
 }

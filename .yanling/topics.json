@@ -1,12 +1,11 @@
 {
   "$schema": "./schema/yanling.machine-first.v1/topics.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-19T09:14:26Z",
-  "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
+  "generated_at": "2026-05-20T09:34:32Z",
   "topics": [
     {
       "name": "app_ready",
-      "specifier": "github.com/yanlingrpa/wxapp-pc-toolkits",
+      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
       "doc": "app_ready：微信小程序已就绪，可以开始后续的自动化操作了。",
       "direction": "publish",
       "go_struct_name": "AppReadyData",

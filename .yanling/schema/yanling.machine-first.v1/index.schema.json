@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "yanling.machine-first/v1 index.json",
   "type": "object",
-  "required": ["schema_version", "generated_at", "modules", "packages", "topics", "symbols"],
+  "required": ["schema_version", "generated_at", "module"],
   "properties": {
     "schema_version": {
       "const": "yanling.machine-first/v1"
@@ -11,76 +11,51 @@
       "type": "string",
       "format": "date-time"
     },
-    "modules": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["module", "files"],
-        "properties": {
-          "module": { "type": "string", "minLength": 1 },
-          "files": {
-            "type": "object",
-            "required": ["symbol_index", "package_dir", "topics"],
-            "properties": {
-              "symbol_index": { "type": "string" },
-              "symbol_index_lite": { "type": "string" },
-              "package_dir": { "type": "string" },
-              "topics": { "type": "string" }
-            },
-            "additionalProperties": true
-          }
+    "module": {
+      "type": "object",
+      "required": ["name", "version", "project_root", "yanling_files", "counts"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
         },
-        "additionalProperties": true
-      }
-    },
-    "packages": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["module", "name", "import_path", "directory", "package_file"],
-        "properties": {
-          "module": { "type": "string" },
-          "name": { "type": "string" },
-          "import_path": { "type": "string" },
-          "directory": { "type": "string" },
-          "doc": { "type": "string" },
-          "package_file": { "type": "string" }
+        "version": {
+          "type": "string",
+          "minLength": 1
         },
-        "additionalProperties": true
-      }
-    },
-    "topics": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["module", "name", "specifier"],
-        "properties": {
-          "module": { "type": "string" },
-          "name": { "type": "string" },
-          "specifier": { "type": "string" },
-          "go_struct_name": { "type": "string" },
-          "go_import_path": { "type": "string" },
-          "doc": { "type": "string" }
+        "description": {
+          "type": "string"
         },
-        "additionalProperties": true
-      }
-    },
-    "symbols": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["module", "name", "kind", "import_path", "package", "package_file"],
-        "properties": {
-          "module": { "type": "string" },
-          "name": { "type": "string" },
-          "kind": { "type": "string" },
-          "import_path": { "type": "string" },
-          "package": { "type": "string" },
-          "doc": { "type": "string" },
-          "package_file": { "type": "string" }
+        "project_root": {
+          "type": "string"
         },
-        "additionalProperties": true
-      }
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "yanling_files": {
+          "type": "object",
+          "required": ["symbol_index", "package_dir", "topics"],
+          "properties": {
+            "symbol_index": { "type": "string" },
+            "symbol_index_lite": { "type": "string" },
+            "package_dir": { "type": "string" },
+            "topics": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "counts": {
+          "type": "object",
+          "required": ["packages", "topics", "symbols"],
+          "properties": {
+            "packages": { "type": "integer", "minimum": 0 },
+            "topics": { "type": "integer", "minimum": 0 },
+            "symbols": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
     }
   },
   "additionalProperties": true

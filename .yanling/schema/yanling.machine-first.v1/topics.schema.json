@@ -3,7 +3,7 @@
   "$id": "yanling.machine-first/v1/topics.schema.json",
   "title": "yanling.machine-first/v1 topics.json",
   "type": "object",
-  "required": ["schema_version", "generated_at", "module", "topics"],
+  "required": ["schema_version", "generated_at", "topics"],
   "properties": {
     "schema_version": {
       "const": "yanling.machine-first/v1"
@@ -11,10 +11,6 @@
     "generated_at": {
       "type": "string",
       "format": "date-time"
-    },
-    "module": {
-      "type": "string",
-      "minLength": 1
     },
     "topics": {
       "type": "array",
@@ -27,12 +23,12 @@
   "$defs": {
     "TopicDoc": {
       "type": "object",
-      "required": ["specifier", "name", "payload"],
+      "required": ["module", "name", "payload"],
       "properties": {
-        "specifier": {
+        "module": {
           "type": "string",
           "minLength": 1,
-          "description": "Module/topic namespace specifier, typically the module import path, used to disambiguate same topic names across modules."
+          "description": "module name, typically the module import path, used to disambiguate same topic names across modules."
         },
         "name": {
           "type": "string",

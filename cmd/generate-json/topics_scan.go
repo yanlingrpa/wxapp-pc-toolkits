@@ -135,7 +135,7 @@ func scanTopics(rootDir, moduleName string, symbolIndex map[string]*SymbolDoc) (
 		payload := buildTopicPayload(raw.payloadTypeName, raw.payloadImportPath, symbolIndex)
 		entry := TopicDoc{
 			Name:      topicName,
-			Specifier: moduleName,
+			Module:    moduleName,
 			Doc:       raw.doc,
 			Direction: "publish",
 			Payload:   payload,

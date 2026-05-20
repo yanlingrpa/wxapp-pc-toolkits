@@ -2,10 +2,10 @@
   "$schema": "./schema/yanling.machine-first.v1/config.schema.json",
   "schema_version": "yanling.machine-first/v1",
   "module": {
-    "specifier": "github.com/yanlingrpa/meituan-wxapp-pc-collector",
+    "name": "github.com/yanlingrpa/meituan-wxapp-pc-collector",
     "package": "wxapputils",
-    "description": "WXApp PC Utils.",
-    "tags": ["automation", "browser", "export"],
+    "description": "PC端打开的微信小程序操作工具，提供了在PC端打开微信小程序、获取小程序页面元素、模拟用户操作等功能。",
+    "tags": ["wxapp", "wxapp-utils", "wxapp-pc", "wxapp-pc-utils"],
     "website": "https://yanlingrpa.com/demo-script",
     "update_time": "2026-04-22T12:30:00Z",
     "author": "Yanling RPA Team",

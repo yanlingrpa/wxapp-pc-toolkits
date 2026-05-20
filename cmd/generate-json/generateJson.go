@@ -31,6 +31,8 @@ var excludedTopLevelDirs = map[string]struct{}{
 	"doc":       {},
 	"docs":      {},
 	"examples":  {},
+	"proto":     {},
+	"protobuf":  {},
 	"internal":  {},
 	"scripts":   {},
 	"symbol":    {},
@@ -166,7 +168,6 @@ func main() {
 		SchemaRef:     topicsSchemaRef,
 		SchemaVersion: schemaVersion,
 		GeneratedAt:   generatedAt,
-		Module:        moduleName,
 		Topics:        topicDocs,
 	}
 	if err := writeJSON(filepath.Join(outputDir, "topics.json"), topicsOutput); err != nil {
@@ -175,8 +176,20 @@ func main() {
 	}
 	fmt.Printf("generated %s\n", filepath.Join(outputDir, "topics.json"))
 
-	// 11. 汇总所有信息，生成总索引 index.json
-	indexOutput := buildIndexOutput(moduleDoc, symbolsDoc, topicDocs)
+	moduleDescription, err := readModuleDescriptionFromConfig(outputDir)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "failed to read module description from config.json: %v\n", err)
+		os.Exit(1)
+	}
+
+	moduleTags, err := readModuleTagsFromConfig(outputDir)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "failed to read module tags from config.json: %v\n", err)
+		os.Exit(1)
+	}
+
+	// 11. 汇总所有信息，生成总索引 index.json（yanling_files 和 counts 合并到 module 下）
+	indexOutput := buildIndexOutput(moduleDoc, symbolsDoc, topicDocs, moduleDescription, moduleTags)
 	if err := writeJSON(filepath.Join(outputDir, "index.json"), indexOutput); err != nil {
 		fmt.Fprintf(os.Stderr, "failed to write index.json: %v\n", err)
 		os.Exit(1)

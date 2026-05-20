@@ -206,7 +206,7 @@ type TopicFieldSchema struct {
 // TopicDoc describes a single event topic published by this module.
 type TopicDoc struct {
 	Name         string           `json:"name"`
-	Specifier    string           `json:"specifier"`
+	Module       string           `json:"module"`
 	Doc          string           `json:"doc,omitempty"`
 	Direction    string           `json:"direction,omitempty"`
 	GoStructName string           `json:"go_struct_name,omitempty"`
@@ -219,57 +219,35 @@ type TopicsOutput struct {
 	SchemaRef     string     `json:"$schema,omitempty"`
 	SchemaVersion string     `json:"schema_version"`
 	GeneratedAt   string     `json:"generated_at"`
-	Module        string     `json:"module"`
 	Topics        []TopicDoc `json:"topics"`
 }
 
 type IndexOutput struct {
-	SchemaRef     string              `json:"$schema,omitempty"`
-	SchemaVersion string              `json:"schema_version"`
-	GeneratedAt   string              `json:"generated_at"`
-	Modules       []IndexModuleEntry  `json:"modules"`
-	Packages      []IndexPackageEntry `json:"packages"`
-	Topics        []IndexTopicEntry   `json:"topics"`
-	Symbols       []IndexSymbolEntry  `json:"symbols"`
+	SchemaRef     string      `json:"$schema,omitempty"`
+	SchemaVersion string      `json:"schema_version"`
+	GeneratedAt   string      `json:"generated_at"`
+	Module        IndexModule `json:"module"`
 }
 
-// IndexModuleEntry holds per-module metadata and its local file references.
-type IndexModuleEntry struct {
-	Module string        `json:"module"`
-	Files  IndexFilesDoc `json:"files"`
+type IndexModule struct {
+	Name         string       `json:"name"`
+	Version      string       `json:"version"`
+	Description  string       `json:"description,omitempty"`
+	ProjectRoot  string       `json:"project_root"`
+	Tags         []string     `json:"tags,omitempty"`
+	YanlingFiles YanlingFiles `json:"yanling_files"`
+	Counts       IndexCounts  `json:"counts"`
 }
 
-type IndexFilesDoc struct {
+type YanlingFiles struct {
 	SymbolIndex     string `json:"symbol_index"`
 	SymbolIndexLite string `json:"symbol_index_lite,omitempty"`
 	PackageDir      string `json:"package_dir"`
 	Topics          string `json:"topics"`
 }
 
-type IndexPackageEntry struct {
-	Module      string `json:"module"`
-	Name        string `json:"name"`
-	ImportPath  string `json:"import_path"`
-	Directory   string `json:"directory"`
-	Doc         string `json:"doc,omitempty"`
-	PackageFile string `json:"package_file"`
-}
-
-type IndexTopicEntry struct {
-	Module       string `json:"module"`
-	Name         string `json:"name"`
-	Specifier    string `json:"specifier"`
-	GoStructName string `json:"go_struct_name,omitempty"`
-	GoImportPath string `json:"go_import_path,omitempty"`
-	Doc          string `json:"doc,omitempty"`
-}
-
-type IndexSymbolEntry struct {
-	Module      string `json:"module"`
-	Name        string `json:"name"`
-	Kind        string `json:"kind"`
-	ImportPath  string `json:"import_path"`
-	Package     string `json:"package"`
-	Doc         string `json:"doc,omitempty"`
-	PackageFile string `json:"package_file"`
+type IndexCounts struct {
+	Packages int `json:"packages"`
+	Topics   int `json:"topics"`
+	Symbols  int `json:"symbols"`
 }

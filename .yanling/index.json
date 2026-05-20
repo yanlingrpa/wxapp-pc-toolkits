@@ -1,97 +1,28 @@
 {
   "$schema": "./schema/yanling.machine-first.v1/index.schema.json",
   "schema_version": "yanling.machine-first/v1",
-  "generated_at": "2026-05-19T09:14:26Z",
-  "modules": [
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "files": {
-        "symbol_index": "symbols.json",
-        "symbol_index_lite": "symbols.lite.json",
-        "package_dir": "packages",
-        "topics": "topics.json"
-      }
+  "generated_at": "2026-05-20T09:34:32Z",
+  "module": {
+    "name": "github.com/yanlingrpa/wxapp-pc-toolkits",
+    "version": "${module_version}",
+    "description": "PC端打开的微信小程序操作工具，提供了在PC端打开微信小程序、获取小程序页面元素、模拟用户操作等功能。",
+    "project_root": "${project_root}",
+    "tags": [
+      "wxapp",
+      "wxapp-utils",
+      "wxapp-pc",
+      "wxapp-pc-utils"
+    ],
+    "yanling_files": {
+      "symbol_index": "symbols.json",
+      "symbol_index_lite": "symbols.lite.json",
+      "package_dir": "packages",
+      "topics": "topics.json"
+    },
+    "counts": {
+      "packages": 1,
+      "topics": 1,
+      "symbols": 7
     }
-  ],
-  "packages": [
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "name": "wxapputils",
-      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
-      "directory": "/wxapputils",
-      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
-    }
-  ],
-  "topics": [
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "name": "app_ready",
-      "specifier": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "go_struct_name": "AppReadyData",
-      "go_import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
-      "doc": "app_ready：微信小程序已就绪，可以开始后续的自动化操作了。"
-    }
-  ],
-  "symbols": [
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "name": "AppReadyData",
-      "kind": "struct",
-      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
-      "package": "wxapputils",
-      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
-    },
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "name": "ChangeGPSLocation",
-      "kind": "function",
-      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
-      "package": "wxapputils",
-      "doc": "修改微信小程序的GPS位置",
-      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
-    },
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "name": "CheckWxappReady",
-      "kind": "function",
-      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
-      "package": "wxapputils",
-      "doc": "检测微信小程序是否准备就绪",
-      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
-    },
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "name": "GetPageInfo",
-      "kind": "function",
-      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
-      "package": "wxapputils",
-      "doc": "获取当前页面信息",
-      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
-    },
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "name": "PopupDialogInfo",
-      "kind": "struct",
-      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
-      "package": "wxapputils",
-      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
-    },
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "name": "PreferedLocation",
-      "kind": "struct",
-      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
-      "package": "wxapputils",
-      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
-    },
-    {
-      "module": "github.com/yanlingrpa/wxapp-pc-toolkits",
-      "name": "WxappPageInfo",
-      "kind": "struct",
-      "import_path": "github.com/yanlingrpa/wxapp-pc-toolkits/wxapputils",
-      "package": "wxapputils",
-      "doc": "WxappPageInfo represents the information of the current page in the WeChat mini program.",
-      "package_file": "packages/github.com__yanlingrpa__wxapp-pc-toolkits__wxapputils.json"
-    }
-  ]
+  }
 }

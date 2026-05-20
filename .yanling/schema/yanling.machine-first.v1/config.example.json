@@ -1,7 +1,7 @@
 {
   "$schema": "./config.schema.json",
   "module": {
-    "specifier": "github.com/acme/demo-script",
+    "name": "github.com/acme/demo-script",
     "package": "main",
     "description": "Example script module for browser automation and local file export.",
     "tags": ["automation", "browser", "export"],
